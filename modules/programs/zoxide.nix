@@ -11,7 +11,7 @@ in {
     enable = mkOption {
       type = types.bool;
       default = true;
-      description = "Enable the zoxide";
+      description = "Enable zoxide";
     };
   };
 
