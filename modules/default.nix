@@ -1,5 +1,6 @@
 {
   imports = [
+    ./desktop
     ./nix.nix
     ./users.nix
     ./graphics.nix
