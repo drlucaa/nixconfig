@@ -2,15 +2,16 @@
 {
   fonts = {
     fontconfig.defaultFonts = {
-      serif = [ "DejaVu Serif" ];
-      sansSerif = [ "Ubuntu Nerd Font" ];
-      monospace = [ "FiraCode Nerd Font" ];
+      serif = [ "Monaspace Neon" ];
+      sansSerif = [ "Monaspace Neon" ];
+      monospace = [ "Monaspace Neon" ];
     };
 
     packages = with pkgs; [
       jetbrains-mono
       dejavu_fonts
       nerd-fonts.ubuntu
+      nerd-fonts.monaspace
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       noto-fonts-cjk-sans
