@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib; let
@@ -17,9 +18,9 @@ in {
   config = mkIf cfg.enable {
     services.displayManager.ly = {
       enable = true;
+      package = pkgs.ly;
       settings = {
         bigclock = true;
-        # blank_password = true;
       };
     };
   };
