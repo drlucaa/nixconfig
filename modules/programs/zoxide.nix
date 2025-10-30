@@ -4,9 +4,11 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.programs.zoxide;
-in {
+in
+{
   options.modules.programs.zoxide = {
     enable = mkOption {
       type = types.bool;
@@ -16,15 +18,17 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.${username} = {pkgs, ...}: {
-      programs.zoxide = {
-        enable = true;
-        package = pkgs.zoxide;
-        enableFishIntegration = true;
-        options = [
-          "--cmd cd"
-        ];
+    home-manager.users.${username} =
+      { pkgs, ... }:
+      {
+        programs.zoxide = {
+          enable = true;
+          package = pkgs.zoxide;
+          enableFishIntegration = true;
+          options = [
+            "--cmd cd"
+          ];
+        };
       };
-    };
   };
 }

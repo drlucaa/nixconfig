@@ -31,13 +31,20 @@
       memorySize = 16384;
       cores = 4;
     };
-        
+
     programs.virt-manager.enable = config.modules.virtualisation.virt-manager.enable;
     programs.dconf.enable = true;
 
     environment.systemPackages = lib.mkIf (config.modules.virtualisation.waydroid.enable) [
       pkgs.waydroid-helper
     ];
+
+    users.users.${username} = {
+      extraGroups = [
+        "libvirtd"
+        "kvm"
+      ];
+    };
 
     home-manager.users.${username} =
       { config, ... }:

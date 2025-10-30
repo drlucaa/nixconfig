@@ -33,8 +33,10 @@
           userDescription = "Luca Fondo";
         };
       };
+
       # Development shells in ./shells
       devShells = lib.eachSystem (pkgs: import ./shells { inherit pkgs; });
+
       # Easily run as VM with `nix run`
       apps = lib.eachSystem (pkgs: rec {
         default = desktop-luca;

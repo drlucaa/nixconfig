@@ -1,6 +1,11 @@
-{...}: let
-  btrfs-options = ["compress=zstd" "noatime"];
-in {
+{ ... }:
+let
+  btrfs-options = [
+    "compress=zstd"
+    "noatime"
+  ];
+in
+{
   disko.devices = {
     disk = {
       my-disk = {
@@ -34,7 +39,7 @@ in {
                 };
                 content = {
                   type = "btrfs";
-                  extraArgs = ["-f"];
+                  extraArgs = [ "-f" ];
                   subvolumes = {
                     "@root" = {
                       mountpoint = "/";
@@ -69,13 +74,13 @@ in {
   };
 
   # Enable BTRFS support in the initrd
-  boot.initrd.kernelModules = ["btrfs"];
-  boot.supportedFilesystems = ["btrfs"];
+  boot.initrd.kernelModules = [ "btrfs" ];
+  boot.supportedFilesystems = [ "btrfs" ];
 
   # Enable monthly BTRFS scrubbing
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
-    fileSystems = ["/"];
+    fileSystems = [ "/" ];
   };
 }

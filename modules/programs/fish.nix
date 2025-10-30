@@ -4,9 +4,11 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.programs.fish;
-in {
+in
+{
   options.modules.programs.fish = {
     enable = mkOption {
       type = types.bool;

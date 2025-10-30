@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.displayManager.ly;
-in {
+in
+{
   options.modules.displayManager.ly = {
     enable = mkOption {
       type = types.bool;
