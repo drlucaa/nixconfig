@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.desktop.ly;
+  cfg = config.modules.displayManager.ly;
 in {
-  options.desktop.ly = {
+  options.modules.displayManager.ly = {
     enable = mkOption {
       type = types.bool;
       default = true;

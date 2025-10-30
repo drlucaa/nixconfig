@@ -3,84 +3,50 @@
   pkgs,
   lib,
   ...
-}:
-{
-  options.modules.boot.deviceType = lib.mkOption {
-    type = lib.types.str;
-    default = "uefi";
+}: let
+  cfg = config.modules.boot.plymouth;
+in {
+  options.modules.boot.plymouth = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
   };
 
-  config =
-    let
-      bootloader =
-        if (config.modules.boot.deviceType == "legacy") then
-          {
-            grub = {
-              enable = true;
-              device = "/dev/sda";
-              splashImage = null;
-            };
-          }
-        else if (config.modules.boot.deviceType == "removable") then
-          {
-            efi = {
-              canTouchEfiVariables = false;
-              efiSysMountPoint = "/boot";
-            };
-            grub = {
-              enable = true;
-              efiSupport = true;
-              efiInstallAsRemovable = true;
-              device = "nodev";
-              splashImage = null;
-              # UUID needs to be adjusted on new install
-              extraEntries = ''
-                menuentry "Netboot.xyz" {
-                  insmod part_gpt
-                  insmod ext2
-                  insmod chain
-                  search --no-floppy --fs-uuid --set root aa18d19c-9806-417e-be19-71065c50d455
-                  chainloader ${pkgs.netbootxyz-efi}
-                }
-              '';
-            };
-          }
-        else
-          {
-            efi = {
-              canTouchEfiVariables = true;
-              efiSysMountPoint = "/boot";
-            };
-            grub = {
-              enable = true;
-              efiSupport = true;
-              device = "nodev";
-              splashImage = null;
-            };
-          };
-    in
-    {
-      boot = {
-        kernelPackages = pkgs.linuxPackages_latest;
-        supportedFilesystems = [ "ntfs" ];
-        plymouth = {
-          enable = true;
-          theme = "bgrt";
-        };
-
-        # Silent boot for plymouth
-        consoleLogLevel = 0;
-        initrd.verbose = false;
-        kernelParams = [
-          "quiet"
-          "splash"
-          "boot.shell_on_fail"
-          "loglevel=3"
-          "rd.systemd.show_status=false"
-          "rd.udev.log_level=3"
-          "udev.log_priority=3"
-        ];
-        loader = bootloader;
+  config = {
+    boot = {
+      loader = {
+        systemd-boot.enable = true;
+        systemd-boot.consoleMode = "max";
+        efi.canTouchEfiVariables = true;
+        timeout = 1;
       };
+
+      kernelPackages = pkgs.linuxPackages_latest;
+
+      # Plymouth and silent boot settings
+      plymouth = lib.mkIf cfg {
+        enable = true;
+        theme = "spinner_alt";
+        themePackages = with pkgs; [
+          (adi1090x-plymouth-themes.override {
+            selected_themes = ["spinner_alt"];
+          })
+        ];
+      };
+
+      # Kernel parameters for a quieter boot experience when Plymouth is enabled
+      kernelParams = lib.mkIf cfg [
+        "quiet"
+        "splash"
+        "boot.shell_on_fail"
+        "udev.log_priority=3"
+        "rd.systemd.show_status=auto"
+      ];
+
+      consoleLogLevel = lib.mkIf cfg 3;
+      initrd.verbose = lib.mkIf cfg false;
     };
+
+    # Enable systemd in initrd for Plymouth
+    boot.initrd.systemd.enable = lib.mkIf cfg true;
+  };
 }

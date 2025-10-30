@@ -5,7 +5,7 @@
   ...
 }:
 {
-  users.defaultUserShell = pkgs.nushell;
+  users.defaultUserShell = pkgs.fish;
   users.users.${username} = {
     isNormalUser = true;
     description = userDescription;
