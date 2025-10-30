@@ -19,7 +19,7 @@ in {
       enable = true;
       settings = {
         bigclock = true;
-        blank_password = true;
+        # blank_password = true;
       };
     };
   };
