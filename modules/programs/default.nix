@@ -4,5 +4,6 @@
     ./fish.nix
     ./ghostty.nix
     ./zoxide.nix
+    ./eza.nix
   ];
 }
