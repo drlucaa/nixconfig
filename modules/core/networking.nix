@@ -1,7 +1,8 @@
 {
   networking.networkmanager = {
     enable = true;
-    wifi.backend = "iwd";
+    # TODO: resolve if needed or not
+    # wifi.backend = "iwd";
   };
 
   hardware.bluetooth = {
