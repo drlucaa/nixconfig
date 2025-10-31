@@ -4,5 +4,6 @@
     ./xserver.nix
     ./ly.nix
     ./walker.nix
+    ./swww.nix
   ];
 }

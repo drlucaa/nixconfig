@@ -1,5 +1,5 @@
 {
-  description = "Géza's NixOs flake";
+  description = "Luca Fondo NixOs flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -19,6 +19,11 @@
       url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.elephant.follows = "elephant";
+    };
+
+    swww = {
+      url = "github:LGFae/swww";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
