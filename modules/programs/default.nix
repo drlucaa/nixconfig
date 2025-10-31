@@ -9,5 +9,6 @@
     ./git.nix
     ./jujutsu.nix
     ./bat.nix
+    ./zen.nix
   ];
 }

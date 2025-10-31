@@ -19,7 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home-manager.users.${username} =
-      { pkgs, ... }:
+      { ... }:
       {
         imports = [ inputs.walker.homeManagerModules.default ];
         programs.walker = {
