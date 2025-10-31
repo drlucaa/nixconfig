@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  username,
   ...
 }:
 with lib;
@@ -18,11 +19,31 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.fish = {
-      enable = true;
-    };
-    users = {
-      defaultUserShell = pkgs.fish;
-    };
+    programs.fish.enable = true;
+    users.defaultUserShell = pkgs.fish;
+
+    home-manager.users.${username} =
+      { pkgs, ... }:
+      {
+        programs.fish = {
+          enable = true;
+          package = pkgs.fish;
+
+          shellAbbrs = {
+            ju = "jjui";
+          };
+
+          plugins = [
+            {
+              name = "tide";
+              src = pkgs.fishPlugins.tide.src;
+            }
+          ];
+
+          interactiveShellInit = ''
+            set fish_greeting
+          '';
+        };
+      };
   };
 }
