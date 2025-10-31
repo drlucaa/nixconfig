@@ -47,9 +47,9 @@
   environment.systemPackages = with pkgs; [
     kitty # A terminal is essential
     wl-clipboard
-    jujutsu
     jjui
     firefox
+    gemini-cli
   ];
 
   # Enable Niri and XWayland
