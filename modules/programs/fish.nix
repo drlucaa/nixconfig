@@ -33,6 +33,7 @@ in
           shellAbbrs = {
             ju = "jjui";
             nrs = "sudo nixos-rebuild switch --flake ~/nixconfig#${hostname}";
+            nd = "nix develop";
           };
 
           plugins = [
