@@ -104,6 +104,7 @@
               # Essential actions
               "Mod+Q".action = close-window;
               "Mod+T".action = spawn "ghostty";
+              "Mod+B".action = spawn "firefox";
               "Mod+Space".action = spawn "walker";
               "Mod+W".action = sh "swww img $(fd --full-path ~/Pictures/Wallpapers --type symlink | shuf -n 1)";
 
