@@ -48,7 +48,7 @@
     wl-clipboard
     jjui
     firefox
-    gemini-cli
+    pkgs.unstable.gemini-cli
     fd
   ];
 
@@ -76,17 +76,10 @@
             QT_QPA_PLATFORMTHEME = "gtk3";
           };
 
-          spawn-at-startup =
-            let
-              sh = [
-                "sh"
-                "-c"
-              ];
-            in
-            [
-              { command = sh ++ [ "swww-daemon" ]; }
-              { command = sh ++ [ "systemctl --user start walker.service" ]; }
-            ];
+          spawn-at-startup = [
+            { argv = [ "swww-daemon" ]; }
+            { sh = "systemctl --user start walker.service"; }
+          ];
 
           input = {
             warp-mouse-to-focus.enable = true;
