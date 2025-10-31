@@ -5,5 +5,6 @@
     ./ly.nix
     ./walker.nix
     ./swww.nix
+    ./audio.nix
   ];
 }

@@ -1,17 +1,26 @@
+{ pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    bluez
+    bluetui
+    impala
+  ];
+
   networking.networkmanager = {
     enable = true;
     wifi = {
-      scanRandMacAddress = false;
-      macAddress = "permanent";
+      backend = "iwd";
       powersave = false;
     };
-    # TODO: resolve if needed or not
-    # wifi.backend = "iwd";
   };
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        AutoEnable = true;
+      };
+    };
   };
 }

@@ -49,9 +49,6 @@
     jjui
     firefox
     gemini-cli
-    bluez
-    bluetui
-    impala
     fd
   ];
 
