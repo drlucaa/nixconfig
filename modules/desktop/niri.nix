@@ -33,6 +33,7 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
     ];
   };
 
@@ -44,7 +45,6 @@
 
   # A minimal set of packages
   environment.systemPackages = with pkgs; [
-    kitty # A terminal is essential
     wl-clipboard
     jjui
     firefox
