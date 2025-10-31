@@ -7,5 +7,6 @@
     ./eza.nix
     ./git.nix
     ./jujutsu.nix
+    ./bat.nix
   ];
 }
