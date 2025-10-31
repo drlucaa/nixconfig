@@ -162,6 +162,8 @@
             "Mod+C".action = center-column;
             "Mod+W".action = toggle-window-floating;
             "Mod+V".action = toggle-column-tabbed-display;
+
+            "Mod+Shift+Q".action = quit;
           };
 
           layout = {
