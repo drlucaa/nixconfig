@@ -4,20 +4,19 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.modules.displayManager.ly;
 in
 {
   options.modules.displayManager.ly = {
-    enable = mkOption {
-      type = types.bool;
+    enable = lib.mkOption {
+      type = lib.types.bool;
       default = true;
       description = "Enable the Ly display manager";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.displayManager.ly = {
       enable = true;
       package = pkgs.ly;
