@@ -3,6 +3,7 @@
   lib,
   config,
   username,
+  hostname,
   ...
 }:
 with lib;
@@ -31,6 +32,7 @@ in
 
           shellAbbrs = {
             ju = "jjui";
+            nrs = "sudo nixos-rebuild switch --flake ~/nixconfig#${hostname}";
           };
 
           plugins = [
