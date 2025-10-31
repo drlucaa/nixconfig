@@ -37,10 +37,13 @@ in
         programs.git = {
           enable = true;
           package = pkgs.git;
-          userName = cfg.name;
-          userEmail = cfg.email;
 
-          extraConfig = {
+          settings = {
+            user = {
+              name = cfg.name;
+              email = cfg.email;
+            };
+
             push.autoSetupRemote = true;
             init.defaultBranch = "main";
             core.editor = "${config.programs.helix.package}/bin/hx";
