@@ -12,7 +12,7 @@
     };
     type = lib.mkOption {
       type = lib.types.str;
-      default = "amd";
+      default = "nvidia";
     };
     nvidia = {
       driverPackage = lib.mkOption {
@@ -48,7 +48,7 @@
     lib.mkIf (config.modules.graphics.enable) {
       hardware.graphics = {
         enable = true;
-        enable32Bit = true;
+        # enable32Bit = true;
       };
 
       # AMD
