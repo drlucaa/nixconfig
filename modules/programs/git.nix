@@ -37,25 +37,21 @@ in
         programs.git = {
           enable = true;
           package = pkgs.git;
+          userName = cfg.name;
+          userEmail = cfg.email;
 
-          settings = {
-            user = {
-              name = cfg.name;
-              email = cfg.email;
-            };
-
+          extraConfig = {
             push.autoSetupRemote = true;
             init.defaultBranch = "main";
             core.editor = "${config.programs.helix.package}/bin/hx";
           };
-        };
 
-        programs.delta = {
-          enable = true;
-          enableGitIntegration = true;
-          options = {
-            line-numbers = true;
-            side-by-side = true;
+          delta = {
+            enable = true;
+            options = {
+              line-numbers = true;
+              side-by-side = true;
+            };
           };
         };
       };

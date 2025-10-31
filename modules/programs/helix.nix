@@ -2,7 +2,6 @@
 {
   config,
   lib,
-  pkgs,
   username,
   ...
 }:
@@ -30,7 +29,7 @@ in
     home-manager.users.${username} =
       { pkgs, ... }:
       {
-        home.packages = [ pkgs.yazi ];
+        home.packages = [ pkgs.unstable.yazi ];
 
         programs.helix = {
           enable = true;

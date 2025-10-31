@@ -25,7 +25,7 @@ in
           enable = true;
           enableFishIntegration = true;
 
-          package = pkgs.ghostty;
+          package = pkgs.unstable.ghostty;
 
           settings = {
             theme = "GitHub Dark Default";
