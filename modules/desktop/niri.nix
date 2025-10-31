@@ -8,7 +8,6 @@
 {
   # Enable essential services for a graphical session
   services = {
-    blueman.enable = true;
     gnome.gnome-keyring.enable = true;
   };
 
@@ -50,6 +49,8 @@
     jjui
     firefox
     gemini-cli
+    bluetui
+    impala
   ];
 
   # Enable Niri and XWayland
@@ -76,6 +77,17 @@
             QT_QPA_PLATFORMTHEME = "gtk3";
           };
 
+          spawn-at-startup =
+            let
+              sh = [
+                "sh"
+                "-c"
+              ];
+            in
+            [
+              { command = sh ++ [ "systemctl --user start walker.service" ]; }
+            ];
+
           input = {
             warp-mouse-to-focus.enable = true;
           };
@@ -84,6 +96,11 @@
 
           # Minimal keybindings for basic usability
           binds = with config.lib.niri.actions; {
+            # Essential actions
+            "Super+Q".action = close-window;
+            "Super+T".action = spawn "ghostty";
+            "Super+Space".action = spawn "walker";
+
             # Focus movement
             "Mod+Shift+H".action = focus-monitor-left;
             "Mod+Shift+J".action = focus-monitor-down;
@@ -145,10 +162,6 @@
             "Mod+C".action = center-column;
             "Mod+W".action = toggle-window-floating;
             "Mod+V".action = toggle-column-tabbed-display;
-
-            # Essential actions
-            "Super+Q".action = close-window;
-            "Super+T".action = spawn "ghostty";
           };
 
           layout = {
