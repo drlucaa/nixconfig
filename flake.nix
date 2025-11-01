@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     elephant.url = "github:abenz1267/elephant";
     walker = {
       url = "github:abenz1267/walker";

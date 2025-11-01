@@ -6,5 +6,6 @@
     ./walker.nix
     ./swww.nix
     ./audio.nix
+    ./quickshell.nix
   ];
 }

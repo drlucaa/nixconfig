@@ -167,7 +167,7 @@
           };
 
           layout = {
-            gaps = 10;
+            gaps = 5;
             center-focused-column = "never";
             always-center-single-column = true;
             default-column-width = { };
