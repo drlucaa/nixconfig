@@ -1,5 +1,6 @@
 {
   imports = [
+    ./1password.nix
     ./helix.nix
     ./fastfetch.nix
     ./fish.nix
@@ -10,5 +11,6 @@
     ./jujutsu.nix
     ./bat.nix
     ./zen.nix
+    ./ssh.nix
   ];
 }
