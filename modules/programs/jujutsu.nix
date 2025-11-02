@@ -42,16 +42,17 @@ in
 
             git = {
               # TODO: after setting up 1pasword ssh agent
-              # sign-on-push = true
+              sign-on-push = true;
               auto-local-bookmark = true;
               track-default-bookmark-on-clone = true;
             };
 
-            # signing = {
-            #   behavior = "drop";
-            #   backend = "ssh";
-            #   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
-            # };
+            signing = {
+              behavior = "drop";
+              backend = "ssh";
+              backends.ssh.program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
+              key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
+            };
 
             merge-tools.delta = {
               program = "${pkgs.delta}/bin/delta";
