@@ -43,9 +43,9 @@ in
             }
           ];
 
-          interactiveShellInit = ''
-            set fish_greeting
-          '';
+          functions = {
+            fish_greeting = "fastfetch";
+          };
         };
       };
   };

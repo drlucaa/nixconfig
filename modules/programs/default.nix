@@ -1,6 +1,7 @@
 {
   imports = [
     ./helix.nix
+    ./fastfetch.nix
     ./fish.nix
     ./ghostty.nix
     ./zoxide.nix
