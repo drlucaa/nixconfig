@@ -16,6 +16,7 @@
     ./bat.nix
     ./zen.nix
     ./ssh.nix
+    ./spotify.nix
     ./tools.nix
   ];
 }
