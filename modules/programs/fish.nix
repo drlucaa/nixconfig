@@ -31,6 +31,7 @@ in
           package = pkgs.fish;
 
           shellAbbrs = {
+            rd = "rm -rf";
             ju = "jjui";
             nrs = "sudo nixos-rebuild switch --flake ~/nixconfig#${hostname}";
             ngc = "sudo nix-collect-garbage -d";
