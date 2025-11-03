@@ -13,6 +13,7 @@
     ./pay-respects.nix
     ./git.nix
     ./jujutsu.nix
+    ./jjui.nix
     ./bat.nix
     ./zen.nix
     ./ssh.nix
