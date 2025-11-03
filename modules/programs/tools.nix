@@ -20,8 +20,16 @@ in
     home-manager.users.${username} =
       { pkgs, ... }:
       {
-        home.packages = [
+        home.packages = with pkgs; [
+          fd
+          fzf
+          ripgrep
+          jq
+          fq
+          age
+          pkgs.unstable.jocalsend
           pkgs.unstable.yatto
+          pkgs.unstable.gemini-cli
         ];
 
         xdg.configFile = {

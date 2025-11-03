@@ -46,10 +46,6 @@
   # A minimal set of packages
   environment.systemPackages = with pkgs; [
     wl-clipboard
-    jjui
-    firefox
-    pkgs.unstable.gemini-cli
-    fd
   ];
 
   # Enable Niri and XWayland
@@ -218,6 +214,11 @@
                 };
               clip-to-geometry = true;
               draw-border-with-background = false;
+            }
+            {
+              excludes = [
+                { app-id = "zen"; }
+              ];
               opacity = 0.98;
             }
             {
