@@ -7,5 +7,6 @@
     ./swww.nix
     ./audio.nix
     ./quickshell.nix
+    ./tailscale.nix
   ];
 }
