@@ -8,7 +8,7 @@ in
 {
   disko.devices = {
     disk = {
-      my-disk = {
+      main = {
         device = "/dev/sda";
         type = "disk";
         content = {
