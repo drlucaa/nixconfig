@@ -12,5 +12,6 @@
     ./bat.nix
     ./zen.nix
     ./ssh.nix
+    ./tools.nix
   ];
 }
