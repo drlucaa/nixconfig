@@ -54,8 +54,13 @@
 
   # Enable Niri and XWayland
   programs = {
-    niri.enable = true;
+    niri = {
+      enable = true;
+      package = pkgs.niri-stable;
+    };
+
     dconf.enable = true;
+    ssh.askPassword = "";
     xwayland.enable = true;
   };
 
@@ -88,7 +93,9 @@
           # A few essential environment variables
           environment = {
             GDK_BACKEND = "wayland,x11";
-            QT_QPA_PLATFORMTHEME = "gtk3";
+            QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+            SDL_VIDEODRIVER = "wayland,x11";
+            CLUTTER_BACKEND = "wayland";
           };
 
           spawn-at-startup = [
@@ -212,6 +219,13 @@
               clip-to-geometry = true;
               draw-border-with-background = false;
               opacity = 0.98;
+            }
+            {
+              matches = [
+                { app-id = "spotify"; }
+              ];
+
+              default-column-width.proportion = 0.8;
             }
           ];
         };
