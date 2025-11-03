@@ -49,6 +49,7 @@ in
                     };
                     "@swap" = {
                       mountpoint = "/.swapvol"; 
+                      mountOptions = [ "noatime" ];
                       swap = {
                         swapfile = {
                           path = "/swapfile";
