@@ -33,6 +33,7 @@ in
           shellAbbrs = {
             ju = "jjui";
             nrs = "sudo nixos-rebuild switch --flake ~/nixconfig#${hostname}";
+            ngc = "sudo nix-collect-garbage -d";
             nd = "nix develop";
           };
 
