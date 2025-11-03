@@ -23,12 +23,6 @@ in
                 mountpoint = "/boot";
               };
             };
-            swap = {
-              size = "8G"; # Or your desired swap size
-              content = {
-                type = "swap";
-              };
-            };
             luks = {
               size = "100%";
               content = {
@@ -54,12 +48,11 @@ in
                       mountOptions = btrfs-options;
                     };
                     "@swap" = {
-                      mountpoint = "/.swapvol"; # Temporary mountpoint for creation
+                      mountpoint = "/.swapvol"; 
                       swap = {
                         swapfile = {
-                          # The path is relative to the subvolume root, so this creates /.swapvol/swapfile
                           path = "/swapfile";
-                          size = "8G"; # Or your desired swap size
+                          size = "8G";
                         };
                       };
                     };
