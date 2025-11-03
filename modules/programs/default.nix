@@ -6,6 +6,8 @@
     ./fastfetch.nix
     ./fish.nix
     ./ghostty.nix
+    ./lazygit.nix
+    ./lazydocker.nix
     ./zoxide.nix
     ./eza.nix
     ./pay-respects.nix
