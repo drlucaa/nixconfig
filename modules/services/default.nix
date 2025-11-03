@@ -8,5 +8,6 @@
     ./audio.nix
     ./quickshell.nix
     ./tailscale.nix
+    ./openssh.nix
   ];
 }
