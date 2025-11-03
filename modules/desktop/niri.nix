@@ -63,6 +63,21 @@
   home-manager.users.${username} =
     { config, ... }:
     {
+      home.packages = with pkgs; [
+        orchis-theme
+      ];
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Orchis-Dark";
+          package = pkgs.orchis-theme;
+        };
+
+        font = {
+          name = "Monaspace Neon";
+          size = 11;
+        };
+      };
       programs.niri = {
         settings = {
           prefer-no-csd = true;
