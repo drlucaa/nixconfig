@@ -8,6 +8,7 @@
     ./ghostty.nix
     ./zoxide.nix
     ./eza.nix
+    ./pay-respects.nix
     ./git.nix
     ./jujutsu.nix
     ./bat.nix
