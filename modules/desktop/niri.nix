@@ -39,6 +39,7 @@
 
   # Niri-specific overlay for packages
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+  niri-flake.cache.enable = false;
 
   # Environment variables for Wayland compatibility
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -52,7 +53,7 @@
   programs = {
     niri = {
       enable = true;
-      package = pkgs.niri-stable;
+      package = pkgs.niri;
     };
 
     dconf.enable = true;
