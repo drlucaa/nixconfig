@@ -23,6 +23,7 @@ let
         inputs.home-manager.nixosModules.home-manager
         inputs.niri.nixosModules.niri
         inputs.disko.nixosModules.disko
+        inputs.nix-index-database.nixosModules.nix-index
 
         "${self}/default.nix"
         "${self}/hosts/${hostDir}"
