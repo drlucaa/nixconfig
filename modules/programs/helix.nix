@@ -34,6 +34,7 @@ in
         programs.helix = {
           enable = true;
           defaultEditor = true;
+          package = pkgs.unstable.helix;
           settings = {
             theme = "github_dark";
 
