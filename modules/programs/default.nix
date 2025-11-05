@@ -12,6 +12,7 @@
     ./eza.nix
     ./pay-respects.nix
     ./git.nix
+    ./mise.nix
     ./jujutsu.nix
     ./jjui.nix
     ./bat.nix
