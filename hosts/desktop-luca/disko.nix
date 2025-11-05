@@ -1,7 +1,7 @@
 { ... }:
 let
-  btrfs-options = [
-    "compress=zstd"
+  btrfsOptions = [
+    "compress=zstd:3"
     "noatime"
   ];
 in
@@ -9,18 +9,19 @@ in
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/sda";
+        device = "/dev/disk/by-id/ata-WDC_WDS500G2B0B-00YS70_20088E808526";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
               type = "EF00";
-              size = "512M";
+              size = "1GiB";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [ "unmask=0077" ];
               };
             };
             luks = {
@@ -32,32 +33,8 @@ in
                   allowDiscards = true;
                 };
                 content = {
-                  type = "btrfs";
-                  extraArgs = [ "-f" ];
-                  subvolumes = {
-                    "@root" = {
-                      mountpoint = "/";
-                      mountOptions = btrfs-options;
-                    };
-                    "@nix" = {
-                      mountpoint = "/nix";
-                      mountOptions = btrfs-options;
-                    };
-                    "@home" = {
-                      mountpoint = "/home";
-                      mountOptions = btrfs-options;
-                    };
-                    "@swap" = {
-                      mountpoint = "/.swapvol"; 
-                      mountOptions = [ "noatime" ];
-                      swap = {
-                        swapfile = {
-                          path = "/swapfile";
-                          size = "8G";
-                        };
-                      };
-                    };
-                  };
+                  type = "lvm_pv";
+                  vg = "vg0";
                 };
               };
             };
@@ -65,11 +42,60 @@ in
         };
       };
     };
+    lvm_vg.vg0 = {
+      type = "lvm_vg";
+      lvs = {
+        "00-swap" = {
+          size = "8G";
+          content = {
+            type = "swap";
+            options = [ "discard" ];
+          };
+        };
+        root = {
+          size = "100%FREE";
+          content = {
+            type = "btrfs";
+            extraArgs = [ "-f" ];
+            subvolumes = {
+              "@root" = {
+                mountpoint = "/";
+                mountOptions = btrfsOptions;
+              };
+              "@nix" = {
+                mountpoint = "/nix";
+                mountOptions = btrfsOptions;
+              };
+              "@home" = {
+                mountpoint = "/home";
+                mountOptions = btrfsOptions;
+              };
+              "@var" = {
+                mountpoint = "/var";
+                mountOptions = btrfsOptions;
+              };
+              "@log" = {
+                mountpoint = "/var/log";
+                mountOptions = btrfsOptions;
+              };
+            };
+          };
+
+        };
+      };
+    };
   };
 
-  # Enable BTRFS support in the initrd
+  # Enable BTRFS and LVM support in the initrd
+  boot.initrd.lvm.enable = true;
   boot.initrd.kernelModules = [ "btrfs" ];
   boot.supportedFilesystems = [ "btrfs" ];
+
+  #Enable weekly fstrim
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
 
   # Enable monthly BTRFS scrubbing
   services.btrfs.autoScrub = {
