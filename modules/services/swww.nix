@@ -11,11 +11,7 @@ let
 in
 {
   options.modules.wallpaperDaemon.swww = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable the swww wallpaper daemon";
-    };
+    enable = lib.mkEnableOption "Enable the swww wallpaper daemon";
   };
 
   config = lib.mkIf cfg.enable {

@@ -96,8 +96,8 @@
           };
 
           spawn-at-startup = [
-            { argv = [ "swww-daemon" ]; }
             { sh = "systemctl --user start walker.service"; }
+            { sh = "systemctl --user start wpaperd.service"; }
           ];
 
           input = {
@@ -113,9 +113,6 @@
             "Mod+T".action = spawn "ghostty";
             "Mod+B".action = spawn "zen";
             "Mod+Space".action = spawn "walker";
-
-            "Mod+Shift+W".action =
-              spawn-sh "swww img $(fd --full-path ~/Pictures/Wallpapers --type symlink | shuf -n 1)";
 
             # Focus movement
             "Mod+Shift+H".action = focus-monitor-left;
