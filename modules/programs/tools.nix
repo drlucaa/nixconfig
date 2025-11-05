@@ -27,6 +27,17 @@ in
           jq
           fq
           age
+          tlrc
+          vscode-langservers-extracted
+          pkgs.unstable.docker-language-server
+          pkgs.unstable.delve
+          pkgs.unstable.gopls
+          pkgs.unstable.helm-ls
+          pkgs.unstalbe.prettier
+          pkgs.unstalbe.superhtml
+          pkgs.unstalbe.taplo
+          pkgs.unstalbe.templ
+          pkgs.unstalbe.yaml-language-server
           pkgs.unstable.jocalsend
           pkgs.unstable.yatto
           pkgs.unstable.gemini-cli
