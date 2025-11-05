@@ -86,7 +86,7 @@ in
   };
 
   # Enable BTRFS and LVM support in the initrd
-  boot.initrd.lvm.enable = true;
+  boot.initrd.services.lvm.enable = true;
   boot.initrd.kernelModules = [ "btrfs" ];
   boot.supportedFilesystems = [ "btrfs" ];
 
