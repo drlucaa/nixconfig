@@ -49,7 +49,6 @@ in
           size = "8G";
           content = {
             type = "swap";
-            options = [ "discard" ];
           };
         };
         root = {
