@@ -21,7 +21,7 @@ in
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "unmask=0077" ];
+                mountOptions = [ "umask=0077" ];
               };
             };
             luks = {
