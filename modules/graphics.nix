@@ -81,6 +81,9 @@
 
       # Nvidia
       services.xserver.videoDrivers = lib.mkIf (type == "nvidia") [ "nvidia" ];
+      hardware.nvidia-container-toolkit = lib.mkIf (type == "nvidia") {
+        enable = true;
+      };
       hardware.nvidia = lib.mkIf (type == "nvidia") {
         modesetting.enable = true;
         open = config.modules.graphics.nvidia.rtx20;

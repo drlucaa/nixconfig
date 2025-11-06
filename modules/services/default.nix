@@ -2,6 +2,7 @@
   imports = [
     ./dbus.nix
     ./xserver.nix
+    ./docker.nix
     ./ly.nix
     ./walker.nix
     ./swww.nix
