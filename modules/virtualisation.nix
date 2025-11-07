@@ -11,6 +11,7 @@
       type = lib.types.bool;
       default = true;
     };
+    vmware.enable = lib.mkEnableOption "Enable vmware drivers";
     virt-manager.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -21,6 +22,7 @@
   config = lib.mkIf (config.modules.virtualisation.enable) {
     virtualisation.libvirtd.enable = true;
     virtualisation.waydroid.enable = config.modules.virtualisation.waydroid.enable;
+    virtualisation.vmware.guest.enable = config.modules.virtualisation.vmware.enable;
 
     virtualisation.vmVariant.virtualisation = {
       qemu.options = [
