@@ -28,7 +28,7 @@ in
           fq
           age
           tlrc
-          vscode-langservers-extracted
+          pkgs.unstable.vscode-langservers-extracted
           pkgs.unstable.delve
           pkgs.unstable.gopls
           pkgs.unstable.helm-ls
@@ -42,6 +42,7 @@ in
           pkgs.unstable.jocalsend
           pkgs.unstable.yatto
           pkgs.unstable.gemini-cli
+          pkgs.unstable.goose-cli
         ];
 
         xdg.configFile = {
