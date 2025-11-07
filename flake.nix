@@ -63,6 +63,10 @@
     {
       nixosConfigurations = lib.genHosts {
         desktop-luca = {};
+        
+        vm-mac = {
+          arch = "aarch64-linux"
+        };
       };
 
       # Development shells in ./shells
