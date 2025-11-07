@@ -7,6 +7,7 @@
     ./fish.nix
     ./ghostty.nix
     ./lazygit.nix
+    ./bottom.nix
     ./lazydocker.nix
     ./zoxide.nix
     ./eza.nix
