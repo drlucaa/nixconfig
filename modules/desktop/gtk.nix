@@ -15,18 +15,21 @@
   home-manager.users.${username} =
     { ... }:
     {
-      # dconf.settings = {
-      #   "org/gnome/desktop/interface" = {
-      #     color-scheme = "prefer-dark";
-      #   };
-      # };
-
       gtk = {
         enable = true;
-        iconTheme.name = "Papirus-Dark";
-        iconTheme.package = pkgs.papirus-icon-theme;
-        theme.name = "orchis-Dark";
-        theme.package = pkgs.orchis-theme;
+        iconTheme = {
+          name = "Tela-dark";
+          package = pkgs.tela-icon-theme;
+        };
+        theme = {
+          name = "Orchis-Dark";
+          package = pkgs.orchis-theme;
+        };
+        font = {
+          name = "Monaspace Neon";
+          size = 11;
+        };
+
       };
     };
 }
