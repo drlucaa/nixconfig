@@ -24,6 +24,7 @@ let
         inputs.niri.nixosModules.niri
         inputs.disko.nixosModules.disko
         inputs.nix-index-database.nixosModules.nix-index
+        inputs.xremap.nixosModules.default
 
         "${self}/default.nix"
         "${self}/hosts/${hostDir}"

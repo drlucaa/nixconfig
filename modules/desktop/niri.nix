@@ -102,6 +102,7 @@
 
           input = {
             warp-mouse-to-focus.enable = true;
+            mod-key = "Alt";
           };
 
           gestures.hot-corners.enable = false;
@@ -109,18 +110,18 @@
           # Minimal keybindings for basic usability
           binds = with config.lib.niri.actions; {
             # Essential actions
-            "Mod+Q".action = close-window;
+            "Super+Q".action = close-window;
+            "Super+Space".action = spawn "walker";
+
             "Mod+T".action = spawn "ghostty";
             "Mod+B".action = spawn "zen";
-            "Mod+Space".action = spawn "walker";
-
             "Mod+Shift+W".action = spawn-sh "wpaperctl next";
 
             # Focus movement
-            "Mod+Shift+H".action = focus-monitor-left;
-            "Mod+Shift+J".action = focus-monitor-down;
-            "Mod+Shift+K".action = focus-monitor-up;
-            "Mod+Shift+L".action = focus-monitor-right;
+            "Mod+Ctrl+H".action = focus-monitor-left;
+            "Mod+Ctrl+J".action = focus-monitor-down;
+            "Mod+Ctrl+K".action = focus-monitor-up;
+            "Mod+Ctrl+L".action = focus-monitor-right;
             "Mod+Shift+Ctrl+H".action = move-column-to-monitor-left;
             "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
             "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
@@ -131,10 +132,10 @@
             "Mod+J".action = focus-window-down;
             "Mod+K".action = focus-window-up;
             "Mod+L".action = focus-column-right;
-            "Mod+Ctrl+H".action = move-column-left;
-            "Mod+Ctrl+J".action = move-window-down;
-            "Mod+Ctrl+K".action = move-window-up;
-            "Mod+Ctrl+L".action = move-column-right;
+            "Mod+Shift+H".action = move-column-left;
+            "Mod+Shift+J".action = move-window-down;
+            "Mod+Shift+K".action = move-window-up;
+            "Mod+Shift+L".action = move-column-right;
             "Mod+Home".action = focus-column-first;
             # "Mod+End ".action = focus-column-last;
             "Mod+Ctrl+Home".action = move-column-to-first;
@@ -143,10 +144,10 @@
             # Workspace switching
             "Mod+U".action = focus-workspace-down;
             "Mod+I".action = focus-workspace-up;
-            "Mod+Shift+U".action = move-workspace-down;
-            "Mod+Shift+I".action = move-workspace-up;
-            "Mod+Ctrl+U".action = move-column-to-workspace-down;
-            "Mod+Ctrl+I".action = move-column-to-workspace-up;
+            "Mod+Ctrl+U".action = move-workspace-down;
+            "Mod+Ctrl+I".action = move-workspace-up;
+            "Mod+Shift+U".action = move-column-to-workspace-down;
+            "Mod+Shift+I".action = move-column-to-workspace-up;
             "Mod+1".action = focus-workspace 1;
             "Mod+2".action = focus-workspace 2;
             "Mod+3".action = focus-workspace 3;
