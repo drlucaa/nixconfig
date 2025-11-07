@@ -65,7 +65,7 @@
         desktop-luca = {};
         
         vm-mac = {
-          arch = "aarch64-linux"
+          arch = "aarch64-linux";
         };
       };
 
