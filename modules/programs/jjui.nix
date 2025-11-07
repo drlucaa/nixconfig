@@ -24,6 +24,10 @@ in
           enable = true;
           package = pkgs.unstable.jjui;
         };
+
+        programs.fish.shellAbbrs = {
+          ju = "jjui";
+        };
       };
   };
 }

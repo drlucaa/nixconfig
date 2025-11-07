@@ -24,6 +24,10 @@ in
           enable = true;
           package = pkgs.unstable.lazygit;
         };
+
+        programs.fish.shellAbbrs = {
+          lg = "lazygit";
+        };
       };
   };
 }
