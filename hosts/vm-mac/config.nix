@@ -1,4 +1,4 @@
 { config, ... }:
 {
-  config.modules.programs.spotify = false;
+  config.modules.programs.spotify.enable = false;
 }
