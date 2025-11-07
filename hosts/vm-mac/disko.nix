@@ -9,7 +9,7 @@ in
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/disk/by-id/ata-UMware_Virtua1_SATA_CDRW_Drive_01000000000000000001";
+        device = "/dev/disk/by-id/ata-VMware_Virtual_SATA_CDRW_Drive_01000000000000000001";
         type = "disk";
         content = {
           type = "gpt";
