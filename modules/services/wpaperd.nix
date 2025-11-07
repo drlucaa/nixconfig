@@ -27,18 +27,12 @@ in
           settings = {
             default = {
               path = "${inputs.self}/wallpapers";
-              duration = "10m";
+              initial-transition = false;
+              duration = "1h";
               transition.colour-distance = { };
             };
           };
         };
       };
-
-    # home-manager.users.${username} = {
-    #   home.file."Pictures/Wallpapers" = {
-    #     source = ../../wallpapers;
-    #     recursive = true;
-    #   };
-    # };
   };
 }
