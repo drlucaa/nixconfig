@@ -62,10 +62,7 @@
     in
     {
       nixosConfigurations = lib.genHosts {
-        desktop-luca = {
-          username = "luca";
-          userDescription = "Luca Fondo";
-        };
+        desktop-luca = {};
       };
 
       # Development shells in ./shells

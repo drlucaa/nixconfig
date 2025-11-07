@@ -5,8 +5,8 @@ let
     {
       arch ? "x86_64-linux",
       hostname ? hostDir,
-      username ? "user",
-      userDescription ? "Default User",
+      username ? "luca",
+      userDescription ? "Luca Fondo",
     }:
     inputs.nixpkgs.lib.nixosSystem {
       system = arch;
