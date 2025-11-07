@@ -114,14 +114,5 @@ in
         ];
       };
     };
-
-    systemd.user.services.xremap = {
-      after = [
-        "niri.service"
-        "graphical-session.target"
-      ];
-      partOf = [ "niri.service" ];
-      wantedBy = [ "graphical-session.target" ];
-    };
   };
 }

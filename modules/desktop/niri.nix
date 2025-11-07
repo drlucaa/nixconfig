@@ -81,8 +81,10 @@
           };
 
           spawn-at-startup = [
-            { sh = "systemctl --user start walker.service"; }
-            { sh = "systemctl --user start wpaperd.service"; }
+            { sh = "systemctl --user restart walker"; }
+            { sh = "systemctl --user restart wpaperd"; }
+            { sh = "systemctl --user restart xremap"; }
+            { sh = "systemctl --user restart quickshell"; }
           ];
 
           input = {
