@@ -114,6 +114,8 @@
             "Mod+B".action = spawn "zen";
             "Mod+Space".action = spawn "walker";
 
+            "Mod+Shift+W".action = spawn-sh "wpaperctl next";
+
             # Focus movement
             "Mod+Shift+H".action = focus-monitor-left;
             "Mod+Shift+J".action = focus-monitor-down;
