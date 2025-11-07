@@ -24,6 +24,8 @@
     virtualisation.waydroid.enable = config.modules.virtualisation.waydroid.enable;
     virtualisation.vmware.guest.enable = config.modules.virtualisation.vmware.enable;
 
+    boot.initrd.kernelModules = [ "virtio_gpu" ];
+
     virtualisation.vmVariant.virtualisation = {
       qemu.options = [
         "-device virtio-vga-gl"
