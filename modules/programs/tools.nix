@@ -28,17 +28,6 @@ in
           fq
           age
           tlrc
-          pkgs.unstable.vscode-langservers-extracted
-          pkgs.unstable.delve
-          pkgs.unstable.gopls
-          pkgs.unstable.helm-ls
-          pkgs.unstable.prettier
-          pkgs.unstable.superhtml
-          pkgs.unstable.taplo
-          pkgs.unstable.templ
-          pkgs.unstable.yaml-language-server
-          # TODO: bring in oncepr https://github.com/NixOS/nixpkgs/pull/458418 is resolved
-          # pkgs.unstable.docker-language-server
           pkgs.unstable.jocalsend
           pkgs.unstable.yatto
           pkgs.unstable.gemini-cli
