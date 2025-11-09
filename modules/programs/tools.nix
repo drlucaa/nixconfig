@@ -31,7 +31,6 @@ in
           pkgs.unstable.jocalsend
           pkgs.unstable.yatto
           pkgs.unstable.gemini-cli
-          pkgs.unstable.goose-cli
         ];
 
         xdg.configFile = {
