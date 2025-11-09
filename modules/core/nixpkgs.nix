@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   ...
 }:
 {
@@ -14,15 +15,14 @@
           config.allowUnfree = true;
         };
       })
+      (
+        final: prev:
+        lib.packagesFromDirectoryRecursive {
+          callPackage = prev.callPackage;
+          directory = ../../pkgs;
+        }
+      )
+
     ];
-    # overlays = [
-    #   (
-    #     final: prev:
-    #     lib.packagesFromDirectoryRecursive {
-    #       callPackage = prev.callPackage;
-    #       directory = ../../pkgs;
-    #     }
-    #   )
-    # ];
   };
 }

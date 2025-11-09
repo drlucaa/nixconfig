@@ -28,6 +28,7 @@ in
           fq
           age
           tlrc
+          linctl
           pkgs.unstable.jocalsend
           pkgs.unstable.yatto
           pkgs.unstable.gemini-cli
