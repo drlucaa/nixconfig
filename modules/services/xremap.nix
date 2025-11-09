@@ -62,6 +62,7 @@ in
               "Super-s" = "C-s";
               "Super-f" = "C-f";
               "Super-t" = "C-t";
+              "Super-r" = "C-r";
               "Super-l" = "C-l";
               "Super-n" = "C-n";
               "Super-w" = "C-w";
