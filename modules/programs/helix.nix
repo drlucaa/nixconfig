@@ -48,7 +48,7 @@ in
           defaultEditor = true;
           package = pkgs.unstable.helix;
           settings = {
-            theme = "github_dark";
+            theme = "catppuccin_mocha";
 
             keys = {
               normal = {

@@ -28,7 +28,7 @@ in
           package = pkgs.unstable.ghostty;
 
           settings = {
-            theme = "GitHub Dark Default";
+            theme = "Catppuccin Mocha";
             font-size = 10;
             font-family = "Monaspace Neon";
             mouse-hide-while-typing = true;
