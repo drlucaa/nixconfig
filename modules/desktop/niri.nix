@@ -210,12 +210,6 @@
               draw-border-with-background = false;
             }
             {
-              excludes = [
-                { app-id = "zen"; }
-              ];
-              opacity = 0.98;
-            }
-            {
               matches = [
                 { app-id = "spotify"; }
               ];
