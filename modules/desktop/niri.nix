@@ -85,6 +85,12 @@
             { sh = "systemctl --user restart wpaperd"; }
             { sh = "systemctl --user restart xremap"; }
             { sh = "systemctl --user restart quickshell"; }
+            {
+              argv = [
+                "1password"
+                "--silent"
+              ];
+            }
           ];
 
           input = {
