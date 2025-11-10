@@ -29,6 +29,7 @@ in
           age
           tlrc
           linctl
+          pkgs.unstable.zed-editor
           pkgs.unstable.jocalsend
           pkgs.unstable.yatto
           pkgs.unstable.gemini-cli
