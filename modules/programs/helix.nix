@@ -98,6 +98,7 @@ in
               end-of-line-diagnostics = "hint";
               inline-diagnostics.cursor-line = "warning";
               clipboard-provider = "wayland";
+              file-picker.hidden = false;
 
               cursor-shape = {
                 normal = "block";
