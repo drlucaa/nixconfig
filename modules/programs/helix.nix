@@ -29,19 +29,20 @@ in
     home-manager.users.${username} =
       { pkgs, ... }:
       {
-        home.packages = [ pkgs.unstable.yazi
-          pkgs.unstable.vscode-langservers-extracted
-          pkgs.unstable.delve
-          pkgs.unstable.gopls
-          pkgs.unstable.helm-ls
-          pkgs.unstable.prettier
-          pkgs.unstable.superhtml
-          pkgs.unstable.taplo
-          pkgs.unstable.templ
-          pkgs.unstable.yaml-language-server
+        home.packages = with pkgs.unstable; [
+          yazi
+          vscode-langservers-extracted
+          delve
+          gopls
+          helm-ls
+          prettier
+          superhtml
+          taplo
+          templ
+          yaml-language-server
           # TODO: bring in oncepr https://github.com/NixOS/nixpkgs/pull/458418 is resolved
-          # pkgs.unstable.docker-language-server
-           ];
+          # docker-language-server
+        ];
 
         programs.helix = {
           enable = true;
