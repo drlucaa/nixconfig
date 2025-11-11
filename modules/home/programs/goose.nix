@@ -3,6 +3,7 @@
   username,
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -17,7 +18,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.hostPlatform.isLinux) {
     home-manager.users.${username} =
       { pkgs, ... }:
       {
