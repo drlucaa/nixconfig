@@ -25,7 +25,9 @@ in
           enable = true;
           enableFishIntegration = true;
 
-          package = pkgs.unstable.ghostty;
+          package = if pkgs.stdenv.hostPlatform.isLinux
+            then pkgs.unstable.ghostty
+            else pkgs.unstable.ghostty-bin;
 
           settings = {
             theme = "Catppuccin Mocha";
