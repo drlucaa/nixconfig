@@ -98,6 +98,11 @@ in
               end-of-line-diagnostics = "hint";
               inline-diagnostics.cursor-line = "warning";
               clipboard-provider = "wayland";
+
+              completion-trigger-len = 1;
+              completion-timeout = 5;
+              completion-replace = true;
+
               file-picker.hidden = false;
 
               cursor-shape = {
@@ -110,6 +115,14 @@ in
                 render = true;
                 character = "▏";
                 skip-levels = 1;
+              };
+
+              whitespace.render = {
+                space = "none";
+                tab = "none";
+                nbsp = "none";
+                nnbsp = "none";
+                newline = "all";
               };
 
               soft-wrap = {
