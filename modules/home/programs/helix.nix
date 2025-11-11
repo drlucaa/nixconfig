@@ -97,7 +97,14 @@ in
               bufferline = "multiple";
               end-of-line-diagnostics = "hint";
               inline-diagnostics.cursor-line = "warning";
-              clipboard-provider = "wayland";
+
+              clipboard-provider =
+                if pkgs.stdenv.hostPlatform.isLinux then
+                  "wayland"
+                else if pkgs.stdenv.hostPlatform.isDarwin then
+                  "pasteboard"
+                else
+                  "none";
 
               completion-trigger-len = 1;
               completion-timeout = 5;
