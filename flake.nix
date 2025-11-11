@@ -2,7 +2,7 @@
   description = "Luca Fondo NixOs flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -67,8 +67,8 @@
     in
     {
       nixosConfigurations = lib.genHosts {
-        desktop-luca = {};
-        
+        desktop-luca = { };
+
         vm-mac = {
           arch = "aarch64-linux";
         };
