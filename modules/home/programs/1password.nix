@@ -17,7 +17,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs._1password-gui = {
       enable = true;
       package = pkgs.unstable._1password-gui;

@@ -18,7 +18,7 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home-manager.users.${username} = {
       home.packages = [
         pkgs.unstable.spotify
