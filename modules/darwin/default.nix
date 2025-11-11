@@ -3,7 +3,7 @@
     ./users.nix
   ];
 
-  services.nix-daemon.enable = true;
+  nix.enable = true;
 
   system.stateVersion = 6;
 }
