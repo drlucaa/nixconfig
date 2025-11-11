@@ -21,8 +21,6 @@ in
 
   config = mkIf cfg.enable {
     programs.fish.enable = true;
-    # TODO: find solution for nix-darwin
-    # users.defaultUserShell = pkgs.fish;
 
     home-manager.users.${username} =
       { pkgs, ... }:
