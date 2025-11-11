@@ -36,7 +36,7 @@ in
         ];
 
         xdg.configFile = {
-          "yatto/config.toml".source = ../../confs/yatto/config.toml;
+          "yatto/config.toml".source = ../../../confs/yatto/config.toml;
         };
       };
   };

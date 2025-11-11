@@ -3,6 +3,11 @@
   ...
 }:
 {
+
+  imports = [
+    ./programs
+  ];
+
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
   home-manager.users.${username} =

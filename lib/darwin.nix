@@ -1,14 +1,14 @@
 { self, inputs, ... }:
 let
-  mkHost =
+  mkDarwinHost =
     hostDir:
     {
-      arch ? "x86_64-linux",
+      arch ? "aarch64-darwin",
       hostname ? hostDir,
       username ? "luca",
       userDescription ? "Luca Fondo",
     }:
-    inputs.nixpkgs.lib.nixosSystem {
+    inputs.nix-darwin.lib.darwinSystem {
       system = arch;
       specialArgs = {
         inherit
@@ -27,20 +27,16 @@ let
           }
         )
 
-        inputs.home-manager.nixosModules.home-manager
-        inputs.niri.nixosModules.niri
-        inputs.disko.nixosModules.disko
-        inputs.nix-index-database.nixosModules.nix-index
-        inputs.xremap.nixosModules.default
+        inputs.home-manager.darwinModules.home-manager
 
-        "${self}/modules/nixos"
+        "${self}/modules/darwin"
         "${self}/modules/home"
 
-        "${self}/hosts/nixos/${hostDir}"
+        "${self}/hosts/darwin/${hostDir}"
       ];
     };
 in
 {
-  mkHost = mkHost;
-  genHosts = builtins.mapAttrs mkHost;
+  mkDarwinHost = mkDarwinHost;
+  genDarwinHosts = builtins.mapAttrs mkDarwinHost;
 }
