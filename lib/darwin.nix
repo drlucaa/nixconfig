@@ -30,6 +30,7 @@ let
         inputs.home-manager.darwinModules.home-manager
 
         "${self}/modules/darwin"
+        "${self}/modules/common"
         "${self}/modules/home"
 
         "${self}/hosts/darwin/${hostDir}"

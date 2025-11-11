@@ -1,7 +1,6 @@
 {
   imports = [
     ./uutils.nix
-    ./nixpkgs.nix
     ./boot.nix
     ./firmware.nix
     ./security.nix

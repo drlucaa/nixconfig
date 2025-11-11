@@ -34,6 +34,7 @@ let
         inputs.xremap.nixosModules.default
 
         "${self}/modules/nixos"
+        "${self}/modules/common"
         "${self}/modules/home"
 
         "${self}/hosts/nixos/${hostDir}"

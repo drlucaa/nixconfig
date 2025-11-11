@@ -19,7 +19,7 @@
         final: prev:
         lib.packagesFromDirectoryRecursive {
           callPackage = prev.callPackage;
-          directory = ../../../pkgs;
+          directory = ../../pkgs;
         }
       )
 
