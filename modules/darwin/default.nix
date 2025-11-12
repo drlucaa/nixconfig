@@ -1,6 +1,7 @@
 {
   imports = [
     ./users.nix
+    ./homebrew.nix
   ];
 
   nix.enable = true;
