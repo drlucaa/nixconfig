@@ -1,0 +1,26 @@
+{
+  imports = [
+    ./atuin.nix
+    ./helix.nix
+    ./fastfetch.nix
+    ./fish.nix
+    ./ghostty.nix
+    ./lazygit.nix
+    ./direnv.nix
+    ./goose.nix
+    ./bottom.nix
+    ./lazydocker.nix
+    ./zoxide.nix
+    ./eza.nix
+    ./pay-respects.nix
+    ./git.nix
+    ./mise.nix
+    ./jujutsu.nix
+    ./jjui.nix
+    ./bat.nix
+    ./zen.nix
+    ./ssh.nix
+    ./spotify.nix
+    ./tools.nix
+  ];
+}

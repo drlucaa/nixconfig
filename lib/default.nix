@@ -4,8 +4,9 @@ let
     self = self;
     inputs = inputs;
   };
-  systems = import ./systems.nix {
-    nixpkgs = inputs.nixpkgs;
+  darwin = import ./darwin.nix {
+    self = self;
+    inputs = inputs;
   };
   vm = import ./vm.nix {
     inputs = inputs;
@@ -13,6 +14,6 @@ let
 in
 {
   inherit (hosts) mkHost genHosts;
-  inherit (systems) eachSystem;
+  inherit (darwin) mkDarwinHost genDarwinHosts;
   inherit (vm) mkVMApp;
 }

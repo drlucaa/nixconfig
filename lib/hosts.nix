@@ -25,9 +25,13 @@ let
         inputs.disko.nixosModules.disko
         inputs.nix-index-database.nixosModules.nix-index
         inputs.xremap.nixosModules.default
+        inputs.catppuccin.nixosModules.catppuccin
 
-        "${self}/default.nix"
-        "${self}/hosts/${hostDir}"
+        "${self}/modules/nixos"
+        "${self}/modules/common"
+        "${self}/modules/home"
+
+        "${self}/hosts/nixos/${hostDir}"
       ];
     };
 in
