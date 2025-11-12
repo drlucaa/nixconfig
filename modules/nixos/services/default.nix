@@ -12,5 +12,6 @@
     ./quickshell.nix
     ./tailscale.nix
     ./openssh.nix
+    ./1password.nix
   ];
 }

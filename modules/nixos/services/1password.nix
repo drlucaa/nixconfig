@@ -6,10 +6,10 @@
   ...
 }:
 let
-  cfg = config.modules.programs.onepassword;
+  cfg = config.modules.services.onepassword;
 in
 {
-  options.modules.programs.onepassword = {
+  options.modules.services.onepassword = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -17,12 +17,11 @@ in
     };
   };
 
-  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+  config = lib.mkIf cfg.enable {
     programs._1password-gui = {
       enable = true;
       package = pkgs.unstable._1password-gui;
-      # TODO: find solution to not get an error with nix-darwin
-      # polkitPolicyOwners = [ "${username}" ];
+      polkitPolicyOwners = [ "${username}" ];
     };
 
     environment.etc = {
@@ -32,5 +31,6 @@ in
         '';
         mode = "0755";
       };
-    };  };
+    };
+  };
 }
