@@ -10,4 +10,6 @@
     isHidden = false;
     shell = pkgs.fish;
   };
+
+  system.primaryUser = "${username}";
 }

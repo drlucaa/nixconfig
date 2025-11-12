@@ -13,7 +13,5 @@
     nrs = "sudo darwin-rebuild switch --flake ~/nixconfig#${hostname}";
   };
 
-  system.primaryUser = "${username}";
-
   system.stateVersion = 6;
 }
