@@ -29,6 +29,10 @@
       url = "github:nikitabobko/homebrew-tap";
       flake = false;
     };
+    janky-borders-tap = {
+      url = "github:FelixKratz/homebrew-formulae";
+      flake = false;
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";

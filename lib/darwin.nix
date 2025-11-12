@@ -33,6 +33,7 @@ let
               "homebrew/homebrew-core" = inputs.homebrew-core;
               "homebrew/homebrew-cask" = inputs.homebrew-cask;
               "nikitabobko/tap" = inputs.aerospace-tap;
+              "FelixKratz/formulae" = inputs.janky-borders-tap;
             };
           };
         }

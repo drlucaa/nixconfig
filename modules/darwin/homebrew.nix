@@ -5,6 +5,7 @@
     taps = builtins.attrNames config.nix-homebrew.taps;
     brews = [
       "block-goose-cli"
+      "borders"
       "mas"
     ];
     casks = [

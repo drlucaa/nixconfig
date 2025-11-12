@@ -665,6 +665,22 @@
         "type": "github"
       }
     },
+    "janky-borders-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762104534,
+        "narHash": "sha256-w9yG/ro4TtL84sTDAqcWEgc2JQpm4vRKlCHa5U8U67c=",
+        "owner": "FelixKratz",
+        "repo": "homebrew-formulae",
+        "rev": "b97877f8ef98e47a3e81eb366bf8dfc0cd7289d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelixKratz",
+        "repo": "homebrew-formulae",
+        "type": "github"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -1011,6 +1027,7 @@
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "janky-borders-tap": "janky-borders-tap",
         "niri": "niri",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
