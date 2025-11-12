@@ -20,13 +20,6 @@ let
           ;
       };
       modules = [
-        (
-          { ... }:
-          {
-            networking.hostName = hostname;
-          }
-        )
-
         inputs.home-manager.darwinModules.home-manager
 
         inputs.nix-homebrew.darwinModules.default

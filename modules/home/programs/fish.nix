@@ -1,9 +1,7 @@
 {
-  pkgs,
   lib,
   config,
   username,
-  hostname,
   ...
 }:
 with lib;
@@ -33,7 +31,6 @@ in
             rd = "rm -rf";
 
             # nix
-            nrs = "sudo nixos-rebuild switch --flake ~/nixconfig#${hostname}";
             ngc = "sudo nix-collect-garbage -d";
             nd = "nix develop";
           };
@@ -51,7 +48,7 @@ in
                 tide configure
               end
               fastfetch
-              '';
+            '';
           };
         };
       };

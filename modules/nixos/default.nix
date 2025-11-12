@@ -1,3 +1,4 @@
+{ hostname, username, ... }:
 {
   imports = [
     ./core
@@ -9,5 +10,10 @@
     ./users.nix
   ];
 
+  home-manager.users.${username}.programs.fish.shellAbbrs = {
+    nrs = "sudo nixos-rebuild switch --flake ~/nixconfig#${hostname}";
+  };
+
+  networking.hostName = hostname;
   system.stateVersion = "25.05";
 }
