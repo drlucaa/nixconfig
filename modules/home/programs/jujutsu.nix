@@ -47,7 +47,7 @@ in
             };
 
             signing = {
-              behavior = "drop";
+              behavior = "own";
               backend = "ssh";
               backends.ssh.program = onePassSignerPath;
               key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
