@@ -6,6 +6,7 @@
       "mas"
     ];
     casks = [
+      "nikitabobko/tap/aerospace"
       "1password"
       "spotify"
       "raycast"
