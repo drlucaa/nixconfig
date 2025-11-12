@@ -43,7 +43,7 @@ in
             name = "quickshell-with-niri";
             paths = [
               config.programs.niri.package
-              inputs.quickshell.packages.${pkgs.system}.default
+              inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
             ];
             meta.mainProgram = "quickshell";
           };

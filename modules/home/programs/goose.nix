@@ -11,7 +11,7 @@
       { pkgs, ... }:
       {
         home.packages = [
-          inputs.goose.defaultPackage.${pkgs.system}
+          inputs.goose.defaultPackage.${pkgs.stdenv.hostPlatform.system}
         ];
       };
   };

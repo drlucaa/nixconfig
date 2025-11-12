@@ -16,7 +16,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      inputs.swww.packages.${pkgs.system}.default
+      inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     home-manager.users.${username} = {
