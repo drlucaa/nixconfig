@@ -22,13 +22,18 @@ let
       modules = [
         inputs.home-manager.darwinModules.home-manager
 
-        inputs.nix-homebrew.darwinModules.default
+        inputs.nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
             enable = true;
             # TODO: add if to only add on apple silicon
             enableRosetta = true;
             user = "${username}";
+            taps = {
+              "homebrew/homebrew-core" = inputs.homebrew-core;
+              "homebrew/homebrew-cask" = inputs.homebrew-cask;
+              "nikitabobko/tap" = inputs.aerospace-tap;
+            };
           };
         }
 

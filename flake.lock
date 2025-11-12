@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "aerospace-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756592205,
+        "narHash": "sha256-AB7c96r/7JgkBubPrlEFz9yaIPdsD7S8JkLVnGtlhAw=",
+        "owner": "nikitabobko",
+        "repo": "homebrew-tap",
+        "rev": "2eff00794112cf73fdefeec27cd9b30abe644408",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nikitabobko",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -333,6 +349,38 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "homebrew-cask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762955959,
+        "narHash": "sha256-GUNZrk6oana0opf+4Z71FHqY1yqaC6O1xgWGCISFFz4=",
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "rev": "d7fa961d9ff0d7f3357db4629b4e0b8729b8f0cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "type": "github"
+      }
+    },
+    "homebrew-core": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762958740,
+        "narHash": "sha256-adsI+LI4D+CRtaGZ1CCKQd6R7l2ROUZIxdGAaqkndbE=",
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "rev": "3642dd6596508cb75f6624ce395a7cdf79113ac3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-core",
         "type": "github"
       }
     },
@@ -954,12 +1002,15 @@
     },
     "root": {
       "inputs": {
+        "aerospace-tap": "aerospace-tap",
         "catppuccin": "catppuccin",
         "disko": "disko",
         "elephant": "elephant",
         "flake-parts": "flake-parts",
         "goose": "goose",
         "home-manager": "home-manager",
+        "homebrew-cask": "homebrew-cask",
+        "homebrew-core": "homebrew-core",
         "niri": "niri",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
