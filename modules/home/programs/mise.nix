@@ -9,11 +9,7 @@ let
 in
 {
   options.modules.programs.mise = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable mise";
-    };
+    enable = lib.mkEnableOption "Enable mise";
   };
 
   config = lib.mkIf cfg.enable {

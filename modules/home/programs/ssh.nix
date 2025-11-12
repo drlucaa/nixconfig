@@ -1,12 +1,9 @@
 {
   username,
-  lib,
-  config,
   pkgs,
   ...
 }:
 let
-  cfg = config.modules.programs.ssh;
   onePassPath =
     if pkgs.stdenv.hostPlatform.isDarwin then
       "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
@@ -15,15 +12,7 @@ let
 
 in
 {
-  options.modules.programs.ssh = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable ssh";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = {
     home-manager.users.${username} =
       { ... }:
       {

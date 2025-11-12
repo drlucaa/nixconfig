@@ -1,24 +1,9 @@
 {
   username,
-  lib,
-  config,
   ...
 }:
-with lib;
-let
-  cfg = config.modules.programs.eza;
-in
 {
-
-  options.modules.programs.eza = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable eza";
-    };
-  };
-
-  config = mkIf cfg.enable {
+  config = {
     home-manager.users.${username} =
       { pkgs, ... }:
       {

@@ -1,22 +1,9 @@
 {
   username,
-  lib,
-  config,
   ...
 }:
-let
-  cfg = config.modules.programs.bat;
-in
 {
-  options.modules.programs.bat = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable bat";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = {
     home-manager.users.${username} =
       { pkgs, ... }:
       {

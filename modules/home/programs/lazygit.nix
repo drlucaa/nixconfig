@@ -1,22 +1,9 @@
 {
-  lib,
-  config,
   username,
   ...
 }:
-let
-  cfg = config.modules.programs.lazygit;
-in
 {
-  options.modules.programs.lazygit = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable lazygit";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = {
     home-manager.users.${username} =
       { pkgs, ... }:
       {
@@ -31,4 +18,3 @@ in
       };
   };
 }
-

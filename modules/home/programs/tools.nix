@@ -4,19 +4,8 @@
   username,
   ...
 }:
-let
-  cfg = config.modules.programs.tools;
-in
 {
-  options.modules.programs.tools = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable tools";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = {
     home-manager.users.${username} =
       { pkgs, ... }:
       {
@@ -31,13 +20,8 @@ in
           linctl
           pkgs.unstable.zed-editor
           pkgs.unstable.jocalsend
-          pkgs.unstable.yatto
           pkgs.unstable.gemini-cli
         ];
-
-        xdg.configFile = {
-          "yatto/config.toml".source = ../../../confs/yatto/config.toml;
-        };
       };
   };
 }

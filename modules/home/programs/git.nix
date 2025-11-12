@@ -4,33 +4,26 @@
   username,
   ...
 }:
-with lib;
 let
   cfg = config.modules.programs.git;
 in
 {
 
   options.modules.programs.git = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable git";
-    };
-
-    name = mkOption {
-      type = types.str;
+    name = lib.mkOption {
+      type = lib.types.str;
       default = "Luca Fondo";
       description = "Name for git commits";
     };
 
-    email = mkOption {
-      type = types.str;
+    email = lib.mkOption {
+      type = lib.types.str;
       default = "luca.fondo@trai.ch";
       description = "Email for git commits";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = {
     home-manager.users.${username} =
       { pkgs, config, ... }:
       {

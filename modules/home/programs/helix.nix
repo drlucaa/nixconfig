@@ -1,24 +1,9 @@
-# modules/programs/helix.nix
 {
-  config,
-  lib,
   username,
   ...
 }:
-with lib;
-let
-  cfg = config.modules.programs.helix;
-in
 {
-  options.modules.programs.helix = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable helix editor";
-    };
-  };
-
-  config = mkIf cfg.enable {
+  config = {
     # System-wide environment variables for Helix
     environment.variables = {
       EDITOR = "hx";

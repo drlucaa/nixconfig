@@ -2,11 +2,10 @@
   lib,
   config,
   username,
+  pkgs,
   ...
 }:
-with lib;
 let
-  cfg = config.modules.programs.jujutsu;
   gitCfg = config.modules.programs.git;
 
   onePassSignerPath =
@@ -20,16 +19,7 @@ let
       ""; # Fallback for other systems
 in
 {
-
-  options.modules.programs.jujutsu = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable jujutsu";
-    };
-  };
-
-  config = mkIf cfg.enable {
+  config = {
     home-manager.users.${username} =
       { pkgs, config, ... }:
       {

@@ -1,22 +1,9 @@
 {
   username,
-  lib,
-  config,
   ...
 }:
-let
-  cfg = config.modules.programs.zoxide;
-in
 {
-  options.modules.programs.zoxide = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable zoxide";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = {
     home-manager.users.${username} =
       { pkgs, ... }:
       {

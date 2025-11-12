@@ -1,23 +1,9 @@
 {
-  lib,
-  config,
   username,
   ...
 }:
-with lib;
-let
-  cfg = config.modules.programs.fish;
-in
 {
-  options.modules.programs.fish = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable fish shell";
-    };
-  };
-
-  config = mkIf cfg.enable {
+  config = {
     programs.fish.enable = true;
 
     home-manager.users.${username} =
