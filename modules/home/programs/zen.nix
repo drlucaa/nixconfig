@@ -1,10 +1,12 @@
 {
   inputs,
   username,
+  lib,
+  pkgs,
   ...
 }:
 {
-  config = {
+  config = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     home-manager.users.${username} =
       { ... }:
       {
