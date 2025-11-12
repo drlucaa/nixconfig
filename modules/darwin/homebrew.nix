@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, username, ... }:
 {
   homebrew = {
     enable = true;
@@ -22,4 +22,10 @@
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
   };
+
+  home-manager.users.${username} =
+    { ... }:
+    {
+      xdg.configFile."aerospace/aerospace.toml".source = ../../confs/aerospace/aerospace.toml;
+    };
 }
