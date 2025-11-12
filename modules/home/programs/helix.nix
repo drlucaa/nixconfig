@@ -49,8 +49,6 @@ in
           defaultEditor = true;
           package = pkgs.unstable.helix;
           settings = {
-            theme = "catppuccin_mocha";
-
             keys = {
               normal = {
                 ret = "goto_word";

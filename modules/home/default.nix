@@ -1,5 +1,6 @@
 {
   username,
+  inputs,
   ...
 }:
 {
@@ -8,11 +9,19 @@
     ./programs
   ];
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "backup";
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      home.stateVersion = "25.05";
-    };
+  home-manager = {
+    useGlobalPkgs = true;
+    backupFileExtension = "backup";
+    users.${username} =
+      { ... }:
+      {
+        imports = [
+          inputs.catppuccin.homeModules.catppuccin
+        ];
+
+        catppuccin.enable = true;
+
+        home.stateVersion = "25.05";
+      };
+  };
 }

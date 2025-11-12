@@ -65,12 +65,13 @@
       url = "github:block/goose";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
     {
       self,
-      nixpkgs,
       flake-parts,
       ...
     }@inputs:

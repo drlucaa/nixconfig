@@ -25,12 +25,10 @@ in
           enable = true;
           enableFishIntegration = true;
 
-          package = if pkgs.stdenv.hostPlatform.isLinux
-            then pkgs.unstable.ghostty
-            else pkgs.unstable.ghostty-bin;
+          package =
+            if pkgs.stdenv.hostPlatform.isLinux then pkgs.unstable.ghostty else pkgs.unstable.ghostty-bin;
 
           settings = {
-            theme = "Catppuccin Mocha";
             font-size = 10;
             font-family = "Monaspace Neon";
             mouse-hide-while-typing = true;
