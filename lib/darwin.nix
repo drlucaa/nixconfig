@@ -5,7 +5,7 @@ let
     {
       arch ? "aarch64-darwin",
       hostname ? hostDir,
-      username ? "luca",
+      username ? "folu",
       userDescription ? "Luca Fondo",
     }:
     inputs.nix-darwin.lib.darwinSystem {
