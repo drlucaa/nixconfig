@@ -35,6 +35,23 @@
         NSTableViewDefaultSizeMode = 1;
       };
 
+      menuExtraClock = {
+        Show24Hour = true;
+        ShowSeconds = true;
+        ShowDate = 0;
+        ShowDayOfWeek = true;
+      };
+
+      controlcenter = {
+        BatteryShowPercentage = true;
+        AirDrop = false;
+        Bluetooth = false;
+        Display = false;
+        FocusModes = false;
+        NowPlaying = false;
+        Sound = true;
+      };
+
       loginwindow.GuestEnabled = false;
 
       CustomUserPreferences = {
