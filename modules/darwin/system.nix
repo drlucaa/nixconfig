@@ -6,6 +6,7 @@
       dock = {
         autohide = true;
         autohide-delay = 0.0;
+        tilesize = 48;
         persistent-apps = [
           "/System/Applications/Mail.app"
           "/Applications/Arc.app"
