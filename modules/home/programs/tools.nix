@@ -18,6 +18,7 @@
           age
           tlrc
           linctl
+          glow
           pkgs.unstable.zed-editor
           pkgs.unstable.jocalsend
           pkgs.unstable.gemini-cli
