@@ -9,8 +9,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 
 accordion-padding = 15
 
-# Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'accordion'
 
 default-root-container-orientation = 'auto'
 
