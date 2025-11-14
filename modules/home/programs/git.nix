@@ -42,6 +42,17 @@ in
             core.editor = "${config.programs.helix.package}/bin/hx";
           };
 
+          ignores = [
+            ".DS_Store"
+            "Desktop.ini"
+            "._*"
+            "Thumbs.db"
+            ".Spotlight-V100"
+            ".Trashes"
+            ".idea/"
+            "*.log"
+            ".idea/"
+          ];
         };
         programs.delta = {
           enable = true;
