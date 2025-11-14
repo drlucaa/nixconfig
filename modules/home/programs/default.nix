@@ -1,6 +1,7 @@
 {
   imports = [
     ./atuin.nix
+    ./aerospace.nix
     ./helix.nix
     ./fastfetch.nix
     ./fish.nix
