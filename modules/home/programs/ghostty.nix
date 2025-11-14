@@ -16,7 +16,7 @@
             if pkgs.stdenv.hostPlatform.isLinux then pkgs.unstable.ghostty else pkgs.unstable.ghostty-bin;
 
           settings = {
-            font-size = 10;
+            font-size = 12;
             font-family = "Monaspace Neon";
             mouse-hide-while-typing = true;
             shell-integration = "fish";
