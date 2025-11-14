@@ -15,6 +15,7 @@
 
           shellAbbrs = {
             rd = "rm -rf";
+            c = "clear";
 
             # nix
             ngc = "sudo nix-collect-garbage -d";
