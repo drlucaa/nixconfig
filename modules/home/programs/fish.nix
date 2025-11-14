@@ -36,6 +36,7 @@
               end
               fastfetch
             '';
+            cx = "mkdir -p $argv && cd $argv";
           };
         };
       };
