@@ -7,6 +7,7 @@
       "block-goose-cli"
       "borders"
       "mas"
+      "docker"
     ];
     casks = [
       "aerospace"
@@ -14,6 +15,7 @@
       "spotify"
       "raycast"
       "arc"
+      "linear-linear"
     ];
     masApps = {
       "1Password for Safari" = 1569813296;
