@@ -115,6 +115,9 @@
 
         darwinConfigurations = lib.genDarwinHosts {
           lucas-macbook = { };
+          dv-macbook = {
+            username = "luca.fondo";
+          };
           mac-mini = {
             username = "ycs";
           };
