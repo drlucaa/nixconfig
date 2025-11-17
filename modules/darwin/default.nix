@@ -4,6 +4,7 @@
     ./users.nix
     ./homebrew.nix
     ./system.nix
+    ./nix.nix
   ];
 
   nix.enable = true;
