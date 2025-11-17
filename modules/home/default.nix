@@ -11,7 +11,7 @@
 
   home-manager = {
     useGlobalPkgs = true;
-    backupFileExtension = "backup";
+    backupFileExtension = "hmBackup";
     users.${username} =
       { ... }:
       {
