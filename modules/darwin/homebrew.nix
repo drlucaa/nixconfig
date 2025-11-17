@@ -18,7 +18,6 @@ in
         "block-goose-cli"
         "borders"
         "mas"
-        "docker"
       ];
 
       casks = [
@@ -28,6 +27,7 @@ in
         "raycast"
         "arc"
         "linear-linear"
+        "docker-desktop"
       ]
       ++ lib.optionals cfg.ableton [
         "ableton-live-standard"
