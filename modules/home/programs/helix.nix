@@ -42,6 +42,7 @@
                 P = "paste_after";
                 "C-s" = ":write";
                 "C-x" = ":reset-diff-change";
+                "C-h" = ":toggle lsp.display-inlay-hints";
                 space = {
                   q = {
                     q = ":quit-all";
