@@ -99,7 +99,7 @@
         alt-b = 'exec-and-forget open -a /Applications/Arc.app'
         alt-c = 'exec-and-forget open -a /Applications/ChatGPt.app'
         alt-e = 'exec-and-forget open -a ${pkgs.unstable.zed-editor}/Applications/Zed.app'
-        alt-g = 'exec-and-forget open -a ${pkgs.unstable.ghostty-bin}/Applications/Ghostty.app'
+        alt-t = 'exec-and-forget open -a ${pkgs.unstable.ghostty-bin}/Applications/Ghostty.app'
         alt-p = 'exec-and-forget open -a /Applications/Linear.app'
 
         alt-tab = 'workspace-back-and-forth'
