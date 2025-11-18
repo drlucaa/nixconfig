@@ -19,6 +19,7 @@
           tlrc
           linctl
           glow
+          pkgs.unstable.opencode
           pkgs.unstable.zed-editor
           pkgs.unstable.jocalsend
           pkgs.unstable.gemini-cli
