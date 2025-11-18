@@ -4,10 +4,16 @@ let
 in
 {
   options.darwin.homebrew = {
-    ableton = lib.mkEnableOption "Weather to install ableton";
-    rekordbox = lib.mkEnableOption "Weather to install ableton";
-    jetbrains-toolbox = lib.mkEnableOption "Weather to install jetbrains-toolbox";
-    dropbox = lib.mkEnableOption "Weather to install dropbox";
+    extraCasks = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "Extra casks for homebrew to download";
+    };
+    extraBrews = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "Extra Brews for homebrew to download";
+    };
   };
 
   config = {
@@ -18,7 +24,8 @@ in
         "block-goose-cli"
         "borders"
         "mas"
-      ];
+      ]
+      ++ cfg.extraBrews;
 
       casks = [
         "aerospace"
@@ -29,18 +36,7 @@ in
         "linear-linear"
         "docker-desktop"
       ]
-      ++ lib.optionals cfg.ableton [
-        "ableton-live-standard"
-      ]
-      ++ lib.optionals cfg.rekordbox [
-        "rekordbox"
-      ]
-      ++ lib.optionals cfg.dropbox [
-        "dropbox"
-      ]
-      ++ lib.optionals cfg.jetbrains-toolbox [
-        "jetbrains-toolbox"
-      ];
+      ++ cfg.extraCasks;
 
       masApps = {
         "1Password for Safari" = 1569813296;

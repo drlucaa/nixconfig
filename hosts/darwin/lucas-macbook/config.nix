@@ -1,6 +1,11 @@
 { ... }:
 {
-  config.darwin.homebrew.ableton = true;
-  config.darwin.homebrew.rekordbox = true;
-  config.darwin.homebrew.dropbox = true;
+  config.darwin.homebrew.extraCasks = [
+    "whatsapp"
+    "ableton-live-standard"
+    "ilok-license-manager"
+    "rekordbox"
+    "dropbox"
+  ];
+
 }
