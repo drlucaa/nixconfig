@@ -16,7 +16,7 @@
             if pkgs.stdenv.hostPlatform.isLinux then pkgs.unstable.ghostty else pkgs.unstable.ghostty-bin;
 
           settings = {
-            font-size = 16;
+            font-size = if pkgs.stdenv.hostPlatform.isDarwin then 16 else 10;
             font-family = "Monaspace Neon";
             mouse-hide-while-typing = true;
             shell-integration = "fish";
