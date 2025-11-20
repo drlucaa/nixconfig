@@ -13,7 +13,6 @@ let
       # Use lib.getExe' and reference the unstable package from your 1password.nix
       (lib.getExe' pkgs.unstable._1password-gui "op-ssh-sign")
     else if pkgs.stdenv.hostPlatform.isDarwin then
-      # NOTE: Assumed path for 1Password signer on macOS
       "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
     else
       ""; # Fallback for other systems
@@ -47,7 +46,7 @@ in
             };
 
             signing = {
-              behavior = "own";
+              behavior = "drop";
               backend = "ssh";
               backends.ssh.program = onePassSignerPath;
               key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
