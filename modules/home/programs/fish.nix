@@ -27,6 +27,18 @@
               name = "tide";
               src = pkgs.fishPlugins.tide.src;
             }
+            {
+              name = "autopair";
+              src = pkgs.fishPlugins.autopair.src;
+            }
+            {
+              name = "fzf";
+              src = pkgs.fishPlugins.fzf.src;
+            }
+            {
+              name = "puffer";
+              src = pkgs.fishPlugins.puffer.src;
+            }
           ];
 
           functions = {
