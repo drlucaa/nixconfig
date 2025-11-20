@@ -21,6 +21,7 @@ let
       };
       modules = [
         inputs.home-manager.darwinModules.home-manager
+        inputs.nix-index-database.darwinModules.nix-index
 
         inputs.nix-homebrew.darwinModules.nix-homebrew
         {
