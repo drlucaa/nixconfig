@@ -14,12 +14,16 @@
           package = pkgs.fish;
 
           shellAbbrs = {
-            rd = "rm -rf";
             c = "clear";
 
             # nix
             ngc = "sudo nix-collect-garbage -d";
             nd = "nix develop";
+          };
+
+          shellAliases = {
+            mkdir = "mkdir -p";
+            rd = "rm -rf";
           };
 
           plugins = [
