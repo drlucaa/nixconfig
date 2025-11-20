@@ -149,7 +149,7 @@
               };
 
               lsp = {
-                display-inlay-hints = true;
+                display-progress-messages = true;
               };
             };
           };
