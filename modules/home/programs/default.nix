@@ -12,6 +12,7 @@
     ./bottom.nix
     ./lazydocker.nix
     ./zoxide.nix
+    ./gh_cli.nix
     ./eza.nix
     ./pay-respects.nix
     ./git.nix
