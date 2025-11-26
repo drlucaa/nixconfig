@@ -25,10 +25,6 @@ in
           };
           globalConfig = {
             tools = {
-              go = "1.25";
-              helm = "3.19";
-              node = "lts";
-              pnpm = "10.20";
             };
           };
         };

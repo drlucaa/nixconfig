@@ -19,7 +19,10 @@ in
   config = {
     homebrew = {
       enable = true;
-      taps = builtins.attrNames config.nix-homebrew.taps;
+      taps = [
+        "nikitabobko/tap"
+        "FelixKratz/formulae"
+      ];
       brews = [
         "block-goose-cli"
         "borders"
