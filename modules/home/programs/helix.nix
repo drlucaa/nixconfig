@@ -50,6 +50,13 @@
                     f = ":quit-all!";
                   };
 
+                  b = {
+                    f = "buffer_picker";
+                    q = ":buffer-close";
+                    o = ":buffer-close-others";
+                    s = ":write-buffer-close";
+                  };
+
                   # Your yazi keybinding
                   E = [
                     ":sh rm -f /tmp/unique-file"
