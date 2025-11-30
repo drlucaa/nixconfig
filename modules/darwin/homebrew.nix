@@ -42,7 +42,7 @@ in
       ++ cfg.extraCasks;
 
       masApps = {
-        "1Password for Safari" = 1569813296;
+        # "1Password for Safari" = 1569813296;
       };
       onActivation.cleanup = "zap";
       onActivation.autoUpdate = true;
