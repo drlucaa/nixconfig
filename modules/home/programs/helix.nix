@@ -28,6 +28,8 @@
           docker-language-server
           markdown-oxide
           deno
+          tinymist
+          typstyle
         ];
 
         programs.helix = {
@@ -162,6 +164,14 @@
           };
 
           languages = {
+            language-server.tinymist = {
+              command = "tinymist";
+              config = {
+                exportPdf = "onType";
+                outputPath = "$root/target/$dir/$name";
+              };
+            };
+
             language = [
               {
                 name = "nix";
@@ -182,6 +192,18 @@
                     "md"
                   ];
                 };
+              }
+              {
+                name = "typst";
+                scope = "source.typst";
+                injection-regex = "typst";
+                file-types = [ "typ" ];
+                roots = [ "typst.toml" ];
+                language-servers = [ "tinymist" ];
+                formatter = {
+                  command = "typstyle"; # Optional: if you want formatting
+                };
+                auto-format = true;
               }
             ];
           };
