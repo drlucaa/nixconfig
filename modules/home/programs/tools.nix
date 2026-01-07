@@ -22,6 +22,8 @@
           pkgs.unstable.opencode
           pkgs.unstable.zed-editor
           pkgs.unstable.gemini-cli
+          pkgs.unstable.typst
+          pkgs.unstable.tdf
         ];
       };
   };
