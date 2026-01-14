@@ -32,6 +32,7 @@ in
 
       casks = [
         "aerospace"
+        "antigravity"
         "1password"
         "spotify"
         "raycast"
