@@ -104,7 +104,10 @@
               completion-timeout = 5;
               completion-replace = true;
 
-              file-picker.hidden = false;
+              file-picker = {
+                hidden = false;
+                git-ignore = false;
+              };
 
               cursor-shape = {
                 normal = "block";
@@ -162,6 +165,10 @@
               };
             };
           };
+
+          ignores = [
+            ".direnv"
+          ];
 
           languages = {
             language-server.tinymist = {
