@@ -22,6 +22,7 @@ in
       taps = [
         "nikitabobko/tap"
         "FelixKratz/formulae"
+        "traiproject/tap"
       ];
       brews = [
         "block-goose-cli"
@@ -33,12 +34,15 @@ in
       casks = [
         "aerospace"
         "antigravity"
+        "affinity"
         "1password"
         "spotify"
         "raycast"
         "arc"
         "linear-linear"
         "docker-desktop"
+        "same"
+        "zed"
       ]
       ++ cfg.extraCasks;
 
