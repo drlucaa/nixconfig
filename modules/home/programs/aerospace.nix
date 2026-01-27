@@ -96,7 +96,7 @@
         alt-shift-f = 'fullscreen'
 
         alt-f = 'exec-and-forget open -a /System/Library/CoreServices/Finder.app'
-        alt-b = 'exec-and-forget open -a /Applications/Arc.app'
+        alt-b = 'exec-and-forget open -a /Applications/Zen.app'
         alt-e = 'exec-and-forget open -a /Applications/Zed.app'
         alt-t = 'exec-and-forget open -a ${pkgs.unstable.ghostty-bin}/Applications/Ghostty.app'
         alt-p = 'exec-and-forget open -a /Applications/Linear.app'

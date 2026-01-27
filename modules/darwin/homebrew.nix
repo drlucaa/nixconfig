@@ -35,6 +35,7 @@ in
         "aerospace"
         "antigravity"
         "affinity"
+        "zen"
         "1password"
         "spotify"
         "raycast"
