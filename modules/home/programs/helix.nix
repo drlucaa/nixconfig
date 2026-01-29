@@ -168,6 +168,7 @@
 
           ignores = [
             ".direnv"
+            "node_modules"
           ];
 
           languages = {
