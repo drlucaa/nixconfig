@@ -9,7 +9,7 @@
       {
         programs.atuin = {
           enable = true;
-          package = pkgs.atuin;
+          package = pkgs.unstable.atuin;
           enableFishIntegration = true;
           daemon.enable = true;
           daemon.logLevel = "debug";
