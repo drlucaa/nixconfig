@@ -15,6 +15,7 @@
 
           shellAbbrs = {
             c = "clear";
+            k = "kubectl";
 
             # nix
             ngc = "sudo nix-collect-garbage -d";
