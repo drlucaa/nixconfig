@@ -23,16 +23,18 @@ in
         "nikitabobko/tap"
         "FelixKratz/formulae"
         "traiproject/tap"
+        "fluxcd/tap"
       ];
       brews = [
         "block-goose-cli"
-        "borders"
+        "FelixKratz/formulae/borders"
         "mas"
+        "fluxcd/tap/flux"
       ]
       ++ cfg.extraBrews;
 
       casks = [
-        "aerospace"
+        "nikitabobko/tap/aerospace"
         "antigravity"
         "affinity"
         "zen"
@@ -42,7 +44,7 @@ in
         "arc"
         "linear-linear"
         "docker-desktop"
-        "same"
+        "traiproject/tap/same"
         "zed"
       ]
       ++ cfg.extraCasks;
