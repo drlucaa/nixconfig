@@ -30,6 +30,7 @@ in
         "FelixKratz/formulae/borders"
         "mas"
         "fluxcd/tap/flux"
+        "sops"
       ]
       ++ cfg.extraBrews;
 
@@ -39,6 +40,7 @@ in
         "affinity"
         "zen"
         "1password"
+        "1password-cli"
         "spotify"
         "raycast"
         "arc"
