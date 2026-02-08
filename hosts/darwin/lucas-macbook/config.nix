@@ -9,6 +9,7 @@
     "rekordbox"
     "dropbox"
     "tailscale-app"
+    "twingate"
   ];
 
 }
