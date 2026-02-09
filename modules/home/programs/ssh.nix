@@ -27,6 +27,21 @@ in
                 IdentityAgent = "\"${onePassPath}\"";
               };
             };
+            "gitlab.dvbern.ch" = {
+              user = "git";
+              identityFile = "~/.ssh/dvb-gitlab-key.pub";
+              identitiesOnly = true;
+            };
+            "github.com" = {
+              user = "git";
+              identityFile = "~/.ssh/private-github-key.pub";
+              identitiesOnly = true;
+            };
+            "gitlab.com" = {
+              user = "git";
+              identityFile = "~/.ssh/private-gitlab-key.pub";
+              identitiesOnly = true;
+            };
           };
         };
       };
