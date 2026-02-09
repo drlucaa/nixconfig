@@ -24,7 +24,7 @@ in
       {
         programs.jujutsu = {
           enable = true;
-          package = pkgs.jujutsu;
+          package = pkgs.unstable.jujutsu;
 
           settings = {
             user = {
@@ -41,8 +41,6 @@ in
 
             git = {
               sign-on-push = true;
-              auto-local-bookmark = true;
-              track-default-bookmark-on-clone = true;
             };
 
             signing = {
