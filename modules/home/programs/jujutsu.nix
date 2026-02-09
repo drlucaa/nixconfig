@@ -67,6 +67,12 @@ in
             };
           };
         };
+
+        programs.fish.shellAbbrs = {
+          jgf = "jj git fetch";
+          jgp = "jj git push -b";
+          jbm = "jj bookmark move";
+        };
       };
   };
 }
