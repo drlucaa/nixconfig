@@ -22,6 +22,9 @@
             "--hyperlink"
           ];
         };
+        programs.fish.shellAbbrs = {
+          et = "eza --tree";
+        };
       };
   };
 }
