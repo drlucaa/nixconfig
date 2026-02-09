@@ -14,7 +14,7 @@
     home-manager.users.${username} =
       { pkgs, ... }:
       {
-        home.packages = with pkgs.unstable; [
+        home.packages = with pkgs; [
           yazi
           vscode-langservers-extracted
           delve
