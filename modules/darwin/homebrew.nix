@@ -47,6 +47,7 @@ in
         "linear-linear"
         "docker-desktop"
         "traiproject/tap/same"
+        "twingate"
         "zed"
       ]
       ++ cfg.extraCasks;

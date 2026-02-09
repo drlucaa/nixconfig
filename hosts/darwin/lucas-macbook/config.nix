@@ -8,8 +8,6 @@
     "ilok-license-manager"
     "rekordbox"
     "dropbox"
-    "tailscale-app"
-    "twingate"
   ];
 
 }
