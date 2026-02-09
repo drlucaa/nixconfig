@@ -169,6 +169,10 @@
           ignores = [
             ".direnv"
             "node_modules"
+            "vendor"
+            ".DS_Store"
+            ".idea"
+            ".vscode"
           ];
 
           languages = {
