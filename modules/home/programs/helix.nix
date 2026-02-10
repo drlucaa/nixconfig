@@ -30,6 +30,7 @@
           deno
           tinymist
           typstyle
+          terraform-ls
         ];
 
         programs.helix = {
@@ -186,21 +187,17 @@
             language-server.yaml-language-server = {
               config = {
                 yaml = {
-                  # schemaStore = {
-                  #   enable = true;
-                  # };
-
-                  # kubernetesCRDStore = {
-                  #   enable = true;
-                  # };
+                  schemaStore = {
+                    enable = true;
+                  };
 
                   schemas = {
                     # kubernetes = "**/*.yaml";
-
-                    validate = true;
-                    completion = true;
-                    hover = true;
                   };
+
+                  validate = true;
+                  completion = true;
+                  hover = true;
                 };
               };
             };
