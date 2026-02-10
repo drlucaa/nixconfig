@@ -183,8 +183,41 @@
                 outputPath = "$root/target/$dir/$name";
               };
             };
+            language-server.yaml-language-server = {
+              config = {
+                yaml = {
+                  # schemaStore = {
+                  #   enable = true;
+                  # };
+
+                  # kubernetesCRDStore = {
+                  #   enable = true;
+                  # };
+
+                  schemas = {
+                    # kubernetes = "**/*.yaml";
+
+                    validate = true;
+                    completion = true;
+                    hover = true;
+                  };
+                };
+              };
+            };
 
             language = [
+              {
+                name = "yaml";
+                language-servers = [ "yaml-language-server" ];
+                formatter = {
+                  command = "prettier";
+                  args = [
+                    "--parser"
+                    "yaml"
+                  ];
+                };
+                auto-format = true;
+              }
               {
                 name = "nix";
                 formatter = {
@@ -194,7 +227,6 @@
               }
               {
                 name = "markdown";
-                auto-format = true;
                 formatter = {
                   command = "deno";
                   args = [
@@ -204,6 +236,7 @@
                     "md"
                   ];
                 };
+                auto-format = true;
               }
               {
                 name = "typst";
@@ -213,7 +246,7 @@
                 roots = [ "typst.toml" ];
                 language-servers = [ "tinymist" ];
                 formatter = {
-                  command = "typstyle"; # Optional: if you want formatting
+                  command = "typstyle";
                 };
                 auto-format = true;
               }
