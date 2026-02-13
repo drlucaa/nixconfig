@@ -42,6 +42,11 @@ in
               identityFile = "~/.ssh/private-gitlab-key.pub";
               identitiesOnly = true;
             };
+            "46.225.*.*" = {
+              identityFile = "~/.ssh/hetzner-key.pub";
+              identitiesOnly = true;
+              userKnownHostsFile = "/dev/null";
+            };
           };
         };
       };
