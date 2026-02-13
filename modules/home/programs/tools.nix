@@ -12,6 +12,7 @@
           fzf
           ripgrep
           jq
+          yq
           fq
           age
           tlrc
