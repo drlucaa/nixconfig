@@ -16,6 +16,7 @@
           shellAbbrs = {
             c = "clear";
             k = "kubectl";
+            kx = "kubectx";
 
             # nix
             ngc = "sudo nix-collect-garbage -d";
@@ -23,6 +24,8 @@
           };
 
           shellAliases = {
+            tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
+            tscp = "scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
             mkdir = "mkdir -p";
             rd = "rm -rf";
           };
