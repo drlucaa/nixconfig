@@ -18,6 +18,9 @@
           tlrc
           linctl
           glow
+          kubectl
+          kubectx
+          flux
           pkgs.unstable.opencode
           pkgs.unstable.gemini-cli
           pkgs.unstable.typst
