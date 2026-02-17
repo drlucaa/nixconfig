@@ -14,29 +14,29 @@
     home-manager.users.${username} =
       { pkgs, ... }:
       {
-        home.packages = with pkgs; [
-          yazi
-          vscode-langservers-extracted
-          delve
-          gopls
-          helm-ls
-          prettier
-          superhtml
-          taplo
-          templ
-          yaml-language-server
-          docker-language-server
-          markdown-oxide
-          deno
-          tinymist
-          typstyle
-          terraform-ls
-        ];
-
         programs.helix = {
           enable = true;
           defaultEditor = true;
           package = pkgs.unstable.helix;
+          extraPackages = with pkgs; [
+            yazi
+            vscode-langservers-extracted
+            delve
+            gopls
+            helm-ls
+            prettier
+            superhtml
+            taplo
+            templ
+            # yaml-language-server
+            docker-language-server
+            markdown-oxide
+            deno
+            tinymist
+            typstyle
+            terraform-ls
+            yaml-language-server
+          ];
           settings = {
             keys = {
               normal = {
