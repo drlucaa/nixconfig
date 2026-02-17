@@ -23,11 +23,14 @@ in
         "nikitabobko/tap"
         "FelixKratz/formulae"
         "traiproject/tap"
+        "dgunzy/tap"
       ];
       brews = [
         "block-goose-cli"
         "FelixKratz/formulae/borders"
         "mas"
+        "dgunzy/tap/flux9s"
+        "openssl@3"
       ]
       ++ cfg.extraBrews;
 

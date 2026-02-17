@@ -17,6 +17,7 @@
             c = "clear";
             k = "kubectl";
             kx = "kubectx";
+            f9 = "flux9s";
 
             # nix
             ngc = "sudo nix-collect-garbage -d";
