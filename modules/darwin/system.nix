@@ -9,7 +9,7 @@
         tilesize = 52;
         persistent-apps = [
           "/System/Applications/Mail.app"
-          "/Applications/Arc.app"
+          "/Applications/Zen.app"
           "/System/Applications/System Settings.app"
           "${pkgs.ghostty-bin}/Applications/Ghostty.app"
           "/Applications/Spotify.app"
