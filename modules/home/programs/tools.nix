@@ -21,6 +21,7 @@
           kubectl
           kubectx
           flux
+          k9s
           pkgs.unstable.opencode
           pkgs.unstable.gemini-cli
           pkgs.unstable.typst
