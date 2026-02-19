@@ -36,6 +36,8 @@
             typstyle
             terraform-ls
             yaml-language-server
+            jdt-language-server
+            lombok
           ];
           settings = {
             keys = {
@@ -200,6 +202,13 @@
                   hover = true;
                 };
               };
+            };
+            language-server.jdtls = {
+              command = "jdtls";
+              args = [
+                "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
+                "--jvm-arg=-Xbootclasspath/a:${pkgs.lombok}/share/java/lombok.jar"
+              ];
             };
 
             language = [
