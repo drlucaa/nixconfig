@@ -48,6 +48,7 @@ in
         "docker-desktop"
         "traiproject/tap/same"
         "twingate"
+        "utm"
         "zed"
       ]
       ++ cfg.extraCasks;
