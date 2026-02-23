@@ -207,6 +207,18 @@
               command = "jdtls";
               args = [
                 "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
+
+                # Increase memory allocation
+                "--jvm-arg=-Xms1G"
+                "--jvm-arg=-Xmx4G"
+
+                # Optimize Garbage Collection
+                "--jvm-arg=-XX:+UseZGC"
+                "--jvm-arg=-XX:+ZGenerational"
+                "--jvm-arg=-XX:+UseStringDeduplication"
+
+                # Prevent the JVM from swapping to disk
+                "--jvm-arg=-XX:+AlwaysPreTouch"
               ];
             };
 
