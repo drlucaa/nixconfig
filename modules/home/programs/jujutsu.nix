@@ -1,21 +1,14 @@
 {
-  lib,
   config,
   username,
-  pkgs,
   ...
 }:
 let
   gitCfg = config.modules.programs.git;
 
-  onePassSignerPath =
-    if pkgs.stdenv.hostPlatform.isLinux then
-      # Use lib.getExe' and reference the unstable package from your 1password.nix
-      (lib.getExe' pkgs.unstable._1password-gui "op-ssh-sign")
-    else if pkgs.stdenv.hostPlatform.isDarwin then
-      "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-    else
-      ""; # Fallback for other systems
+  onePassSignerPath = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+  sshSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
+
 in
 {
   config = {
@@ -47,7 +40,7 @@ in
               behavior = "drop";
               backend = "ssh";
               backends.ssh.program = onePassSignerPath;
-              key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
+              key = sshSigningKey;
             };
 
             merge-tools.delta = {

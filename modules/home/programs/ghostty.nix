@@ -12,7 +12,7 @@
           enable = true;
           enableFishIntegration = true;
 
-          package = if pkgs.stdenv.hostPlatform.isLinux then pkgs.ghostty else pkgs.ghostty-bin;
+          package = pkgs.ghostty-bin;
 
           settings = {
             font-size = if pkgs.stdenv.hostPlatform.isDarwin then 16 else 10;

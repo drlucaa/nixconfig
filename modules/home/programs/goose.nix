@@ -1,7 +1,5 @@
 {
-  inputs,
   username,
-  lib,
   ...
 }:
 {
@@ -11,12 +9,8 @@
     };
 
     home-manager.users.${username} =
-      { pkgs, ... }:
+      { ... }:
       {
-        home.packages = lib.mkIf pkgs.stdenv.hostPlatform.isLinux [
-          inputs.goose.defaultPackage.${pkgs.stdenv.hostPlatform.system}
-        ];
-
         xdg.configFile."goose/config.yaml".text = ''
           GOOSE_PROVIDER: openrouter
           GOOSE_LEAD_MODEL: anthropic/claude-sonnet-4.5

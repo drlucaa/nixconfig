@@ -2,19 +2,13 @@
   lib,
   config,
   username,
-  pkgs,
   ...
 }:
 let
   cfg = config.modules.programs.git;
 
-  onePassSignerPath =
-    if pkgs.stdenv.hostPlatform.isLinux then
-      (lib.getExe' pkgs.unstable._1password-gui "op-ssh-sign")
-    else if pkgs.stdenv.hostPlatform.isDarwin then
-      "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-    else
-      ""; # Fallback for other systems
+  onePassSignerPath = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+  sshSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
 in
 {
 
@@ -44,7 +38,7 @@ in
             user = {
               name = cfg.name;
               email = cfg.email;
-              signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
+              signingkey = sshSigningKey;
             };
 
             gpg.format = "ssh";
