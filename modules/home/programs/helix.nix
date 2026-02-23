@@ -28,7 +28,6 @@
             superhtml
             taplo
             templ
-            # yaml-language-server
             docker-language-server
             markdown-oxide
             deno
@@ -36,6 +35,7 @@
             typstyle
             terraform-ls
             yaml-language-server
+            yaml-schema-router
             jdt-language-server
             lombok
           ];
@@ -61,17 +61,6 @@
                     o = ":buffer-close-others";
                     s = ":write-buffer-close";
                   };
-
-                  # Your yazi keybinding
-                  E = [
-                    ":sh rm -f /tmp/unique-file"
-                    ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"
-                    ":insert-output echo \"\\x1b[?1049h\\x1b[?2004h\" > /dev/tty"
-                    ":open %sh{cat /tmp/unique-file}"
-                    ":redraw"
-                  ];
-
-                  e = "file_explorer_in_current_buffer_directory";
 
                   space = {
                     b = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}";
@@ -179,47 +168,39 @@
           ];
 
           languages = {
-            language-server.tinymist = {
-              command = "tinymist";
-              config = {
-                exportPdf = "onType";
-                outputPath = "$root/target/$dir/$name";
-              };
-            };
-            language-server.yaml-language-server = {
-              config = {
-                yaml = {
-                  schemaStore = {
-                    enable = true;
-                  };
-
-                  schemas = {
-                    # kubernetes = "**/*.yaml";
-                  };
-
-                  validate = true;
-                  completion = true;
-                  hover = true;
+            language-server = {
+              tinymist = {
+                command = "tinymist";
+                config = {
+                  exportPdf = "onType";
+                  outputPath = "$root/target/$dir/$name";
                 };
               };
-            };
-            language-server.jdtls = {
-              command = "jdtls";
-              args = [
-                "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
+              yaml-language-server = {
+                command = "${pkgs.yaml-schema-router}/bin/yaml-schema-router";
+                args = [
+                  "--lsp-path"
+                  "${pkgs.yaml-language-server}/bin/yaml-language-server"
+                ];
+              };
+              jdtls = {
+                command = "jdtls";
+                args = [
+                  "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
 
-                # Increase memory allocation
-                "--jvm-arg=-Xms1G"
-                "--jvm-arg=-Xmx4G"
+                  # Increase memory allocation
+                  "--jvm-arg=-Xms1G"
+                  "--jvm-arg=-Xmx4G"
 
-                # Optimize Garbage Collection
-                "--jvm-arg=-XX:+UseZGC"
-                "--jvm-arg=-XX:+ZGenerational"
-                "--jvm-arg=-XX:+UseStringDeduplication"
+                  # Optimize Garbage Collection
+                  "--jvm-arg=-XX:+UseZGC"
+                  "--jvm-arg=-XX:+ZGenerational"
+                  "--jvm-arg=-XX:+UseStringDeduplication"
 
-                # Prevent the JVM from swapping to disk
-                "--jvm-arg=-XX:+AlwaysPreTouch"
-              ];
+                  # Prevent the JVM from swapping to disk
+                  "--jvm-arg=-XX:+AlwaysPreTouch"
+                ];
+              };
             };
 
             language = [
