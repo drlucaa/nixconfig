@@ -207,7 +207,6 @@
               command = "jdtls";
               args = [
                 "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
-                "--jvm-arg=-Xbootclasspath/a:${pkgs.lombok}/share/java/lombok.jar"
               ];
             };
 
