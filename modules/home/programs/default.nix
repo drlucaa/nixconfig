@@ -10,6 +10,7 @@
     ./direnv.nix
     ./bottom.nix
     ./lazydocker.nix
+    ./k9s.nix
     ./zoxide.nix
     ./gh_cli.nix
     ./eza.nix

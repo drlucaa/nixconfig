@@ -10,8 +10,9 @@
     shellAbbrs = {
       c = "clear";
       k = "kubectl";
+      kk = "k9s";
       kx = "kubectx";
-      f9 = "flux9s";
+      ff = "flux9s";
 
       # nix
       ngc = "sudo nix-collect-garbage -d";
