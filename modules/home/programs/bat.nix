@@ -1,20 +1,14 @@
 {
-  username,
+  pkgs,
   ...
 }:
 {
-  config = {
-    home-manager.users.${username} =
-      { pkgs, ... }:
-      {
-        programs.bat = {
-          enable = true;
-          package = pkgs.bat;
-        };
+  programs.bat = {
+    enable = true;
+    package = pkgs.bat;
+  };
 
-        programs.fish.shellAliases = {
-          cat = "bat";
-        };
-      };
+  programs.fish.shellAliases = {
+    cat = "bat";
   };
 }

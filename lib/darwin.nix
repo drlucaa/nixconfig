@@ -32,9 +32,29 @@ let
           };
         }
 
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            backupFileExtension = "hmBackup";
+
+            extraSpecialArgs = {
+              inherit
+                inputs
+                self
+                hostname
+                username
+                userDescription
+                ;
+            };
+
+            users.${username} = {
+              imports = [ "${self}/modules/home" ];
+            };
+          };
+        }
+
         "${self}/modules/darwin"
         "${self}/modules/common"
-        "${self}/modules/home"
 
         "${self}/hosts/darwin/${hostDir}"
       ];

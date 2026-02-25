@@ -1,25 +1,19 @@
 {
-  username,
+  pkgs,
   ...
 }:
 {
-  config = {
-    home-manager.users.${username} =
-      { pkgs, ... }:
-      {
-        programs.lazygit = {
-          enable = true;
-          package = pkgs.unstable.lazygit;
-          settings = {
-            git = {
-              overrideGpg = true;
-            };
-          };
-        };
-
-        programs.fish.shellAbbrs = {
-          lg = "lazygit";
-        };
+  programs.lazygit = {
+    enable = true;
+    package = pkgs.unstable.lazygit;
+    settings = {
+      git = {
+        overrideGpg = true;
       };
+    };
+  };
+
+  programs.fish.shellAbbrs = {
+    lg = "lazygit";
   };
 }

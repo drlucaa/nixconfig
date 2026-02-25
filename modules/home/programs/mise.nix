@@ -1,5 +1,5 @@
 {
-  username,
+  pkgs,
   lib,
   config,
   ...
@@ -13,21 +13,17 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users.${username} =
-      { pkgs, ... }:
-      {
-        programs.mise = {
-          enable = true;
-          package = pkgs.unstable.mise;
-          enableFishIntegration = true;
-          settings = {
-            experimental = true;
-          };
-          globalConfig = {
-            tools = {
-            };
-          };
+    programs.mise = {
+      enable = true;
+      package = pkgs.unstable.mise;
+      enableFishIntegration = true;
+      settings = {
+        experimental = true;
+      };
+      globalConfig = {
+        tools = {
         };
       };
+    };
   };
 }

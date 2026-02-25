@@ -8,7 +8,6 @@
     ./ghostty.nix
     ./lazygit.nix
     ./direnv.nix
-    ./goose.nix
     ./bottom.nix
     ./lazydocker.nix
     ./zoxide.nix

@@ -1,16 +1,10 @@
 {
-  username,
+  pkgs,
   ...
 }:
 {
-  config = {
-    home-manager.users.${username} =
-      { pkgs, ... }:
-      {
-        programs.gh = {
-          enable = true;
-          package = pkgs.gh;
-        };
-      };
+  programs.gh = {
+    enable = true;
+    package = pkgs.gh;
   };
 }

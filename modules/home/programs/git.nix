@@ -1,7 +1,7 @@
 {
-  lib,
+  pkgs,
   config,
-  username,
+  lib,
   ...
 }:
 let
@@ -27,50 +27,45 @@ in
   };
 
   config = {
-    home-manager.users.${username} =
-      { pkgs, config, ... }:
-      {
-        programs.git = {
-          enable = true;
-          package = pkgs.git;
+    programs.git = {
+      enable = true;
+      package = pkgs.git;
 
-          settings = {
-            user = {
-              name = cfg.name;
-              email = cfg.email;
-              signingkey = sshSigningKey;
-            };
-
-            gpg.format = "ssh";
-            "gpg \"ssh\"".program = onePassSignerPath;
-            commit.gpgsign = true;
-
-            push.autoSetupRemote = true;
-            init.defaultBranch = "main";
-            core.editor = "${config.programs.helix.package}/bin/hx";
-          };
-
-          ignores = [
-            ".DS_Store"
-            "Desktop.ini"
-            "._*"
-            "Thumbs.db"
-            ".Spotlight-V100"
-            ".Trashes"
-            ".idea/"
-            "*.log"
-            ".idea/"
-          ];
-        };
-        programs.delta = {
-          enable = true;
-          enableGitIntegration = true;
-          options = {
-            line-numbers = true;
-            side-by-side = true;
-          };
+      settings = {
+        user = {
+          name = cfg.name;
+          email = cfg.email;
+          signingkey = sshSigningKey;
         };
 
+        gpg.format = "ssh";
+        "gpg \"ssh\"".program = onePassSignerPath;
+        commit.gpgsign = true;
+
+        push.autoSetupRemote = true;
+        init.defaultBranch = "main";
+        core.editor = "${config.programs.helix.package}/bin/hx";
       };
+
+      ignores = [
+        ".DS_Store"
+        "Desktop.ini"
+        "._*"
+        "Thumbs.db"
+        ".Spotlight-V100"
+        ".Trashes"
+        ".idea/"
+        "*.log"
+        ".idea/"
+      ];
+    };
+    programs.delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        line-numbers = true;
+        side-by-side = true;
+      };
+    };
   };
 }

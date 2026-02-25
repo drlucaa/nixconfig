@@ -1,5 +1,7 @@
-{ config, ... }:
+{ username, ... }:
 {
   config.darwin.homebrew.extraCasks = [ "jetbrains-toolbox" ];
-  config.modules.programs.mise.enable = true;
+  config.home-manager.users.${username} = {
+    modules.programs.mise.enable = true;
+  };
 }

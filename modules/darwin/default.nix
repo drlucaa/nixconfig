@@ -7,6 +7,13 @@
     ./nix.nix
   ];
 
+  programs.fish.enable = true;
+
+  environment.variables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+  };
+
   nix.enable = true;
 
   networking.hostName = hostname;
