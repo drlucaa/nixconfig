@@ -36,6 +36,12 @@
         }
 
         {
+          on = [ "O" ];
+          run = "shell 'open .' --confirm";
+          desc = "Open current directory in Finder";
+        }
+
+        {
           on = [ "?" ];
           run = "help";
           desc = "Open help menu";
