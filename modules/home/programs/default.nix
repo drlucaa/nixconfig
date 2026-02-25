@@ -21,5 +21,6 @@
     ./bat.nix
     ./ssh.nix
     ./tools.nix
+    ./yazi.nix
   ];
 }

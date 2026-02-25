@@ -8,7 +8,6 @@
     defaultEditor = true;
     package = pkgs.unstable.helix;
     extraPackages = with pkgs; [
-      yazi
       vscode-langservers-extracted
       delve
       gopls
