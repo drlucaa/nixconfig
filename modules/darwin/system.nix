@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  config,
+  username,
+  ...
+}:
 {
   system = {
     startup.chime = false;
@@ -11,7 +15,7 @@
           "/System/Applications/Mail.app"
           "/Applications/Zen.app"
           "/System/Applications/System Settings.app"
-          "${pkgs.ghostty-bin}/Applications/Ghostty.app"
+          "${config.home-manager.users.${username}.programs.ghostty.package}/Applications/Ghostty.app"
           "/Applications/Spotify.app"
         ];
         expose-group-apps = true;
