@@ -15,6 +15,7 @@
     linctl
     glow
     kubectl
+    kubelogin-oidc
     kubectx
     flux
     ffmpeg
