@@ -1,0 +1,8 @@
+[[snippets]]
+prefix = "rust"
+scope = [ "toml" ]
+description = "Rust toolchain definition"
+body = """
+[toolchain]
+channel = "${1:stable}"
+components = [ "rustc", "cargo", "clippy", "rustfmt", "rust-src", "rust-analyzer" ]"""

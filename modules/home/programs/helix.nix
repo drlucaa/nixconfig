@@ -1,5 +1,7 @@
 {
   pkgs,
+  lib,
+  inputs,
   ...
 }:
 {
@@ -7,28 +9,6 @@
     enable = true;
     defaultEditor = true;
     package = pkgs.unstable.helix;
-    extraPackages = with pkgs; [
-      vscode-langservers-extracted
-      delve
-      gopls
-      helm-ls
-      prettier
-      superhtml
-      taplo
-      templ
-      docker-language-server
-      markdown-oxide
-      deno
-      tinymist
-      typstyle
-      terraform-ls
-      yaml-language-server
-      yaml-schema-router
-      jdt-language-server
-      lombok
-      nixd
-      nixfmt-rfc-style
-    ];
     settings = {
       keys = {
         normal = {
@@ -149,6 +129,56 @@
       ".DS_Store"
       ".idea"
       ".vscode"
+      "target"
+    ];
+
+    extraPackages = with pkgs; [
+      # --- General / Multi-language ---
+      simple-completion-language-server
+      vscode-langservers-extracted # Provides HTML, CSS, JSON, ESLint
+      prettier
+
+      # --- Nix ---
+      nixd
+      nixfmt-rfc-style
+
+      # --- Go ---
+      gopls
+      delve
+      templ
+
+      # --- Rust ---
+      inputs.fenix.packages.${pkgs.system}.stable.toolchain
+
+      # --- Java ---
+      jdt-language-server
+      lombok
+
+      # --- Web / Frontend ---
+      superhtml
+
+      # --- Infrastructure / DevOps ---
+      docker-language-server
+      helm-ls
+      terraform-ls
+      terraform
+
+      # --- Configuration (YAML, TOML) ---
+      yaml-language-server
+      yaml-schema-router
+      taplo
+
+      # --- Markdown ---
+      markdown-oxide
+      deno # Used for markdown formatting
+
+      # --- Typst ---
+      tinymist
+      typstyle
+
+      # --- Shell ---
+      fish-lsp
+      bash-language-server
     ];
 
     languages = {
@@ -185,12 +215,42 @@
             "--jvm-arg=-XX:+AlwaysPreTouch"
           ];
         };
+        rust-analyzer = {
+          command = "rust-analyzer";
+          config = {
+            checkOnSave = true;
+            cargo.allFeatures = true;
+            procMacro.enable = true;
+          };
+        };
+        scls = {
+          command = "simple-completion-language-server";
+          config = {
+            feature_words = true;
+            feature_snippets = true;
+            snippets_first = true; # Return snippets before word completions
+            snippets_inline_by_word_tail = false; # Suggest snippets by word tail
+            feature_unicode_input = true; # Enable unicode input (e.g. alpha -> α)
+            feature_paths = true; # Enable path completion
+          };
+        };
       };
 
       language = [
         {
+          name = "go";
+          auto-format = true;
+          language-servers = [
+            "scls"
+            "gopls"
+          ];
+        }
+        {
           name = "yaml";
-          language-servers = [ "yaml-language-server" ];
+          language-servers = [
+            "scls"
+            "yaml-language-server"
+          ];
           formatter = {
             command = "prettier";
             args = [
@@ -202,6 +262,10 @@
         }
         {
           name = "nix";
+          language-servers = [
+            "scls"
+            "nixd"
+          ];
           formatter = {
             command = "nixfmt";
           };
@@ -209,6 +273,10 @@
         }
         {
           name = "markdown";
+          language-servers = [
+            "scls"
+            "markdown-oxide"
+          ];
           formatter = {
             command = "deno";
             args = [
@@ -221,11 +289,15 @@
           auto-format = true;
         }
         {
-          name = "nix";
-          formatter = {
-            command = "nixfmt";
-          };
+          name = "rust";
           auto-format = true;
+          language-servers = [
+            "scls"
+            "rust-analyzer"
+          ];
+          formatter = {
+            command = "rustfmt";
+          };
         }
         {
           name = "typst";
@@ -233,13 +305,110 @@
           injection-regex = "typst";
           file-types = [ "typ" ];
           roots = [ "typst.toml" ];
-          language-servers = [ "tinymist" ];
+          language-servers = [
+            "scls"
+            "tinymist"
+          ];
           formatter = {
             command = "typstyle";
           };
           auto-format = true;
         }
+        {
+          name = "java";
+          language-servers = [
+            "scls"
+            "jdtls"
+          ];
+        }
+        {
+          name = "toml";
+          language-servers = [
+            "scls"
+            "taplo"
+          ];
+        }
+        {
+          name = "dockerfile";
+          language-servers = [
+            "scls"
+            "docker-langserver"
+          ];
+        }
+        {
+          name = "hcl";
+          auto-format = true;
+          formatter = {
+            command = "terraform";
+            args = [
+              "fmt"
+              "-"
+            ];
+          };
+          language-servers = [
+            "scls"
+            "terraform-ls"
+          ];
+        }
+        {
+          name = "json";
+          language-servers = [
+            "scls"
+            "vscode-json-language-server"
+          ];
+        }
+        {
+          name = "css";
+          language-servers = [
+            "scls"
+            "vscode-css-language-server"
+          ];
+        }
+        {
+          name = "html";
+          language-servers = [
+            "scls"
+            "superhtml"
+          ];
+        }
+        {
+          name = "helm";
+          language-servers = [
+            "scls"
+            "helm_ls"
+          ];
+        }
+        {
+          name = "templ";
+          language-servers = [
+            "scls"
+            "templ"
+          ];
+        }
+        {
+          name = "bash";
+          language-servers = [
+            "scls"
+            "bash-language-server"
+          ];
+        }
+        {
+          name = "fish";
+          language-servers = [
+            "scls"
+            "fish-lsp"
+          ];
+        }
       ];
     };
   };
+
+  xdg.configFile."helix" = {
+    source = ../../../config/helix;
+    recursive = true;
+  };
+  home.activation.fetchSclsSnippets = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    export PATH="${pkgs.git}/bin:$PATH"
+    $DRY_RUN_CMD ${pkgs.simple-completion-language-server}/bin/simple-completion-language-server fetch-external-snippets
+  '';
 }

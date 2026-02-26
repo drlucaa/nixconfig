@@ -46,6 +46,10 @@
     ];
 
     functions = {
+      init-flake = ''
+        echo "use flake" > .envrc
+        direnv allow
+      '';
       fish_greeting = ''
         if not set -q _tide_left_items
           tide configure

@@ -1,0 +1,125 @@
+[[snippets]]
+prefix = "flake"
+scope = [ "nix" ]
+description = "Create a basic flake.nix with a devShell"
+body = """
+{
+  description = "Development environment for ${1:# env name}";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/${2:nixpkgs-unstable}";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs =
+    {
+      nixpkgs,
+      flake-utils,
+      fenix,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            ${3:# packages}
+          ];
+        };
+
+        formatter = pkgs.nixfmt;
+      }
+    );
+}"""
+
+[[snippets]]
+prefix = "rustflake"
+scope = [ "nix" ]
+description = "Create a flake.nix with a rust devShell"
+body = """
+{
+  description = "Development environment for ${1:Rust}";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/${2:nixpkgs-unstable}";
+    flake-utils.url = "github:numtide/flake-utils";
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs =
+    {
+      nixpkgs,
+      flake-utils,
+      fenix,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+        toolchain = fenix.packages.\\${system}.fromToolchainFile {
+          file = ./rust-toolchain.toml;
+          sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        };
+      in
+      {
+        devShells.default = pkgs.mkShell {
+          packages = [
+            toolchain
+          ];
+
+          RUST_SRC_PATH = "\\${toolchain}/lib/rustlib/src/rust/library";
+        };
+
+        formatter = pkgs.nixfmt;
+      }
+    );
+}"""
+
+[[snippets]]
+prefix = "goflake"
+scope = [ "nix" ]
+description = "Create a flake.nix with a go devShell"
+body = """
+{
+  description = "Development environment for ${1:Go}";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/${2:nixpkgs-unstable}";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs =
+    {
+      nixpkgs,
+      flake-utils,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            go
+            gopls
+            delve
+            gotools
+            golangci-lint
+            gofumpt
+            gci
+          ];
+        };
+
+        formatter = pkgs.nixfmt;
+      }
+    );
+}"""
