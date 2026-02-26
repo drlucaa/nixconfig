@@ -54,10 +54,5 @@
         };
         lib = lib;
       };
-      perSystem =
-        { pkgs, ... }:
-        {
-          devShells = import ./shells { inherit pkgs; };
-        };
     };
 }

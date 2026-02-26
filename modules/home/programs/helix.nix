@@ -26,6 +26,8 @@
       yaml-schema-router
       jdt-language-server
       lombok
+      nixd
+      nixfmt-rfc-style
     ];
     settings = {
       keys = {
@@ -215,6 +217,13 @@
               "--ext"
               "md"
             ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "nix";
+          formatter = {
+            command = "nixfmt";
           };
           auto-format = true;
         }
