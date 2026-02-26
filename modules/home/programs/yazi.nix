@@ -48,6 +48,17 @@
         }
 
         {
+          on = [ "<C-g>" ]; # Example: Ctrl + g
+          run = "shell 'lazygit' --block --confirm";
+          desc = "Open lazygit";
+        }
+        {
+          on = [ "<C-j>" ]; # Example: Ctrl + j
+          run = "shell 'jjui' --block --confirm";
+          desc = "Open jjui";
+        }
+
+        {
           on = [
             "g"
             "n"
