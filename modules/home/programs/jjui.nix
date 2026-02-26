@@ -42,9 +42,8 @@ in
     "revset completion selected" = { bg = "#313244", fg = "#cdd6f4" }
     "revisions details added"    = { fg = "#a6e3a1" }
     "revisions details modified" = { fg = "#f9e2af" }
-    "revisions details removed"  = { fg = "#f38ba8" }
+    "revisions details deleted"  = { fg = "#f38ba8" }
     "revisions details renamed"  = { fg = "#89b4fa" }
-    "revisions details copied"   = { fg = "#94e2d5" }
 
     "revisions" = { fg = "#cdd6f4" }
     "revisions selected" = { bg = "#181825"}
