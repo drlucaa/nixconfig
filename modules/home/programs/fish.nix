@@ -46,7 +46,7 @@
     ];
 
     functions = {
-      init-flake = ''
+      flake-init = ''
         echo "use flake" > .envrc
         direnv allow
       '';
