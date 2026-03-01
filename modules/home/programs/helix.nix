@@ -18,6 +18,11 @@
           "C-s" = ":write";
           "C-x" = ":reset-diff-change";
           "C-h" = ":toggle lsp.display-inlay-hints";
+          "C-;" = [
+            "normal_mode"
+            "goto_line_end"
+            ":append-output echo -n ';'"
+          ];
           space = {
             q = {
               q = ":quit-all";
@@ -41,6 +46,13 @@
           j = {
             j = "normal_mode";
           };
+          "C-;" = [
+            "normal_mode"
+            "goto_line_end"
+            ":append-output echo -n ';'"
+            "move_char_right"
+            "insert_mode"
+          ];
         };
       };
 
@@ -118,6 +130,7 @@
 
         lsp = {
           display-progress-messages = true;
+          display-inlay-hints = true;
         };
       };
     };
