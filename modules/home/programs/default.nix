@@ -2,6 +2,7 @@
   imports = [
     ./atuin.nix
     ./aerospace.nix
+    ./btop.nix
     ./helix.nix
     ./fastfetch.nix
     ./fish.nix
