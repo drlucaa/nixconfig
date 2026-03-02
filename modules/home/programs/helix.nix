@@ -232,6 +232,7 @@
           command = "rust-analyzer";
           config = {
             checkOnSave = true;
+            check.command = "clippy";
             cargo.allFeatures = true;
             procMacro.enable = true;
           };
