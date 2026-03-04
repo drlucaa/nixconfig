@@ -1,0 +1,13 @@
+[
+  ".DS_Store"
+  "Desktop.ini"
+  "Thumbs.db"
+  ".Spotlight-V100"
+  ".Trashes"
+  ".idea"
+  ".vscode"
+  "node_modules"
+  "vendor"
+  "target"
+  ".direnv"
+]

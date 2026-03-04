@@ -1,7 +1,12 @@
 {
   pkgs,
+  self,
   ...
 }:
+let
+  ignores = import "${self}/config/ignores.nix";
+  ignoreGlob = builtins.concatStringsSep "|" ignores;
+in
 {
   programs.eza = {
     enable = true;
@@ -18,7 +23,7 @@
       "--hyperlink"
     ];
   };
-  programs.fish.shellAbbrs = {
-    et = "eza --tree";
-  };
+  programs.fish.functions.et = ''
+    eza --tree --ignore-glob "${ignoreGlob}"
+  '';
 }

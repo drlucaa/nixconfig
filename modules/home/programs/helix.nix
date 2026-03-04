@@ -23,6 +23,11 @@
             "goto_line_end"
             ":append-output echo -n ';'"
           ];
+          "C-," = [
+            "normal_mode"
+            "goto_line_end"
+            ":append-output echo -n ','"
+          ];
           space = {
             q = {
               q = ":quit-all";
@@ -50,6 +55,13 @@
             "normal_mode"
             "goto_line_end"
             ":append-output echo -n ';'"
+            "move_char_right"
+            "insert_mode"
+          ];
+          "C-," = [
+            "normal_mode"
+            "goto_line_end"
+            ":append-output echo -n ','"
             "move_char_right"
             "insert_mode"
           ];

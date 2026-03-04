@@ -1,28 +1,30 @@
 {
   imports = [
-    ./atuin.nix
     ./aerospace.nix
-    ./btop.nix
-    ./helix.nix
-    ./fastfetch.nix
-    ./fish.nix
-    ./ghostty.nix
-    ./lazygit.nix
-    ./direnv.nix
-    ./bottom.nix
-    ./lazydocker.nix
-    ./k9s.nix
-    ./zoxide.nix
-    ./gh_cli.nix
-    ./eza.nix
-    ./pay-respects.nix
-    ./git.nix
-    ./mise.nix
-    ./jujutsu.nix
-    ./jjui.nix
+    ./atuin.nix
     ./bat.nix
+    ./bottom.nix
+    ./direnv.nix
+    ./eza.nix
+    ./fastfetch.nix
+    ./fd.nix
+    ./fish.nix
+    ./fzf.nix
+    ./gh_cli.nix
+    ./ghostty.nix
+    ./git.nix
+    ./helix.nix
+    ./jjui.nix
+    ./jujutsu.nix
+    ./k9s.nix
+    ./lazydocker.nix
+    ./lazygit.nix
+    ./mise.nix
+    ./pay-respects.nix
+    ./ripgrep.nix
     ./ssh.nix
     ./tools.nix
     ./yazi.nix
+    ./zoxide.nix
   ];
 }

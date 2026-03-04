@@ -2,10 +2,12 @@
   pkgs,
   config,
   lib,
+  self,
   ...
 }:
 let
   cfg = config.modules.programs.git;
+  ignores = import "${self}/config/git-ignores.nix";
 
   onePassSignerPath = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
   sshSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEczwOyJv9eAYANotcE0iB8dlFOWT1WE1ce8EgVHtp6X";
@@ -47,17 +49,7 @@ in
         core.editor = "${config.programs.helix.package}/bin/hx";
       };
 
-      ignores = [
-        ".DS_Store"
-        "Desktop.ini"
-        "._*"
-        "Thumbs.db"
-        ".Spotlight-V100"
-        ".Trashes"
-        ".idea/"
-        "*.log"
-        ".idea/"
-      ];
+      ignores = ignores;
     };
     programs.delta = {
       enable = true;

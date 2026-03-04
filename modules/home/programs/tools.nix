@@ -4,9 +4,6 @@
 }:
 {
   home.packages = with pkgs; [
-    fd
-    fzf
-    ripgrep
     jq
     yq
     fq
