@@ -23,7 +23,9 @@ in
       "--hyperlink"
     ];
   };
-  programs.fish.functions.et = ''
-    eza --tree --ignore-glob "${ignoreGlob}"
-  '';
+  programs.fish.functions.et = {
+    body = ''
+      eza --tree --ignore-glob "${ignoreGlob}" $argv
+    '';
+  };
 }
