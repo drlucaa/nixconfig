@@ -38,6 +38,8 @@ in
         "nikitabobko/tap/aerospace"
         "antigravity"
         "affinity"
+        "dbeaver-community"
+        "deepl"
         "zen"
         "1password"
         "1password-cli"
@@ -55,6 +57,7 @@ in
 
       masApps = {
         "1Password for Safari" = 1569813296;
+        "Toggle Track" = 1291898086;
       };
       onActivation.cleanup = "zap";
       onActivation.autoUpdate = true;
