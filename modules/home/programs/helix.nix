@@ -167,6 +167,9 @@
       nixd
       nixfmt-rfc-style
 
+      # --- Nickel ---
+      pkgs.unstable.nls
+
       # --- Go ---
       gopls
       delve

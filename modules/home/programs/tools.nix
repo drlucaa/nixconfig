@@ -16,6 +16,7 @@
     kubectx
     flux
     ffmpeg
+    pkgs.unstable.nickel
     pkgs.unstable.opencode
     pkgs.unstable.gemini-cli
     pkgs.unstable.typst
