@@ -1,4 +1,6 @@
 [
+  ".git"
+  ".jj"
   ".DS_Store"
   "Desktop.ini"
   "Thumbs.db"
