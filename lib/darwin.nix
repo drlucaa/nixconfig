@@ -20,6 +20,7 @@ let
           ;
       };
       modules = [
+        inputs.determinate.darwinModules.default
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-index-database.darwinModules.nix-index
 
