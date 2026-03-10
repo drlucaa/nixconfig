@@ -11,6 +11,7 @@
     tlrc
     linctl
     glow
+    openshift
     kubectl
     kubelogin-oidc
     kubectx
