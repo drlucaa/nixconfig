@@ -176,7 +176,7 @@
       templ
 
       # --- Rust ---
-      inputs.fenix.packages.${pkgs.system}.stable.toolchain
+      inputs.fenix.packages.${pkgs.stdenv.hostPlatform.system}.stable.toolchain
 
       # --- Java ---
       jdt-language-server
