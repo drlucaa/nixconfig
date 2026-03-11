@@ -183,7 +183,6 @@
       # --- Go ---
       gopls
       delve
-      templ
 
       # --- Rust ---
       inputs.fenix.packages.${pkgs.stdenv.hostPlatform.system}.stable.toolchain
@@ -194,6 +193,7 @@
 
       # --- Web / Frontend ---
       superhtml
+      tailwindcss-language-server
 
       # --- Infrastructure / DevOps ---
       docker-language-server
@@ -260,6 +260,22 @@
             check.command = "clippy";
             cargo.allFeatures = true;
             procMacro.enable = true;
+          };
+        };
+        tailwind = {
+          command = "tailwindcss-language-server";
+          args = [ "--stdio" ];
+          root-pattern = [
+            "package.json"
+            "flake.nix"
+          ];
+          config = {
+            tailwindCSS = {
+              includeLanguages = {
+                templ = "html";
+                "*.templ" = "html";
+              };
+            };
           };
         };
         scls = {
@@ -421,6 +437,7 @@
           name = "templ";
           language-servers = [
             "scls"
+            "tailwind"
             "templ"
           ];
         }
