@@ -46,6 +46,7 @@ in
         "spotify"
         "raycast"
         "arc"
+        "orbstack"
         "linear-linear"
         "docker-desktop"
         "traiproject/tap/same"
