@@ -4,6 +4,7 @@
     ./atuin.nix
     ./bat.nix
     ./bottom.nix
+    ./btop.nix
     ./direnv.nix
     ./eza.nix
     ./fastfetch.nix
