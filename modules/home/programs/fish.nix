@@ -57,6 +57,15 @@
         fastfetch
       '';
       cx = "mkdir -p $argv && cd $argv";
+      _tide_item_node = ''
+        if command -sq node
+            node --version | string match -qr "v(?<v>.*)"
+            _tide_print_item node $tide_node_icon' ' "$v"
+        else if command -sq bun
+            bun --version | string match -qr "(?<v>.*)"
+            _tide_print_item node $tide_node_icon' ' "bun $v"
+        end
+      '';
       _tide_item_git = ''
         # Try jj first; if that fails, fall back to fish's normal git prompt.
         fish_jj_prompt; or fish_git_prompt
