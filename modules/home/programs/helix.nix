@@ -152,7 +152,7 @@
 
         lsp = {
           display-progress-messages = true;
-          display-inlay-hints = true;
+          display-inlay-hints = false;
         };
       };
     };
@@ -182,6 +182,7 @@
 
       # --- Go ---
       gopls
+      gofumpt
       delve
 
       # --- Rust ---
@@ -299,6 +300,9 @@
             "scls"
             "gopls"
           ];
+          formatter = {
+            command = "gofumpt";
+          };
         }
         {
           name = "yaml";
