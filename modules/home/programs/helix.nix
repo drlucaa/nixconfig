@@ -28,6 +28,16 @@
             "goto_line_end"
             ":append-output echo -n ','"
           ];
+          "C-l" = [
+            "normal_mode"
+            "move_char_right"
+            "insert_mode"
+          ];
+          "C-o" = [
+            "normal_mode"
+            "move_char_right"
+            "open_below"
+          ];
           space = {
             q = {
               q = ":quit-all";
