@@ -31,6 +31,7 @@ in
         "mas"
         "dgunzy/tap/flux9s"
         "openssl@3"
+        "ollama"
       ]
       ++ cfg.extraBrews;
 
