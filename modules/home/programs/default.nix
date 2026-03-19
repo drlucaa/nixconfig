@@ -17,6 +17,7 @@
     ./helix.nix
     ./jjui.nix
     ./jujutsu.nix
+    ./jq.nix
     ./k9s.nix
     ./lazydocker.nix
     ./lazygit.nix
