@@ -24,6 +24,7 @@
       tscp = "scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
       mkdir = "mkdir -p";
       rd = "rm -rf";
+      gai = "/opt/homebrew/bin/goose";
     };
 
     plugins = [
