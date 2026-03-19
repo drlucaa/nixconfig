@@ -4,9 +4,10 @@
 }:
 {
   home.packages = with pkgs; [
-    jq
     yq
     fq
+    sd
+    rainfrog
     age
     tlrc
     linctl
