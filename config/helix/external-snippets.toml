@@ -21,3 +21,11 @@ path = "snippets/rust/rust.json"
 [[sources.paths]]
 scope = ["shellscript"]
 path = "snippets/shell/shell.json"
+
+[[sources.paths]]
+scope = ["html"]
+path = "snippets/html.json"
+
+[[sources.paths]]
+scope = ["css"]
+path = "snippets/css.json"
