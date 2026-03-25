@@ -165,6 +165,7 @@
       ".idea"
       ".vscode"
       "target"
+      "*.lock"
     ];
 
     extraPackages = with pkgs; [
@@ -267,14 +268,14 @@
           command = "tailwindcss-language-server";
           args = [ "--stdio" ];
           root-pattern = [
-            "package.json"
             "flake.nix"
+            "Cargo.toml"
           ];
           config = {
             tailwindCSS = {
               includeLanguages = {
-                templ = "html";
-                "*.templ" = "html";
+                rust = "html";
+                "*.rs" = "html";
               };
             };
           };
@@ -352,6 +353,7 @@
           auto-format = true;
           language-servers = [
             "scls"
+            "tailwind"
             "rust-analyzer"
           ];
           formatter = {
@@ -458,6 +460,23 @@
             "scls"
             "fish-lsp"
           ];
+        }
+        {
+          name = "rstml";
+          scope = "scope.rstml";
+          file-types = [ ];
+          injection-regex = "rstml";
+        }
+      ];
+
+      grammar = [
+        {
+          name = "rstml";
+          source = {
+            git = "https://github.com/rayliwell/tree-sitter-rstml";
+            rev = "2d4c2bc84a40d99a4e099ff7c6cf7f1bc5dc7806";
+            subpath = "rstml";
+          };
         }
       ];
     };
