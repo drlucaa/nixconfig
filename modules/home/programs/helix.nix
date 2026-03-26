@@ -388,6 +388,7 @@
             "scls"
             "taplo"
           ];
+          auto-format = true;
         }
         {
           name = "dockerfile";
