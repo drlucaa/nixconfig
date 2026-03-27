@@ -290,10 +290,10 @@
           config = {
             feature_words = true;
             feature_snippets = true;
-            snippets_first = true; # Return snippets before word completions
-            snippets_inline_by_word_tail = false; # Suggest snippets by word tail
-            feature_unicode_input = true; # Enable unicode input (e.g. alpha -> α)
-            feature_paths = true; # Enable path completion
+            snippets_first = true;
+            snippets_inline_by_word_tail = true;
+            feature_unicode_input = false;
+            feature_paths = false;
           };
         };
       };
