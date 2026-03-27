@@ -171,6 +171,7 @@
     extraPackages = with pkgs; [
       # --- General / Multi-language ---
       simple-completion-language-server
+      deps-lsp
       vscode-langservers-extracted # Provides HTML, CSS, JSON, ESLint
       prettier
 
@@ -229,6 +230,10 @@
             exportPdf = "onType";
             outputPath = "$root/target/$dir/$name";
           };
+        };
+        deps-lsp = {
+          command = "deps-lsp";
+          args = [ "--stdio" ];
         };
         yaml-language-server = {
           command = "${pkgs.yaml-schema-router}/bin/yaml-schema-router";
@@ -387,6 +392,7 @@
           language-servers = [
             "scls"
             "taplo"
+            "deps-lsp"
           ];
           auto-format = true;
         }
