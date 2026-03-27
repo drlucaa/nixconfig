@@ -7,4 +7,6 @@
     enable = true;
     package = pkgs.gh;
   };
+
+  home.sessionVariables.GITHUB_TOKEN = "$(gh auth token)";
 }
