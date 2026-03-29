@@ -5,14 +5,14 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "deps-lsp";
-  version = "0.9.2";
+  version = "0.9.3";
 
   src = fetchFromGitHub {
     owner = "bug-ops";
     repo = "deps-lsp";
-    rev = "v0.9.2";
-    hash = "sha256-KJQarx2KjkPL+rkavsv/IFpI+6GCmKTc1m5cOP1pcOc=";
+    rev = "v0.9.3";
+    hash = "sha256-R7WTlZcVDTtN7t3CKGgsYasDRVb71ia+OB+h9dEZEv0=";
   };
 
-  cargoHash = "sha256-p/0sFQGeLvSBzO2gDOVXoZeEENI3ghHpSI4flg97vPo=";
+  cargoHash = "sha256-k95a98hT7ZUMgnUSWepmj3OoT5z9GpXHpg460+uPcKQ=";
 }
