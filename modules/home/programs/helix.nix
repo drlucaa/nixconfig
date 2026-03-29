@@ -474,6 +474,25 @@
           file-types = [ ];
           injection-regex = "rstml";
         }
+        {
+          name = "git-commit";
+          language-servers = [ "scls" ];
+        }
+        {
+          name = "xml";
+          language-servers = [
+            "scls"
+            "deps-lsp"
+          ];
+        }
+        {
+          name = "json";
+          language-servers = [
+            "scls"
+            "deps-lsp"
+            "vscode-json-language-server"
+          ];
+        }
       ];
 
       grammar = [
