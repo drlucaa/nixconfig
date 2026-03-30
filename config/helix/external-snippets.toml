@@ -29,11 +29,3 @@ path = "snippets/html.json"
 [[sources.paths]]
 scope = ["css"]
 path = "snippets/css.json"
-
-[[sources]]
-name = "leptos-snippets"
-git = "https://github.com/mondeja/vscode-leptos-snippets"
-
-[[sources.paths]]
-scope = ["rust"]
-path = "snippets.json"

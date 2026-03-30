@@ -469,12 +469,6 @@
           ];
         }
         {
-          name = "rstml";
-          scope = "scope.rstml";
-          file-types = [ ];
-          injection-regex = "rstml";
-        }
-        {
           name = "git-commit";
           language-servers = [ "scls" ];
         }
@@ -492,17 +486,6 @@
             "deps-lsp"
             "vscode-json-language-server"
           ];
-        }
-      ];
-
-      grammar = [
-        {
-          name = "rstml";
-          source = {
-            git = "https://github.com/rayliwell/tree-sitter-rstml";
-            rev = "2d4c2bc84a40d99a4e099ff7c6cf7f1bc5dc7806";
-            subpath = "rstml";
-          };
         }
       ];
     };
