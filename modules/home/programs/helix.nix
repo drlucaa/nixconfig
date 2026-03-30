@@ -487,6 +487,10 @@
             "vscode-json-language-server"
           ];
         }
+        {
+          name = "env";
+          language-servers = [ "scls" ];
+        }
       ];
     };
   };
