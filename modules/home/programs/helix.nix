@@ -200,6 +200,9 @@
       # --- Web / Frontend ---
       superhtml
       tailwindcss-language-server
+      typescript-language-server
+      svelte-language-server
+      typescript
 
       # --- Infrastructure / DevOps ---
       docker-language-server
@@ -278,13 +281,12 @@
           args = [ "--stdio" ];
           root-pattern = [
             "flake.nix"
-            "Cargo.toml"
+            "package.json"
           ];
           config = {
             tailwindCSS = {
               includeLanguages = {
-                rust = "html";
-                "*.rs" = "html";
+                svelte = "html";
               };
             };
           };
@@ -298,6 +300,18 @@
             snippets_inline_by_word_tail = true;
             feature_unicode_input = false;
             feature_paths = false;
+          };
+        };
+        deno-lsp = {
+          command = "deno";
+          args = [
+            "lsp"
+          ];
+          config = {
+            deno = {
+              enable = true;
+              unstable = true;
+            };
           };
         };
       };
@@ -440,8 +454,71 @@
           name = "html";
           language-servers = [
             "scls"
+            "tailwind"
             "superhtml"
           ];
+          formatter = {
+            command = "deno";
+            args = [
+              "fmt"
+              "-"
+              "--ext"
+              "html"
+            ];
+          };
+        }
+        {
+          name = "svelte";
+          auto-format = true;
+          language-servers = [
+            "scls"
+            "tailwind"
+            "svelteserver"
+          ];
+          formatter = {
+            command = "deno";
+            args = [
+              "fmt"
+              "-"
+              "--ext"
+              "svelte"
+              "--unstable-component"
+            ];
+          };
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+          language-servers = [
+            "scls"
+            "typescript-language-server"
+          ];
+          formatter = {
+            command = "deno";
+            args = [
+              "fmt"
+              "-"
+              "--ext"
+              "typescript"
+            ];
+          };
+        }
+        {
+          name = "javascript";
+          auto-format = true;
+          language-servers = [
+            "scls"
+            "typescript-language-server"
+          ];
+          formatter = {
+            command = "deno";
+            args = [
+              "fmt"
+              "-"
+              "--ext"
+              "javascript"
+            ];
+          };
         }
         {
           name = "helm";
