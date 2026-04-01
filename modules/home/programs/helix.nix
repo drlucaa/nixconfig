@@ -248,17 +248,18 @@
             "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
 
             # Increase memory allocation
-            "--jvm-arg=-Xms1G"
-            "--jvm-arg=-Xmx4G"
+            "--jvm-arg=-Xms256m"
+            "--jvm-arg=-Xmx2G"
 
-            # Optimize Garbage Collection
-            "--jvm-arg=-XX:+UseZGC"
-            "--jvm-arg=-XX:+ZGenerational"
-            "--jvm-arg=-XX:+UseStringDeduplication"
+            # Optimize for Throughput and Fast Indexing
+            "--jvm-arg=-XX:+UseParallelGC"
+            "--jvm-arg=-XX:+DisableExplicitGC"
 
-            # Prevent the JVM from swapping to disk
-            "--jvm-arg=-XX:+AlwaysPreTouch"
+            # Startup Speed Tweaks
+            "--jvm-arg=-Xshare:auto"
+            "--jvm-arg=-XX:+UsePerfData"
           ];
+
         };
         rust-analyzer = {
           command = "rust-analyzer";
