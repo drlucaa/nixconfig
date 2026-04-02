@@ -1,0 +1,42 @@
+name: "Validate Flake and push to FlakeHub"
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  nix-check:
+    name: Nix Flake Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check Flake Metadata
+        run: nix flake check
+
+      - name: Verify DevShell
+        run: nix develop --command go version
+
+      - name: Nix Format Check
+        run: nix fmt -- --check .
+  flakehub-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: DeterminateSystems/determinate-nix-action@v3
+      - uses: DeterminateSystems/flakehub-push@main
+        with:
+          name: nixconfig
+          rolling: true
+          visibility: public
+          include-output-paths: true
