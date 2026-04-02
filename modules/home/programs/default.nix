@@ -16,12 +16,13 @@
     ./git.nix
     ./helix.nix
     ./jjui.nix
-    ./jujutsu.nix
     ./jq.nix
+    ./jujutsu.nix
     ./k9s.nix
     ./lazydocker.nix
     ./lazygit.nix
     ./mise.nix
+    ./opencode.nix
     ./pay-respects.nix
     ./ripgrep.nix
     ./ssh.nix

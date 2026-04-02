@@ -19,7 +19,6 @@
     flux
     ffmpeg
     pkgs.unstable.nickel
-    pkgs.unstable.opencode
     pkgs.unstable.typst
     pkgs.unstable.tdf
   ];

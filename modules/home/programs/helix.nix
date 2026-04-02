@@ -79,7 +79,7 @@
       };
 
       editor = {
-        mouse = false;
+        mouse = true;
         line-number = "relative";
         true-color = true;
         cursorline = true;
