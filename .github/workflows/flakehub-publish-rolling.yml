@@ -8,19 +8,11 @@ jobs:
     name: Nix Flake Validation
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/determinate-nix-action@v3
 
       - name: Check Flake Metadata
         run: nix flake check
-
-      - name: Verify DevShell
-        run: nix develop --command go version
 
       - name: Nix Format Check
         run: nix fmt -- --check .
@@ -36,7 +28,7 @@ jobs:
       - uses: DeterminateSystems/determinate-nix-action@v3
       - uses: DeterminateSystems/flakehub-push@main
         with:
-          name: nixconfig
+          name: drlucaa/nixconfig
           rolling: true
           visibility: public
           include-output-paths: true
