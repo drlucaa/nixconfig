@@ -194,6 +194,9 @@
       jdt-language-server
       lombok
 
+      # --- Just ---
+      pkgs.unstable.just-lsp
+
       # --- Web / Frontend ---
       superhtml
       tailwindcss-language-server
@@ -491,6 +494,13 @@
         {
           name = "env";
           language-servers = [ "scls" ];
+        }
+        {
+          name = "just";
+          language-servers = [
+            "sclc"
+            "just-lsp"
+          ];
         }
       ];
     };
