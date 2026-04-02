@@ -6,7 +6,7 @@ on:
 jobs:
   nix-check:
     name: Nix Flake Validation
-    runs-on: macos-26-arm
+    runs-on: macos-26
     steps:
       - uses: actions/checkout@v6
       - uses: DeterminateSystems/determinate-nix-action@v3
@@ -17,7 +17,7 @@ jobs:
       - name: Nix Format Check
         run: nix fmt -- --check .
   flakehub-publish:
-    runs-on: macos-26-arm
+    runs-on: macos-26
     permissions:
       id-token: write
       contents: read
