@@ -31,4 +31,4 @@ jobs:
           name: drlucaa/nixconfig
           rolling: true
           visibility: public
-          include-output-paths: true
+          include-output-paths: false
