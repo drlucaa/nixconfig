@@ -15,9 +15,9 @@ jobs:
         run: nix flake check
 
       - name: Nix Format Check
-        run: nix fmt -- --check .
+        run: nix fmt -- --fail-on-change
   flakehub-publish:
-    runs-on: macos-26
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: read
