@@ -58,4 +58,11 @@
     rev = "9703c4e91da7b8ab42fe54a9167d8955d2dda405";
     hash = "sha256-BaY2iWzADObxaKmnqVSWiCJrZ7+Jg0mrr5iJ7msmy8Y=";
   };
+
+  home.file."tool-corpora/bits".source = pkgs.fetchFromGitHub {
+    owner = "huntabyte";
+    repo = "bits-ui";
+    rev = "a6ee9aeb3d48aa2ffc78991c61e51d8d6e008f64"; # 2.17.3
+    hash = "sha256-KnFE4I0eOhLbXS9Kfsit3R2FqRsENXnSJEDrpbO7fhs=";
+  };
 }
