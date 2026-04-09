@@ -79,7 +79,7 @@
       };
 
       editor = {
-        mouse = true;
+        mouse = false;
         line-number = "relative";
         true-color = true;
         cursorline = true;
@@ -302,15 +302,12 @@
             feature_paths = false;
           };
         };
-        deno-lsp = {
-          command = "deno";
-          args = [
-            "lsp"
-          ];
+        vscode-css-language-server = {
           config = {
-            deno = {
-              enable = true;
-              unstable = true;
+            css = {
+              lint = {
+                unknownAtRules = "ignore";
+              };
             };
           };
         };
@@ -447,6 +444,7 @@
           name = "css";
           language-servers = [
             "scls"
+            "tailwindcss-language-server"
             "vscode-css-language-server"
           ];
         }
@@ -462,8 +460,6 @@
             args = [
               "fmt"
               "-"
-              "--ext"
-              "html"
             ];
           };
         }
@@ -498,8 +494,6 @@
             args = [
               "fmt"
               "-"
-              "--ext"
-              "typescript"
             ];
           };
         }
@@ -515,8 +509,6 @@
             args = [
               "fmt"
               "-"
-              "--ext"
-              "javascript"
             ];
           };
         }
@@ -577,6 +569,12 @@
           language-servers = [
             "sclc"
             "just-lsp"
+          ];
+        }
+        {
+          name = "jjdescription";
+          language-servers = [
+            "scls"
           ];
         }
       ];
