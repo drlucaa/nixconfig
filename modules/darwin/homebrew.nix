@@ -20,40 +20,41 @@ in
     homebrew = {
       enable = true;
       taps = [
-        "nikitabobko/tap"
         "FelixKratz/formulae"
-        "traiproject/tap"
         "dgunzy/tap"
+        "nikitabobko/tap"
+        "traiproject/tap"
       ];
       brews = [
-        "block-goose-cli"
         "FelixKratz/formulae/borders"
-        "mas"
+        "block-goose-cli"
         "dgunzy/tap/flux9s"
-        "openssl@3"
+        "mas"
         "ollama"
+        "openssl@3"
       ]
       ++ cfg.extraBrews;
 
       casks = [
-        "nikitabobko/tap/aerospace"
-        "antigravity"
-        "affinity"
-        "dbeaver-community"
-        "deepl"
-        "zen"
         "1password"
         "1password-cli"
-        "spotify"
-        "raycast"
+        "affinity"
+        "antigravity"
         "arc"
-        "orbstack"
-        "linear-linear"
+        "dbeaver-community"
+        "deepl"
         "docker-desktop"
+        "figma"
+        "linear-linear"
+        "nikitabobko/tap/aerospace"
+        "orbstack"
+        "raycast"
+        "spotify"
         "traiproject/tap/same"
         "twingate"
         "utm"
         "zed"
+        "zen"
       ]
       ++ cfg.extraCasks;
 
