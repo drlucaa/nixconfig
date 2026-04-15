@@ -197,6 +197,9 @@
       # --- Just ---
       pkgs.unstable.just-lsp
 
+      # --- KDL ---
+      kdlfmt
+
       # --- Web / Frontend ---
       superhtml
       tailwindcss-language-server
@@ -323,6 +326,17 @@
           ];
           formatter = {
             command = "gofumpt";
+          };
+        }
+        {
+          name = "kdl";
+          auto-format = true;
+          formatter = {
+            command = "kdlfmt";
+            args = [
+              "format"
+              "-"
+            ];
           };
         }
         {
