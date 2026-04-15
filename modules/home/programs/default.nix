@@ -25,6 +25,7 @@
     ./opencode.nix
     ./pay-respects.nix
     ./ripgrep.nix
+    ./scooter.nix
     ./ssh.nix
     ./tools.nix
     ./yazi.nix

@@ -52,9 +52,6 @@
         direnv allow
       '';
       fish_greeting = ''
-        if not set -q _tide_left_items
-          tide configure
-        end
         fastfetch
       '';
       cx = "mkdir -p $argv && cd $argv";
