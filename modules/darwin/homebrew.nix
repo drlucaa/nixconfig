@@ -61,6 +61,7 @@ in
       masApps = {
         "1Password for Safari" = 1569813296;
         "Toggle Track" = 1291898086;
+        "Things 3" = 904280696;
       };
       onActivation.cleanup = "zap";
       onActivation.autoUpdate = true;
