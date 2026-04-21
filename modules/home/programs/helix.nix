@@ -174,6 +174,7 @@
       deps-lsp
       vscode-langservers-extracted # Provides HTML, CSS, JSON, ESLint
       prettier
+      xmlstarlet
 
       # --- Nix ---
       nixd
@@ -229,6 +230,9 @@
       # --- Shell ---
       fish-lsp
       bash-language-server
+
+      # --- Starlark ---
+      starpls
     ];
 
     languages = {
@@ -326,6 +330,14 @@
           ];
           formatter = {
             command = "gofumpt";
+          };
+        }
+        {
+          name = "xml";
+          auto-format = true;
+          formatter = {
+            command = "xmlstarlet";
+            args = [ "fo" ];
           };
         }
         {
