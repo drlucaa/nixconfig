@@ -29,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix/release-25.11";
 
     fenix = {
       url = "github:nix-community/fenix";
@@ -61,6 +61,7 @@
           lucas-macbook = { };
           dv-macbook = {
             username = "luca.fondo";
+            uid = 502;
           };
           mac-mini = {
             username = "ycs";

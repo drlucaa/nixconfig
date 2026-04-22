@@ -59,9 +59,10 @@ in
       ++ cfg.extraCasks;
 
       masApps = {
-        "1Password for Safari" = 1569813296;
-        "Toggle Track" = 1291898086;
-        "Things 3" = 904280696;
+        # broken due to upstream issue https://github.com/zhaofengli/nix-homebrew/issues/131
+        # "1Password for Safari" = 1569813296;
+        # "Toggle Track" = 1291898086;
+        # "Things 3" = 904280696;
       };
       onActivation.cleanup = "zap";
       onActivation.autoUpdate = true;

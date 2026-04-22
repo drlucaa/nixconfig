@@ -6,6 +6,7 @@ let
       arch ? "aarch64-darwin",
       hostname ? hostDir,
       username ? "folu",
+      uid ? 501,
       userDescription ? "Luca Fondo",
     }:
     inputs.nix-darwin.lib.darwinSystem {
@@ -16,6 +17,7 @@ let
           self
           hostname
           username
+          uid
           userDescription
           ;
       };
@@ -44,6 +46,7 @@ let
                 self
                 hostname
                 username
+                uid
                 userDescription
                 ;
             };

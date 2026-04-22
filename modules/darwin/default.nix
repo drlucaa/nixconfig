@@ -1,13 +1,15 @@
-{ hostname, username, ... }:
+{
+  hostname,
+  ...
+}:
 {
   imports = [
     ./users.nix
     ./homebrew.nix
     ./system.nix
     ./nix.nix
+    ./fish.nix
   ];
-
-  programs.fish.enable = true;
 
   environment.variables = {
     EDITOR = "hx";
@@ -17,10 +19,6 @@
   nix.enable = true;
 
   networking.hostName = hostname;
-
-  home-manager.users.${username}.programs.fish.shellAbbrs = {
-    nrs = "sudo darwin-rebuild switch --flake ~/nixconfig#${hostname}";
-  };
 
   system.stateVersion = 6;
 }

@@ -38,5 +38,11 @@ in
       };
     };
   };
+
+  programs.fish.shellAliases = {
+    tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
+    tscp = "scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
+  };
+
   home.sessionVariables.SSH_AUTH_SOCK = "$HOME/${onePassPath}";
 }

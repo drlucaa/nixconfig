@@ -1,14 +1,15 @@
 {
   username,
-  pkgs,
-  userDescription,
+  uid,
   ...
 }:
 {
+  users.knownUsers = [ username ];
+
   users.users.${username} = {
     home = "/Users/${username}";
     isHidden = false;
-    shell = pkgs.fish;
+    uid = uid;
   };
 
   system.primaryUser = "${username}";

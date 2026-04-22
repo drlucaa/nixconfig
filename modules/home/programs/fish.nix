@@ -1,30 +1,35 @@
 {
   pkgs,
+  hostname,
   ...
 }:
 {
   programs.fish = {
     enable = true;
-    package = pkgs.fish;
+    generateCompletions = true;
+
+    interactiveShellInit = ''
+      fastfetch
+
+      # Workaround for Fish 4.3.0+ breaking Tide vi-mode detection
+      set -g fish_key_bindings fish_hybrid_key_bindings
+      set -g tide_character_vi_icon_default '❯'
+    '';
 
     shellAbbrs = {
       c = "clear";
-      k = "kubectl";
-      kk = "k9s";
-      kx = "kubectx";
+      mkdir = "mkdir -p";
+      rd = "rm -rf";
+
       ff = "flux9s";
 
       # nix
+      nrs = "sudo darwin-rebuild switch --flake ~/nixconfig#${hostname}";
       ngc = "sudo nix-collect-garbage -d";
       nd = "nix develop";
     };
 
     shellAliases = {
-      tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
-      tscp = "scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
-      mkdir = "mkdir -p";
-      rd = "rm -rf";
-      gai = "/opt/homebrew/bin/goose";
     };
 
     plugins = [
@@ -47,14 +52,12 @@
     ];
 
     functions = {
+      fish_greeting = "";
+      cx = "mkdir -p $argv && cd $argv";
       flake-init = ''
         echo "use flake" > .envrc
         direnv allow
       '';
-      fish_greeting = ''
-        fastfetch
-      '';
-      cx = "mkdir -p $argv && cd $argv";
       _tide_item_node = ''
         if command -sq node
             node --version | string match -qr "v(?<v>.*)"

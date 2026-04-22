@@ -228,7 +228,6 @@
       typstyle
 
       # --- Shell ---
-      fish-lsp
       bash-language-server
 
       # --- Starlark ---
@@ -564,7 +563,6 @@
           name = "fish";
           language-servers = [
             "scls"
-            "fish-lsp"
           ];
         }
         {
