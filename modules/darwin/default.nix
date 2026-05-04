@@ -4,11 +4,12 @@
 }:
 {
   imports = [
-    ./users.nix
-    ./homebrew.nix
-    ./system.nix
-    ./nix.nix
     ./fish.nix
+    ./homebrew.nix
+    ./nix.nix
+    ./paneru.nix
+    ./system.nix
+    ./users.nix
   ];
 
   environment.variables = {
