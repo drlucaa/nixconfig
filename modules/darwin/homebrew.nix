@@ -21,17 +21,11 @@ in
       enable = true;
       taps = [
         "FelixKratz/formulae"
-        "dgunzy/tap"
         "nikitabobko/tap"
-        "traiproject/tap"
       ];
       brews = [
         "FelixKratz/formulae/borders"
-        "block-goose-cli"
-        "dgunzy/tap/flux9s"
         "mas"
-        "ollama"
-        "openssl@3"
       ]
       ++ cfg.extraBrews;
 
@@ -45,14 +39,11 @@ in
         "deepl"
         "docker-desktop"
         "figma"
-        "linear-linear"
+        "linear"
         "nikitabobko/tap/aerospace"
         "orbstack"
         "raycast"
         "spotify"
-        "traiproject/tap/same"
-        "twingate"
-        "utm"
         "zed"
         "zen"
       ]
