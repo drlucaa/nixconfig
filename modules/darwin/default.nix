@@ -9,6 +9,7 @@
     ./system.nix
     ./nix.nix
     ./fish.nix
+    ./tailscale.nix
   ];
 
   environment.variables = {
