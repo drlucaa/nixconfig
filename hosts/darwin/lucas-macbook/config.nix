@@ -4,7 +4,7 @@
   ];
   config.darwin.homebrew.extraCasks = [
     "whatsapp"
-    "ableton-live-standard"
+    "ableton-live-suite"
     "adobe-creative-cloud"
     "ilok-license-manager"
     "rekordbox"
