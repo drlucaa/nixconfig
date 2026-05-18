@@ -61,7 +61,6 @@
           lucas-macbook = { };
           dv-macbook = {
             username = "luca.fondo";
-            uid = 502;
           };
           mac-mini = {
             username = "ycs";
