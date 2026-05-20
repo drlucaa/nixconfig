@@ -44,6 +44,7 @@ in
         "orbstack"
         "raycast"
         "spotify"
+        "tailscale"
         "zed"
         "zen"
       ]
