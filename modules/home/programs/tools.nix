@@ -16,7 +16,6 @@
     kubectl
     kubelogin-oidc
     kubectx
-    flux
     ffmpeg
     pkgs.unstable.nickel
     pkgs.unstable.typst
