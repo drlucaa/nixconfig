@@ -45,7 +45,6 @@ in
         "raycast"
         "spotify"
         "tailscale"
-        "zed"
         "zen"
       ]
       ++ cfg.extraCasks;

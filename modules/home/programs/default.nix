@@ -29,6 +29,7 @@
     ./ssh.nix
     ./tools.nix
     ./yazi.nix
+    ./zed.nix
     ./zoxide.nix
   ];
 }
