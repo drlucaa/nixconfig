@@ -11,12 +11,18 @@
     extensions = [
       "nix"
       "opentofu"
+      "java"
+      "xml"
     ];
 
     extraPackages = with pkgs.unstable; [
       nil
       nixd
       tofu-ls
+      jdt-language-server
+      temurin-bin
+      lombok
+      google-java-format
     ];
 
     mutableUserSettings = false;
@@ -65,13 +71,30 @@
             arguments = [ "serve" ];
           };
         };
+        jdtls = {
+          settings = {
+            java_home = "${pkgs.unstable.temurin-bin}";
+            lombok_support = true;
+            jdk_auto_download = false;
+
+            check_updates = "never";
+
+            jdtls_launcher = "${pkgs.unstable.jdt-language-server}/bin/jdtls";
+            lombok_jar = "${pkgs.lombok}/share/java/lombok.jar";
+          };
+        };
+      };
+      languages = {
+        Java = {
+          format_on_save = "off";
+        };
       };
     };
 
     mutableUserKeymaps = false;
     userKeymaps = [
       {
-        context = "Editor && vim_mode == insert";
+        context = "Editor && vim_mode == helix_insert";
         bindings = {
           "j j" = [
             "workspace::SendKeystrokes"
@@ -81,6 +104,12 @@
             "workspace::SendKeystrokes"
             "escape"
           ];
+        };
+      }
+      {
+        context = "(vim_mode == helix_normal || vim_mode == helix_select) && !menu";
+        bindings = {
+          "enter" = "vim::HelixJumpToWord";
         };
       }
       {
