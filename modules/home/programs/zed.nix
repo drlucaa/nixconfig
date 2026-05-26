@@ -12,6 +12,7 @@
       "nix"
       "opentofu"
       "java"
+      "just"
       "xml"
     ];
 
@@ -23,6 +24,7 @@
       temurin-bin
       lombok
       google-java-format
+      just-lsp
     ];
 
     mutableUserSettings = false;
@@ -82,6 +84,23 @@
             jdtls_launcher = "${pkgs.unstable.jdt-language-server}/bin/jdtls";
             lombok_jar = "${pkgs.lombok}/share/java/lombok.jar";
           };
+          initialization_options = {
+            settings = {
+              java = {
+                saveActions = {
+                  organizeImports = false;
+                };
+                format = {
+                  enabled = false;
+                };
+              };
+            };
+          };
+        };
+        just-lsp = {
+          binary = {
+            path = "${pkgs.unstable.just-lsp}/bin/just-lsp";
+          };
         };
       };
       languages = {
@@ -94,7 +113,7 @@
     mutableUserKeymaps = false;
     userKeymaps = [
       {
-        context = "Editor && vim_mode == helix_insert";
+        context = "Editor && vim_mode == insert";
         bindings = {
           "j j" = [
             "workspace::SendKeystrokes"
