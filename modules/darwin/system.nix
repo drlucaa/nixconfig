@@ -16,6 +16,7 @@
           "/Applications/Zen.app"
           "/System/Applications/System Settings.app"
           "${config.home-manager.users.${username}.programs.ghostty.package}/Applications/Ghostty.app"
+          "${config.home-manager.users.${username}.programs.zed-editor.package}/Applications/Zed.app"
           "/Applications/Spotify.app"
         ];
         expose-group-apps = true;
