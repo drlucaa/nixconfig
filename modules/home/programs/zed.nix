@@ -16,6 +16,7 @@
       "xml"
       "toml"
       "tombi"
+      "dockerfile"
     ];
 
     extraPackages = with pkgs.unstable; [
@@ -28,6 +29,7 @@
       google-java-format
       just-lsp
       tombi
+      dockerfile-language-server
     ];
 
     mutableUserSettings = false;
@@ -109,6 +111,12 @@
           binary = {
             path = "${pkgs.unstable.tombi}/bin/tombi";
             arguments = [ "lsp" ];
+          };
+        };
+        dockerfile-language-server = {
+          binary = {
+            path = "${pkgs.unstable.dockerfile-language-server}/bin/docker-langserver";
+            arguments = [ "--stdio" ];
           };
         };
       };
