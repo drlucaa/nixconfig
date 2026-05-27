@@ -14,6 +14,8 @@
       "java"
       "just"
       "xml"
+      "toml"
+      "tombi"
     ];
 
     extraPackages = with pkgs.unstable; [
@@ -25,6 +27,7 @@
       lombok
       google-java-format
       just-lsp
+      tombi
     ];
 
     mutableUserSettings = false;
@@ -100,6 +103,12 @@
         just-lsp = {
           binary = {
             path = "${pkgs.unstable.just-lsp}/bin/just-lsp";
+          };
+        };
+        tombi = {
+          binary = {
+            path = "${pkgs.unstable.tombi}/bin/tombi";
+            arguments = [ "lsp" ];
           };
         };
       };
