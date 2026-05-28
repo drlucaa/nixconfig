@@ -22,6 +22,7 @@
       rd = "rm -rf";
 
       ff = "flux9s";
+      ts = "tailscale";
 
       # nix
       nrs = "sudo env NIX_CONFIG=\"access-tokens = github.com=$(gh auth token)\" darwin-rebuild switch --flake ~/nixconfig#${hostname}";
