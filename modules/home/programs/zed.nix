@@ -17,6 +17,7 @@
       "toml"
       "tombi"
       "dockerfile"
+      "git-firefly"
     ];
 
     extraPackages = with pkgs.unstable; [
