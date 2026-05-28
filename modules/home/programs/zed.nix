@@ -59,8 +59,8 @@
       };
       relative_line_numbers = "enabled";
       helix_mode = true;
-      ui_font_size = 16;
-      buffer_font_size = 16;
+      ui_font_size = 14;
+      buffer_font_size = 14;
 
       lsp = {
         nil = {
