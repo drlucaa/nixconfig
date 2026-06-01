@@ -25,7 +25,7 @@
       ts = "tailscale";
 
       # nix
-      nrs = "sudo env NIX_CONFIG=\"access-tokens = github.com=$(gh auth token)\" darwin-rebuild switch --flake ~/nixconfig#${hostname}";
+      nrs = "sudo darwin-rebuild switch --flake ~/nixconfig#${hostname}";
       ngc = "sudo nix-collect-garbage -d";
       nd = "nix develop";
     };
