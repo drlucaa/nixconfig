@@ -18,6 +18,7 @@
       "tombi"
       "dockerfile"
       "git-firefly"
+      "ansible"
     ];
 
     extraPackages = with pkgs.unstable; [
@@ -31,6 +32,9 @@
       just-lsp
       tombi
       dockerfile-language-server
+      ansible-language-server
+      ansible
+      ansible-lint
     ];
 
     mutableUserSettings = false;
@@ -120,11 +124,49 @@
             arguments = [ "--stdio" ];
           };
         };
+        ansible = {
+          binary = {
+            path = "${pkgs.unstable.ansible-language-server}/bin/ansible-language-server";
+            arguments = [ "--stdio" ];
+          };
+          settings = {
+            ansible = {
+              path = "${pkgs.unstable.ansible}/bin/ansible";
+            };
+            validation = {
+              enabled = true;
+              lint = {
+                enabled = true;
+                path = "${pkgs.unstable.ansible-lint}/bin/ansible-lint";
+              };
+            };
+          };
+        };
       };
       languages = {
         Java = {
           format_on_save = "off";
         };
+      };
+      file_types = {
+        "Ansible" = [
+          "**.ansible.yml"
+          "**.ansible.yaml"
+          "**/defaults/*.yml"
+          "**/defaults/*.yaml"
+          "**/meta/*.yml"
+          "**/meta/*.yaml"
+          "**/tasks/*.yml"
+          "**/tasks/*.yaml"
+          "**/handlers/*.yml"
+          "**/handlers/*.yaml"
+          "**/group_vars/*.yml"
+          "**/group_vars/*.yaml"
+          "**/playbooks/*.yaml"
+          "**/playbooks/*.yml"
+          "**playbook*.yaml"
+          "**playbook*.yml"
+        ];
       };
     };
 
