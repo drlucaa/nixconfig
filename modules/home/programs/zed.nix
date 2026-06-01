@@ -35,6 +35,8 @@
       ansible-language-server
       ansible
       ansible-lint
+      yaml-schema-router
+      yaml-language-server
     ];
 
     mutableUserSettings = false;
@@ -142,6 +144,15 @@
             };
           };
         };
+        yaml-language-server = {
+          binary = {
+            path = "${pkgs.yaml-schema-router}/bin/yaml-schema-router";
+            arguments = [
+              "--lsp-path"
+              "${pkgs.yaml-language-server}/bin/yaml-language-server"
+            ];
+          };
+        };
       };
       languages = {
         Java = {
@@ -157,7 +168,7 @@
           "**/meta/*.yml"
           "**/meta/*.yaml"
           "**/tasks/*.yml"
-          "**/tasks/*.yaml"
+
           "**/handlers/*.yml"
           "**/handlers/*.yaml"
           "**/group_vars/*.yml"
