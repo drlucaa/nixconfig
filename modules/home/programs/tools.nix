@@ -10,7 +10,6 @@
     rainfrog
     age
     tlrc
-    linctl
     glow
     openshift
     kubectl
