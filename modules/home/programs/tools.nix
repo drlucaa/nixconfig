@@ -16,8 +16,9 @@
     kubelogin-oidc
     kubectx
     ffmpeg
-    pkgs.nickel
-    pkgs.typst
-    pkgs.tdf
+    nickel
+    typst
+    tdf
+    flux9s
   ];
 }
