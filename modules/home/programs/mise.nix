@@ -15,7 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.mise = {
       enable = true;
-      package = pkgs.unstable.mise;
+      package = pkgs.mise;
       enableFishIntegration = true;
       settings = {
         experimental = true;

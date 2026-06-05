@@ -5,7 +5,7 @@
 {
   programs.lazydocker = {
     enable = true;
-    package = pkgs.unstable.lazydocker;
+    package = pkgs.lazydocker;
   };
 
   programs.fish.shellAbbrs = {

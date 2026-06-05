@@ -5,6 +5,7 @@
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
+    shellWrapperName = "yy";
 
     settings = {
       mgr = {

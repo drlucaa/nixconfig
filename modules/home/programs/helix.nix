@@ -8,7 +8,7 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    package = pkgs.unstable.helix;
+    package = pkgs.helix;
     settings = {
       keys = {
         normal = {
@@ -178,10 +178,10 @@
 
       # --- Nix ---
       nixd
-      nixfmt-rfc-style
+      nixfmt
 
       # --- Nickel ---
-      pkgs.unstable.nls
+      pkgs.nls
 
       # --- Go ---
       gopls
@@ -196,7 +196,7 @@
       lombok
 
       # --- Just ---
-      pkgs.unstable.just-lsp
+      pkgs.just-lsp
 
       # --- KDL ---
       kdlfmt

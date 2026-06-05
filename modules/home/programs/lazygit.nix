@@ -5,7 +5,7 @@
 {
   programs.lazygit = {
     enable = true;
-    package = pkgs.unstable.lazygit;
+    package = pkgs.lazygit;
     settings = {
       git = {
         overrideGpg = true;

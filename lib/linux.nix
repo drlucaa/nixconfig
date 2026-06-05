@@ -12,17 +12,14 @@ let
       username ? "luca",
     }:
     let
-      # We instantiate pkgs manually for standalone home-manager
+      pkgs-unstable = import inputs.nixpkgs-unstable {
+        system = arch;
+        config.allowUnfree = true;
+      };
       pkgs = import inputs.nixpkgs {
         system = arch;
         config.allowUnfree = true;
         overlays = [
-          (final: prev: {
-            unstable = import inputs.nixpkgs-unstable {
-              system = arch;
-              config.allowUnfree = true;
-            };
-          })
           (
             final: prev:
             inputs.nixpkgs.lib.packagesFromDirectoryRecursive {
@@ -41,6 +38,7 @@ let
           self
           hostname
           username
+          pkgs-unstable
           ;
       };
       modules = [

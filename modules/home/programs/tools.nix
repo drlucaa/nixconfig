@@ -17,8 +17,8 @@
     kubelogin-oidc
     kubectx
     ffmpeg
-    pkgs.unstable.nickel
-    pkgs.unstable.typst
-    pkgs.unstable.tdf
+    pkgs.nickel
+    pkgs.typst
+    pkgs.tdf
   ];
 }

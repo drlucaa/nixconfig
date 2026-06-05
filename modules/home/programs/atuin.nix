@@ -5,7 +5,7 @@
 {
   programs.atuin = {
     enable = true;
-    package = pkgs.unstable.atuin;
+    package = pkgs.atuin;
     enableFishIntegration = true;
     daemon.enable = true;
     daemon.logLevel = "debug";

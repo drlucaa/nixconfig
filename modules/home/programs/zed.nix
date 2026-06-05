@@ -6,7 +6,7 @@
   programs.zed-editor = {
     enable = true;
 
-    package = pkgs.unstable.zed-editor;
+    package = pkgs.zed-editor;
 
     extensions = [
       "nix"
@@ -21,7 +21,7 @@
       "ansible"
     ];
 
-    extraPackages = with pkgs.unstable; [
+    extraPackages = with pkgs; [
       nil
       nixd
       tofu-ls
@@ -71,29 +71,29 @@
       lsp = {
         nil = {
           binary = {
-            path = "${pkgs.unstable.nil}/bin/nil";
+            path = "${pkgs.nil}/bin/nil";
           };
         };
         nixd = {
           binary = {
-            path = "${pkgs.unstable.nixd}/bin/nixd";
+            path = "${pkgs.nixd}/bin/nixd";
           };
         };
         tofu-ls = {
           binary = {
-            path = "${pkgs.unstable.tofu-ls}/bin/tofu-ls";
+            path = "${pkgs.tofu-ls}/bin/tofu-ls";
             arguments = [ "serve" ];
           };
         };
         jdtls = {
           settings = {
-            java_home = "${pkgs.unstable.temurin-bin}";
+            java_home = "${pkgs.temurin-bin}";
             lombok_support = true;
             jdk_auto_download = false;
 
             check_updates = "never";
 
-            jdtls_launcher = "${pkgs.unstable.jdt-language-server}/bin/jdtls";
+            jdtls_launcher = "${pkgs.jdt-language-server}/bin/jdtls";
             lombok_jar = "${pkgs.lombok}/share/java/lombok.jar";
           };
           initialization_options = {
@@ -111,35 +111,35 @@
         };
         just-lsp = {
           binary = {
-            path = "${pkgs.unstable.just-lsp}/bin/just-lsp";
+            path = "${pkgs.just-lsp}/bin/just-lsp";
           };
         };
         tombi = {
           binary = {
-            path = "${pkgs.unstable.tombi}/bin/tombi";
+            path = "${pkgs.tombi}/bin/tombi";
             arguments = [ "lsp" ];
           };
         };
         dockerfile-language-server = {
           binary = {
-            path = "${pkgs.unstable.dockerfile-language-server}/bin/docker-langserver";
+            path = "${pkgs.dockerfile-language-server}/bin/docker-langserver";
             arguments = [ "--stdio" ];
           };
         };
         ansible = {
           binary = {
-            path = "${pkgs.unstable.ansible-language-server}/bin/ansible-language-server";
+            path = "${pkgs.ansible-language-server}/bin/ansible-language-server";
             arguments = [ "--stdio" ];
           };
           settings = {
             ansible = {
-              path = "${pkgs.unstable.ansible}/bin/ansible";
+              path = "${pkgs.ansible}/bin/ansible";
             };
             validation = {
               enabled = true;
               lint = {
                 enabled = true;
-                path = "${pkgs.unstable.ansible-lint}/bin/ansible-lint";
+                path = "${pkgs.ansible-lint}/bin/ansible-lint";
               };
             };
           };
