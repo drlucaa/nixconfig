@@ -4,7 +4,6 @@
 }:
 {
   home.packages = with pkgs; [
-    devenv
     yq
     fq
     sd
