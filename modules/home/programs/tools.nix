@@ -20,5 +20,6 @@
     typst
     tdf
     flux9s
+    glab
   ];
 }
