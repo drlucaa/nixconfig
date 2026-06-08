@@ -96,6 +96,7 @@
             jdtls_launcher = "${pkgs.jdt-language-server}/bin/jdtls";
             lombok_jar = "${pkgs.lombok}/share/java/lombok.jar";
           };
+          # maybe remove as settings would probably be better
           initialization_options = {
             settings = {
               java = {
@@ -214,6 +215,7 @@
           "v" = "project_panel::OpenSplitVertical";
           "h" = "project_panel::OpenSplitHorizontal";
           "shift-f" = "project_panel::RevealInFileManager";
+          "shift-t" = "workspace::OpenInTerminal";
         };
       }
     ];
