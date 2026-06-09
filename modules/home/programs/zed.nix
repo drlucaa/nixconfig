@@ -19,6 +19,7 @@
       "dockerfile"
       "git-firefly"
       "ansible"
+      "gitlab-ci-ls"
     ];
 
     extraPackages = with pkgs; [
@@ -37,6 +38,7 @@
       ansible-lint
       yaml-schema-router
       yaml-language-server
+      gitlab-ci-ls
     ];
 
     mutableUserSettings = false;
@@ -152,6 +154,11 @@
               "--lsp-path"
               "${pkgs.yaml-language-server}/bin/yaml-language-server"
             ];
+          };
+        };
+        gitlab-ci = {
+          binary = {
+            path = "${pkgs.gitlab-ci-ls}/bin/gitlab-ci-ls";
           };
         };
       };
