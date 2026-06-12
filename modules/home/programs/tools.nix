@@ -4,6 +4,7 @@
 }:
 {
   home.packages = with pkgs; [
+    watch
     yq-go
     fq
     sd

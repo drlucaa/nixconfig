@@ -59,6 +59,19 @@
         echo "use flake" > .envrc
         direnv allow
       '';
+      cw = ''
+        if test (count $argv) -lt 2
+          echo "Usage: cw <seconds> <command...>"
+          return 2
+        end
+
+        set -l interval $argv[1]
+        set -e argv[1]
+
+        set -l cmd (string escape -- $argv | string join ' ')
+
+        watch -n $interval --color "script -q /dev/null $cmd"
+      '';
       _tide_item_node = ''
         if command -sq node
             node --version | string match -qr "v(?<v>.*)"
