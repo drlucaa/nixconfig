@@ -36,7 +36,6 @@
       ansible-language-server
       ansible
       ansible-lint
-      yaml-schema-router
       yaml-language-server
       gitlab-ci-ls
     ];
@@ -149,11 +148,52 @@
         };
         yaml-language-server = {
           binary = {
-            path = "${pkgs.yaml-schema-router}/bin/yaml-schema-router";
+            path = "${pkgs.yaml-language-server}/bin/yaml-language-server";
             arguments = [
-              "--lsp-path"
-              "${pkgs.yaml-language-server}/bin/yaml-language-server"
+              "--stdio"
             ];
+          };
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = true;
+              };
+              kubernetesCRDStore = {
+                enable = true;
+              };
+
+              schemas = {
+                kubernetes = [
+                  "/*.k8s.yaml"
+                  "/*.k8s.yml"
+                  "/*.kube.yaml"
+                  "/*.kube.yml"
+                  "/k8s/**/*.yaml"
+                  "/k8s/**/*.yml"
+                  "/kubernetes/**/*.yaml"
+                  "/kubernetes/**/*.yml"
+                  "/manifests/**/*.yaml"
+                  "/manifests/**/*.yml"
+                  "/deploy/**/*.yaml"
+                  "/deploy/**/*.yml"
+                  "/deployments/**/*.yaml"
+                  "/deployments/**/*.yml"
+                ];
+
+                "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json" =
+                  [
+                    "/kustomization.yaml"
+                    "/kustomization.yml"
+                    "/**/kustomization.yaml"
+                    "/**/kustomization.yml"
+                  ];
+
+                "https://json.schemastore.org/chart.json" = [
+                  "/Chart.yaml"
+                  "/**/Chart.yaml"
+                ];
+              };
+            };
           };
         };
         gitlab-ci = {
