@@ -20,6 +20,7 @@
       "git-firefly"
       "ansible"
       "gitlab-ci-ls"
+      "helm"
     ];
 
     extraPackages = with pkgs; [
@@ -38,6 +39,7 @@
       ansible-lint
       yaml-language-server
       gitlab-ci-ls
+      helm-ls
     ];
 
     mutableUserSettings = false;
@@ -201,6 +203,18 @@
             path = "${pkgs.gitlab-ci-ls}/bin/gitlab-ci-ls";
           };
         };
+        helm_ls = {
+          binary = {
+            path = "${pkgs.helm-ls}/bin/helm-ls";
+          };
+          settings = {
+            helm-ls = {
+              yamlls = {
+                path = "${pkgs.yaml-language-server}/bin/yaml-language-server";
+              };
+            };
+          };
+        };
       };
       languages = {
         Java = {
@@ -266,5 +280,9 @@
         };
       }
     ];
+  };
+
+  programs.fish.shellAliases = {
+    zed = "zeditor";
   };
 }
