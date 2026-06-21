@@ -4,21 +4,23 @@
 }:
 {
   home.packages = with pkgs; [
-    yq
+    watch
+    yq-go
     fq
     sd
     rainfrog
     age
     tlrc
-    linctl
     glow
     openshift
     kubectl
     kubelogin-oidc
     kubectx
     ffmpeg
-    pkgs.unstable.nickel
-    pkgs.unstable.typst
-    pkgs.unstable.tdf
+    nickel
+    typst
+    tdf
+    flux9s
+    glab
   ];
 }

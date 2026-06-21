@@ -2,24 +2,17 @@
   pkgs,
   ...
 }:
-let
-  themeDir =
-    if pkgs.stdenv.hostPlatform.isDarwin then
-      "Library/Application Support/jjui/themes"
-    else
-      ".config/jjui/themes";
-in
 {
   programs.jjui = {
     enable = true;
-    package = pkgs.unstable.jjui;
+    package = pkgs.jjui;
 
     settings = {
       ui.theme = "base24-catppuccin-mocha";
     };
   };
 
-  home.file."${themeDir}/base24-catppuccin-mocha.toml".text = ''
+  xdg.configFile."jjui/themes/base24-catppuccin-mocha.toml".text = ''
     # --- Base & General ---
         "text"     = { fg = "#cdd6f4", bg = "#1e1e2e" }
         "dimmed"   = { fg = "#7f849c", bg = "#1e1e2e" }
@@ -78,7 +71,7 @@ in
         "help title"  = { fg = "#cdd6f4", bold = true, underline = true }
         "help border" = { fg = "#6c7086" }
 
-        "preview"        = { fg = "#cdd6f4", bg = "#1e1e2e" } 
+        "preview"        = { fg = "#cdd6f4", bg = "#1e1e2e" }
         "preview border" = { fg = "#6c7086" }
 
         # --- Confirmations & Undo ---

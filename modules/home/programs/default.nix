@@ -5,6 +5,7 @@
     ./bat.nix
     ./bottom.nix
     ./btop.nix
+    ./devenv.nix
     ./direnv.nix
     ./eza.nix
     ./fastfetch.nix

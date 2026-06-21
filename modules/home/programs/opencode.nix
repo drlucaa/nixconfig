@@ -5,7 +5,7 @@
 {
   programs.opencode = {
     enable = true;
-    package = pkgs.unstable.opencode;
+    package = pkgs.opencode;
 
     settings = {
       "permission" = {

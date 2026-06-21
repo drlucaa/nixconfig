@@ -9,6 +9,12 @@ let
       uid ? 502,
       userDescription ? "Luca Fondo",
     }:
+    let
+      pkgs-unstable = import inputs.nixpkgs-unstable {
+        system = arch;
+        config.allowUnfree = true;
+      };
+    in
     inputs.nix-darwin.lib.darwinSystem {
       system = arch;
       specialArgs = {
@@ -19,6 +25,7 @@ let
           username
           uid
           userDescription
+          pkgs-unstable
           ;
       };
       modules = [

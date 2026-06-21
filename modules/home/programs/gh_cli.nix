@@ -10,5 +10,6 @@
 
   home.sessionVariables = {
     GITHUB_TOKEN = "$(gh auth token)";
+    NIX_CONFIG = "access-tokens = github.com=$(gh auth token)";
   };
 }

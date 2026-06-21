@@ -22,9 +22,10 @@
       rd = "rm -rf";
 
       ff = "flux9s";
+      ts = "tailscale";
 
       # nix
-      nrs = "sudo env NIX_CONFIG=\"access-tokens = github.com=$(gh auth token)\" darwin-rebuild switch --flake ~/nixconfig#${hostname}";
+      nrs = "sudo darwin-rebuild switch --flake ~/nixconfig#${hostname}";
       ngc = "sudo nix-collect-garbage -d";
       nd = "nix develop";
     };
@@ -57,6 +58,19 @@
       flake-init = ''
         echo "use flake" > .envrc
         direnv allow
+      '';
+      cw = ''
+        if test (count $argv) -lt 2
+          echo "Usage: cw <seconds> <command...>"
+          return 2
+        end
+
+        set -l interval $argv[1]
+        set -e argv[1]
+
+        set -l cmd (string escape -- $argv | string join ' ')
+
+        watch -n $interval --color "script -q /dev/null $cmd"
       '';
       _tide_item_node = ''
         if command -sq node

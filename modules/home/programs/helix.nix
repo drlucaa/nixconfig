@@ -8,13 +8,11 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    package = pkgs.unstable.helix;
+    package = pkgs.helix;
     settings = {
       keys = {
         normal = {
           ret = "goto_word";
-          p = "paste_before";
-          P = "paste_after";
           "C-s" = ":write";
           "C-x" = ":reset-diff-change";
           "C-h" = ":toggle lsp.display-inlay-hints";
@@ -178,10 +176,10 @@
 
       # --- Nix ---
       nixd
-      nixfmt-rfc-style
+      nixfmt
 
       # --- Nickel ---
-      pkgs.unstable.nls
+      pkgs.nls
 
       # --- Go ---
       gopls
@@ -196,7 +194,7 @@
       lombok
 
       # --- Just ---
-      pkgs.unstable.just-lsp
+      pkgs.just-lsp
 
       # --- KDL ---
       kdlfmt

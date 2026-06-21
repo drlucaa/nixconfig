@@ -5,7 +5,7 @@
 {
   programs.pay-respects = {
     enable = true;
-    package = pkgs.unstable.pay-respects;
+    package = pkgs.pay-respects;
     enableFishIntegration = true;
   };
 }

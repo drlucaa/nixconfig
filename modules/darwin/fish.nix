@@ -6,8 +6,8 @@
 {
   programs.fish = {
     enable = true;
-    package = pkgs.unstable.fish;
+    package = pkgs.fish;
   };
 
-  users.users.${username}.shell = pkgs.unstable.fish;
+  users.users.${username}.shell = pkgs.fish;
 }

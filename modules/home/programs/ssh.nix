@@ -11,11 +11,9 @@ in
 
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
       "*" = {
-        extraOptions = {
-          IdentityAgent = "\"~/${onePassPath}\"";
-        };
+        IdentityAgent = "\"~/${onePassPath}\"";
       };
       "gitlab.dvbern.ch" = {
         user = "git";
