@@ -13,8 +13,6 @@
       keys = {
         normal = {
           ret = "goto_word";
-          p = "paste_before";
-          P = "paste_after";
           "C-s" = ":write";
           "C-x" = ":reset-diff-change";
           "C-h" = ":toggle lsp.display-inlay-hints";
