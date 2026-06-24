@@ -40,6 +40,7 @@ in
         "docker-desktop"
         "figma"
         "linear"
+        "logi-options+"
         "nikitabobko/tap/aerospace"
         "orbstack"
         "raycast"
