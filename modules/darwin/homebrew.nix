@@ -22,10 +22,12 @@ in
       taps = [
         "FelixKratz/formulae"
         "nikitabobko/tap"
+        "netbirdio/tap"
       ];
       brews = [
         "FelixKratz/formulae/borders"
         "mas"
+        "netbirdio/tap/netbird"
       ]
       ++ cfg.extraBrews;
 
@@ -46,6 +48,7 @@ in
         "raycast"
         "spotify"
         "tailscale-app"
+        "twingate"
         "zen"
       ]
       ++ cfg.extraCasks;
