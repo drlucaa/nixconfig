@@ -21,6 +21,7 @@
       "ansible"
       "gitlab-ci-ls"
       "helm"
+      "typst"
     ];
 
     extraPackages = with pkgs; [
@@ -40,6 +41,8 @@
       yaml-language-server
       gitlab-ci-ls
       helm-ls
+      tinymist
+      typstyle
     ];
 
     mutableUserSettings = false;
@@ -215,10 +218,36 @@
             };
           };
         };
+        tinymist = {
+          binary = {
+            path = "${pkgs.tinymist}/bin/tinymist";
+          };
+          initialization_options = {
+            preview = {
+              background = {
+                enabled = false;
+              };
+            };
+          };
+          settings = {
+            exportPdf = "onSave";
+            outputPath = "$root/$name";
+            formatterMode = "typstyle";
+          };
+        };
       };
       languages = {
         Java = {
           format_on_save = "off";
+        };
+        Typst = {
+          format_on_save = "on";
+          formatter = {
+            external = {
+              command = "${pkgs.typstyle}/bin/typstyle";
+              arguments = [ ];
+            };
+          };
         };
       };
       file_types = {

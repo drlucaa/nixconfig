@@ -1,18 +1,17 @@
 {
-  pkgs,
   ...
 }:
 {
   programs.atuin = {
     enable = true;
-    package = pkgs.atuin;
     enableFishIntegration = true;
     daemon.enable = true;
-    daemon.logLevel = "debug";
     settings = {
       update_check = false;
-      daemon.enalbed = true;
-      workspaces = true;
+      daemon = {
+        enalbed = true;
+        autostart = true;
+      };
       style = "compact";
       history_filter = [
         "^cd"

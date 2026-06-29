@@ -22,5 +22,6 @@
     tdf
     flux9s
     glab
+    tinymist
   ];
 }
