@@ -73,6 +73,7 @@
       helix_mode = true;
       ui_font_size = 14;
       buffer_font_size = 14;
+      cursor_blink = false;
 
       lsp = {
         nil = {
