@@ -47,8 +47,6 @@ in
         "orbstack"
         "raycast"
         "spotify"
-        "tailscale-app"
-        "twingate"
         "zen"
       ]
       ++ cfg.extraCasks;
