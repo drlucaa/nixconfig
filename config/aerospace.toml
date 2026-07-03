@@ -1,3 +1,5 @@
+config-version = 2
+
 after-startup-command = [
   "exec-and-forget borders active_color=0xffa3abad inactive_color=0xff494d64 width=5.0",
 ]
@@ -19,35 +21,35 @@ on-focused-monitor-changed = ["move-mouse monitor-lazy-center"]
 automatically-unhide-macos-hidden-apps = true
 
 [[on-window-detected]]
-if.app-id = "com.apple.finder"
+if = "test %{app-bundle-id} = com.apple.finder"
 run = "layout floating"
 
 [[on-window-detected]]
-if.app-id = "com.linear"
+if = "test %{app-bundle-id} = com.linear"
 run = "layout tiling"
 
 [[on-window-detected]]
-if.app-id = "dev.kdrag0n.MacVirt"
+if = "test %{app-bundle-id} = dev.kdrag0n.MacVirt"
 run = "layout floating"
 
 [[on-window-detected]]
-if.app-id = "com.linguee.DeepLCopyTranslator"
+if = "test %{app-bundle-id} = com.linguee.DeepLCopyTranslator"
 run = "layout floating"
 
 [[on-window-detected]]
-if.app-id = "com.electron.dockerdesktop"
+if = "test %{app-bundle-id} = com.electron.dockerdesktop"
 run = "layout floating"
 
 [[on-window-detected]]
-if.app-id = "net.whatsapp.WhatsApp"
+if = "test %{app-bundle-id} = net.whatsapp.WhatsApp"
 run = "layout floating"
 
 [[on-window-detected]]
-if.app-id = "com.1password.1password"
+if = "test %{app-bundle-id} = com.1password.1password"
 run = "layout floating"
 
 [[on-window-detected]]
-if.app-id = "com.endel.endel"
+if = "test %{app-bundle-id} = com.endel.endel"
 run = "layout floating"
 
 [key-mapping]
