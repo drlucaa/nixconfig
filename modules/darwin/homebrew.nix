@@ -46,6 +46,7 @@ in
         "nikitabobko/tap/aerospace"
         "orbstack"
         "raycast"
+        "signal"
         "spotify"
         "zen"
       ]
