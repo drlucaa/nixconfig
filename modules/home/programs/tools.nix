@@ -18,10 +18,10 @@
     kubectx
     ffmpeg
     nickel
-    typst
     tdf
     flux9s
     glab
+    unstable.typst
     tinymist
   ];
 }
