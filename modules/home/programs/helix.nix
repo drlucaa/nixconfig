@@ -236,10 +236,6 @@
       language-server = {
         tinymist = {
           command = "tinymist";
-          config = {
-            exportPdf = "onType";
-            outputPath = "$root/target/$dir/$name";
-          };
         };
         deps-lsp = {
           command = "deps-lsp";
@@ -405,10 +401,6 @@
         }
         {
           name = "typst";
-          scope = "source.typst";
-          injection-regex = "typst";
-          file-types = [ "typ" ];
-          roots = [ "typst.toml" ];
           language-servers = [
             "scls"
             "tinymist"
