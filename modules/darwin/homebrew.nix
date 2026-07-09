@@ -43,6 +43,7 @@ in
         "figma"
         "linear"
         "logi-options+"
+        "netbirdio/tap/netbird-ui"
         "nikitabobko/tap/aerospace"
         "orbstack"
         "raycast"
