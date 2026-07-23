@@ -20,9 +20,10 @@ in
     homebrew = {
       enable = true;
       taps = [
-        "FelixKratz/formulae"
-        "nikitabobko/tap"
+        "felixkratz/formulae"
         "netbirdio/tap"
+        "nikitabobko/tap"
+        "tabularisdb/tabularis"
       ];
       brews = [
         "FelixKratz/formulae/borders"
@@ -48,6 +49,7 @@ in
         "raycast"
         "signal"
         "spotify"
+        "tabularisdb/tabularis/tabularis"
         "zen"
       ]
       ++ cfg.extraCasks;
