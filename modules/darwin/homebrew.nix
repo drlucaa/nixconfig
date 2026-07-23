@@ -39,7 +39,6 @@ in
         "arc"
         "dbeaver-community"
         "deepl"
-        "docker-desktop"
         "figma"
         "linear"
         "logi-options+"
