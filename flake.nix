@@ -30,11 +30,6 @@
     };
 
     catppuccin.url = "github:catppuccin/nix/release-26.05";
-
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

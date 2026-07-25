@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }:
 {
@@ -178,26 +177,12 @@
       nixd
       nixfmt
 
-      # --- Nickel ---
-      pkgs.nls
-
-      # --- Go ---
-      gopls
-      gofumpt
-      delve
-
-      # --- Rust ---
-      inputs.fenix.packages.${pkgs.stdenv.hostPlatform.system}.stable.toolchain
-
       # --- Java ---
       jdt-language-server
       lombok
 
       # --- Just ---
       pkgs.just-lsp
-
-      # --- KDL ---
-      kdlfmt
 
       # --- Web / Frontend ---
       superhtml
@@ -214,7 +199,6 @@
 
       # --- Configuration (YAML, TOML) ---
       yaml-language-server
-      yaml-schema-router
       taplo
 
       # --- Markdown ---
@@ -227,9 +211,6 @@
 
       # --- Shell ---
       bash-language-server
-
-      # --- Starlark ---
-      starpls
     ];
 
     languages = {
@@ -242,11 +223,52 @@
           args = [ "--stdio" ];
         };
         yaml-language-server = {
-          command = "${pkgs.yaml-schema-router}/bin/yaml-schema-router";
+          command = "${pkgs.yaml-language-server}/bin/yaml-language-server";
           args = [
-            "--lsp-path"
-            "${pkgs.yaml-language-server}/bin/yaml-language-server"
+            "--stdio"
           ];
+          config = {
+            yaml = {
+              schemaStore = {
+                enable = true;
+              };
+              kubernetesCRDStore = {
+                enable = true;
+              };
+
+              schemas = {
+                kubernetes = [
+                  "/*.k8s.yaml"
+                  "/*.k8s.yml"
+                  "/*.kube.yaml"
+                  "/*.kube.yml"
+                  "/k8s/**/*.yaml"
+                  "/k8s/**/*.yml"
+                  "/kubernetes/**/*.yaml"
+                  "/kubernetes/**/*.yml"
+                  "/manifests/**/*.yaml"
+                  "/manifests/**/*.yml"
+                  "/deploy/**/*.yaml"
+                  "/deploy/**/*.yml"
+                  "/deployments/**/*.yaml"
+                  "/deployments/**/*.yml"
+                ];
+
+                "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json" =
+                  [
+                    "/kustomization.yaml"
+                    "/kustomization.yml"
+                    "/**/kustomization.yaml"
+                    "/**/kustomization.yml"
+                  ];
+
+                "https://json.schemastore.org/chart.json" = [
+                  "/Chart.yaml"
+                  "/**/Chart.yaml"
+                ];
+              };
+            };
+          };
         };
         jdtls = {
           command = "jdtls";
@@ -331,17 +353,6 @@
           formatter = {
             command = "xmlstarlet";
             args = [ "fo" ];
-          };
-        }
-        {
-          name = "kdl";
-          auto-format = true;
-          formatter = {
-            command = "kdlfmt";
-            args = [
-              "format"
-              "-"
-            ];
           };
         }
         {
