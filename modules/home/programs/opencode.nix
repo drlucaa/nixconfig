@@ -66,7 +66,7 @@
       '';
     };
 
-    agents = {
+    commands = {
       zod = ''
         ---
         description: Ask a Zod question using the local Zod repo
