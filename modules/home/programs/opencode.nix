@@ -21,8 +21,52 @@ let
       displayName = "Helix";
       owner = "helix-editor";
       repo = "website";
-      rev = "9703c4e91da7b8ab42fe54a9167d8955d2dda405";
-      hash = "sha256-BaY2iWzADObxaKmnqVSWiCJrZ7+Jg0mrr5iJ7msmy8Y=";
+      rev = "5ab41d0c03159781011772de54125ded3b37a87d";
+      hash = "sha256-y7fc9zwzMAEXiyJ2zmEsyK+LsUNBPjzFgOnlaqAl3YU=";
+    }
+    {
+      owner = "rust-lang";
+      repo = "rust";
+      rev = "1.97.1";
+      hash = "sha256-Dzn5cIldhuYZySxnCaaWijEiz8nY3W17+kvhhHuMPOE=";
+    }
+    {
+      owner = "tokio-rs";
+      repo = "tokio";
+      rev = "tokio-1.53.1";
+      hash = "sha256-iqOVizrAu3C+ewChQCTK03LB1Jjq1+gCgFmOLuo1b7I=";
+    }
+    {
+      owner = "clap-rs";
+      repo = "clap";
+      rev = "v4.6.4";
+      hash = "sha256-hKVSCRIoNRXgx1BzSbvWFp41eTTgbtaWP9lCzJNH7mU=";
+    }
+    {
+      owner = "tokio-rs";
+      repo = "tracing";
+      rev = "tracing-0.1.44";
+      hash = "sha256-Un0HxRcPCxs3GB2jcyw2GAMMvE574EXTQY1FudFqX1A=";
+    }
+    {
+      name = "tracing-subscriber";
+      displayName = "Tracing Subscriber";
+      owner = "tokio-rs";
+      repo = "tracing";
+      rev = "tracing-subscriber-0.3.23";
+      hash = "sha256-w6nmLTInmRWNp617852wsh2jVTjvkbI0nPu0vLLxfCc=";
+    }
+    {
+      owner = "hashintel";
+      repo = "hash";
+      rev = "error-stack@0.8.0";
+      hash = "sha256-jMaFKmeqNI3ssEo/Knp2GqdyFJ7bs1vLcClm4h4Q+yg=";
+    }
+    {
+      owner = "dtolnay";
+      repo = "thiserror";
+      rev = "2.0.19";
+      hash = "sha256-6dOJnABKTphcP7u94bW5sBMVpgLMGyw/N+OkAeJDSGw=";
     }
   ];
 
@@ -64,7 +108,16 @@ let
         description: Advises on several tools by searching local source and docs repos
         mode: subagent
         permission:
+          "*": deny
+          read: allow
+          glob: allow
+          grep: allow
+          list: allow
+          bash: ask
           edit: deny
+          task: deny
+          webfetch: allow
+          websearch: allow
         ---
 
         You are a read-only tool advisor.
@@ -93,11 +146,11 @@ in
 {
   programs.opencode = {
     enable = true;
-    package = pkgs.opencode;
+    package = pkgs.unstable.opencode;
 
     settings = {
-      "permission" = {
-        "external_directory" = {
+      permission = {
+        external_directory = {
           "/nix/store/**" = "allow";
           "~/tool-corpora/**" = "allow";
         };
@@ -108,7 +161,46 @@ in
       tool-advisor = mkToolAdvisorAgent toolCorpora;
     };
 
-    commands = mkCommands toolCorpora;
+    commands = mkCommands toolCorpora // {
+      hunk = ''
+        ---
+        description: Review the active Hunk session and add inline findings
+        agent: build
+        ---
+
+        Perform a complete code review of the currently active Hunk session.
+
+        Follow these steps immediately. Do not respond with an acknowledgement or ask what to do next.
+
+        1. Run `hunk skill path`.
+        2. Read and follow the returned Hunk skill file.
+        3. Locate the active review for this repository using:
+           - `hunk session list`
+           - `hunk session get --repo .`
+        4. Inspect the complete review structure with:
+           - `hunk session review --repo . --json`
+        5. Review all changed files and hunks. Use `--include-patch` only when the structured review does not contain enough context.
+        6. Look specifically for:
+           - correctness bugs and regressions
+           - security or privacy issues
+           - incorrect error handling
+           - race conditions and state-management errors
+           - broken edge cases
+           - API or compatibility problems
+           - missing or inadequate tests
+           - unnecessary complexity that creates concrete maintenance risk
+        7. Add each actionable finding as an inline Hunk comment at the most precise changed line. Batch comments with `hunk session comment apply --repo . --stdin` where practical.
+        8. Do not add comments for formatting preferences, vague concerns, or speculative issues without a plausible failure scenario.
+        9. Do not modify the code.
+        10. When finished, report:
+            - the number of findings by severity
+            - a concise description of each finding
+            - whether the changes appear safe to merge
+            - any areas you could not verify
+
+        Treat `$ARGUMENTS` as additional review instructions or scope. If it is empty, review the entire active changeset.
+      '';
+    };
   };
 
   home.file = mkHomeFiles toolCorpora;
