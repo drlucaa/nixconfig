@@ -16,6 +16,7 @@
     ./ghostty.nix
     ./git.nix
     ./helix.nix
+    ./hunk.nix
     ./jjui.nix
     ./jq.nix
     ./jujutsu.nix

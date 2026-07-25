@@ -30,6 +30,11 @@
     };
 
     catppuccin.url = "github:catppuccin/nix/release-26.05";
+
+    hunk = {
+      url = "github:modem-dev/hunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
