@@ -1,6 +1,6 @@
 [[snippets]]
 prefix = "flake"
-scope = [ "nix" ]
+scope = ["nix"]
 description = "Create a basic flake.nix with a devShell"
 body = """
 {
@@ -15,7 +15,6 @@ body = """
     {
       nixpkgs,
       flake-utils,
-      fenix,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
@@ -30,14 +29,14 @@ body = """
           ];
         };
 
-        formatter = pkgs.nixfmt;
+        formatter = pkgs.nixfmt-tree;
       }
     );
 }"""
 
 [[snippets]]
 prefix = "rustflake"
-scope = [ "nix" ]
+scope = ["nix"]
 description = "Create a flake.nix with a rust devShell"
 body = """
 {
@@ -46,8 +45,8 @@ body = """
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/${2:nixpkgs-unstable}";
     flake-utils.url = "github:numtide/flake-utils";
-    fenix = {
-      url = "github:nix-community/fenix";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -56,35 +55,46 @@ body = """
     {
       nixpkgs,
       flake-utils,
-      fenix,
+      rust-overlay,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
-        toolchain = fenix.packages.\\${system}.fromToolchainFile {
-          file = ./rust-toolchain.toml;
-          sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            rust-overlay.overlays.default
+          ];
         };
+
+        rustToolchain = pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
+
+        rustPackages = with pkgs; [
+          rustToolchain
+          cargo-deny
+        ];
+
+        
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [
-            toolchain
+          packages = rustPackages ++ [
+            pkgs.just
+            pkgs.bacon
           ];
 
-          RUST_SRC_PATH = "\\${toolchain}/lib/rustlib/src/rust/library";
+          RUST_BACKTRACE = "1";
         };
 
-        formatter = pkgs.nixfmt;
+        formatter = pkgs.nixfmt-tree;
       }
     );
 }"""
 
 [[snippets]]
 prefix = "goflake"
-scope = [ "nix" ]
+scope = ["nix"]
 description = "Create a flake.nix with a go devShell"
 body = """
 {
@@ -119,7 +129,7 @@ body = """
           ];
         };
 
-        formatter = pkgs.nixfmt;
+        formatter = pkgs.nixfmt-tree;
       }
     );
 }"""

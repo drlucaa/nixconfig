@@ -1,8 +1,17 @@
 [[snippets]]
-prefix = "rust"
-scope = [ "toml" ]
+prefix = "rust-toolchain"
+scope = ["toml"]
 description = "Rust toolchain definition"
 body = """
 [toolchain]
 channel = "${1:stable}"
 components = [ "rustc", "cargo", "clippy", "rustfmt", "rust-src", "rust-analyzer" ]"""
+
+[[snippets]]
+prefix = "cargo-workspace"
+scope = ["toml"]
+description = "Cargo workspace"
+body = """
+[workspace]
+resolver = "3"
+members = []"""
