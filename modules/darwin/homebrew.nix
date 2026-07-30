@@ -24,6 +24,7 @@ in
         "netbirdio/tap"
         "nikitabobko/tap"
         "tabularisdb/tabularis"
+        "oomol-lab/tap"
       ];
       brews = [
         "FelixKratz/formulae/borders"
@@ -45,6 +46,7 @@ in
         "logi-options+"
         "netbirdio/tap/netbird-ui"
         "nikitabobko/tap/aerospace"
+        "oomol-lab/tap/lockime"
         "orbstack"
         "raycast"
         "signal"
