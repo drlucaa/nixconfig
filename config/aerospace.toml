@@ -24,34 +24,6 @@ automatically-unhide-macos-hidden-apps = true
 if = "test %{app-bundle-id} = com.apple.finder"
 run = "layout floating"
 
-[[on-window-detected]]
-if = "test %{app-bundle-id} = com.linear"
-run = "layout tiling"
-
-[[on-window-detected]]
-if = "test %{app-bundle-id} = dev.kdrag0n.MacVirt"
-run = "layout floating"
-
-[[on-window-detected]]
-if = "test %{app-bundle-id} = com.linguee.DeepLCopyTranslator"
-run = "layout floating"
-
-[[on-window-detected]]
-if = "test %{app-bundle-id} = com.electron.dockerdesktop"
-run = "layout floating"
-
-[[on-window-detected]]
-if = "test %{app-bundle-id} = net.whatsapp.WhatsApp"
-run = "layout floating"
-
-[[on-window-detected]]
-if = "test %{app-bundle-id} = com.1password.1password"
-run = "layout floating"
-
-[[on-window-detected]]
-if = "test %{app-bundle-id} = com.endel.endel"
-run = "layout floating"
-
 [key-mapping]
 preset = "qwerty"
 
