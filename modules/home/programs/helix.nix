@@ -168,7 +168,6 @@
     extraPackages = with pkgs; [
       # --- General / Multi-language ---
       simple-completion-language-server
-      deps-lsp
       vscode-langservers-extracted # Provides HTML, CSS, JSON, ESLint
       prettier
       xmlstarlet
@@ -199,7 +198,7 @@
 
       # --- Configuration (YAML, TOML) ---
       yaml-language-server
-      taplo
+      tombi
 
       # --- Markdown ---
       markdown-oxide
@@ -217,10 +216,6 @@
       language-server = {
         tinymist = {
           command = "tinymist";
-        };
-        deps-lsp = {
-          command = "deps-lsp";
-          args = [ "--stdio" ];
         };
         yaml-language-server = {
           command = "${pkgs.yaml-language-server}/bin/yaml-language-server";
@@ -432,8 +427,7 @@
           name = "toml";
           language-servers = [
             "scls"
-            "taplo"
-            "deps-lsp"
+            "tombi"
           ];
           auto-format = true;
         }
@@ -574,14 +568,12 @@
           name = "xml";
           language-servers = [
             "scls"
-            "deps-lsp"
           ];
         }
         {
           name = "json";
           language-servers = [
             "scls"
-            "deps-lsp"
             "vscode-json-language-server"
           ];
         }
