@@ -32,6 +32,18 @@ let
             enable = true;
             enableRosetta = true;
             user = "${username}";
+            trust = {
+              formulae = [
+                "FelixKratz/formulae/borders"
+                "netbirdio/tap/netbird"
+              ];
+              casks = [
+                "netbirdio/tap/netbird-ui"
+                "nikitabobko/tap/aerospace"
+                "oomol-lab/tap/lockime"
+                "tabularisdb/tabularis/tabularis"
+              ];
+            };
           };
         }
 
