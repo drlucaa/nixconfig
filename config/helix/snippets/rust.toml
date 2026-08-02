@@ -1,0 +1,38 @@
+[[snippets]]
+prefix = "erresult"
+scope = ["rust"]
+description = "Error enum and Result definition"
+body = """
+#[derive(Debug, thiserror::Error)]
+pub enum Error {
+    #[error("${2}")]
+    ${1},
+}
+
+type Result<T> = std::result::Result<T, error_stack::Report<Error>>;"""
+
+[[snippets]]
+prefix = "err"
+scope = ["rust"]
+description = "Error variant definition"
+body = """
+#[error("${2}")]
+${1},"""
+
+[[snippets]]
+prefix = "struct"
+scope = ["rust"]
+description = "Struct definition"
+body = """
+#[derive(Debug)]
+struct ${1} {
+}"""
+
+[[snippets]]
+prefix = "enum"
+scope = ["rust"]
+description = "Enum definition"
+body = """
+#[derive(Debug)]
+enum ${1} {
+}"""
