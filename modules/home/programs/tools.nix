@@ -23,5 +23,6 @@
     glab
     unstable.typst
     tinymist
+    sniffnet
   ];
 }
