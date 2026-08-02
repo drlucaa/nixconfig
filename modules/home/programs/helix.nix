@@ -401,9 +401,6 @@
             "tailwind"
             "rust-analyzer"
           ];
-          formatter = {
-            command = "rustfmt";
-          };
         }
         {
           name = "typst";
