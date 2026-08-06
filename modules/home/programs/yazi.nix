@@ -10,8 +10,8 @@
     settings = {
       mgr = {
         show_hidden = false;
-        sort_by = "alphabetical";
-        sort_dir_first = true;
+        sort_by = "natural";
+        sort_dir_first = false;
         ratio = [
           1
           4
