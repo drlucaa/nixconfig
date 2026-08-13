@@ -282,7 +282,7 @@
             "--jvm-arg=-Xshare:auto"
             "--jvm-arg=-XX:+UsePerfData"
           ];
-
+          config.java.autobuild.enabled = false;
         };
         rust-analyzer = {
           command = "rust-analyzer";
