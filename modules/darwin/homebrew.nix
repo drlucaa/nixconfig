@@ -29,6 +29,7 @@ in
       brews = [
         "FelixKratz/formulae/borders"
         "mas"
+        "mole"
         "netbirdio/tap/netbird"
       ]
       ++ cfg.extraBrews;
