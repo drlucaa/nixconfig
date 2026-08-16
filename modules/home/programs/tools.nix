@@ -24,5 +24,6 @@
     unstable.typst
     tinymist
     sniffnet
+    erdtree
   ];
 }
