@@ -56,6 +56,7 @@ in
         "1Password for Safari" = 1569813296;
         "Toggle Track" = 1291898086;
         "Things 3" = 904280696;
+        "Parchment" = 6779987526;
       };
       onActivation.cleanup = "zap";
       # disabled because of a mas issue https://github.com/zhaofengli/nix-homebrew/issues/131
