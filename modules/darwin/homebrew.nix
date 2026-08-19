@@ -37,6 +37,7 @@ in
       casks = [
         "1password"
         "1password-cli"
+        "activitywatch"
         "affinity"
         "logi-options+"
         "netbirdio/tap/netbird-ui"
