@@ -74,11 +74,12 @@ alt-shift-9 = ["move-node-to-workspace 9"]
 
 alt-shift-f = "fullscreen"
 
-alt-f = "exec-and-forget open -a /System/Library/CoreServices/Finder.app"
-alt-b = "exec-and-forget open -a /Applications/Zen.app"
-alt-m = "exec-and-forget open -a /Applications/Parchment.app"
-alt-t = "exec-and-forget open -a @ghostty_package@/Applications/Ghostty.app"
-alt-e = "exec-and-forget open -a @zed_package@/Applications/Zed.app"
+ctrl-shift-alt-cmd-f = "exec-and-forget open -a /System/Library/CoreServices/Finder.app"
+ctrl-shift-alt-cmd-b = "exec-and-forget open -a /Applications/Zen.app"
+ctrl-shift-alt-cmd-s = "exec-and-forget open -a /Applications/Signal.app"
+ctrl-shift-alt-cmd-m = "exec-and-forget open -a /Applications/Parchment.app"
+ctrl-shift-alt-cmd-enter = "exec-and-forget open -a @ghostty_package@/Applications/Ghostty.app"
+ctrl-shift-alt-cmd-e = "exec-and-forget open -a @zed_package@/Applications/Zed.app"
 
 alt-tab = "workspace-back-and-forth"
 alt-shift-tab = "move-workspace-to-monitor --wrap-around next"
